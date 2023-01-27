@@ -3,7 +3,7 @@ name: Versioning
 on:
   push:
     branches:
-      - "main"
+      - 'main'
 env:
   GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
@@ -19,7 +19,7 @@ jobs:
         with:
           fetch-depth: 0
           ref: ${{ github.event.push.head.ref }}
-      
+
       - name: Get next version
         id: semver
         uses: ietf-tools/semver-action@v1
@@ -30,7 +30,7 @@ jobs:
           minorList: FEATURE, Feature, feature, FEAT, Feat, feat
           patchList: FIX, Fix, fix, FIXED, Fixed, fixed, config, conf, cofiguration, configure, build, rebuild, doc, docu, document, documentation
           patchAll: false
-      
+
       - name: Push tags
         id: push-tags
         run: |
@@ -58,10 +58,10 @@ jobs:
         run: npm ci
 
       - name: Build
-        run: |
-          #!/bin/sh
+        run: npm run build
 
-          echo 'building...'
+      - name: Compress build
+        run: tar -zcvf mauroalderete-website.tar.gz dist/
 
       - name: Create Release from PR
         id: create-release-from-pr
@@ -74,14 +74,15 @@ jobs:
           gh release create ${{ steps.semver.outputs.next }} \
           --title 'Release ${{ steps.semver.outputs.next }}' \
           --notes "Changelog Contents :sunglasses:" \
-          --generate-notes
+          --generate-notes \
+          mauroalderete-website.tar.gz
 
       - name: Create Release from Commits
         id: create-release-from-commits
         if: github.event.head_commit.committer.username != 'web-flow'
         run: |
           #!/bin/sh
-          
+
           echo "::warning ::There were no pull requests associated with the commits included in this release. Automatically-generated notes were not generated."
 
           # The last commit was not committed by GitHub.
@@ -89,4 +90,5 @@ jobs:
           gh release create ${{ steps.semver.outputs.next }} \
           --title 'Release ${{ steps.semver.outputs.next }}' \
           --notes "Changelog Contents :sunglasses:" \
-          --generate-notes
+          --generate-notes \
+          mauroalderete-website.tar.gz
