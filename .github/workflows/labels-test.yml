@@ -19,7 +19,7 @@ jobs:
 
       - name: Assign labels
         id: action-assign-labels
-        uses: mauroalderete/action-assign-labels@v1.4.4
+        uses: mauroalderete/action-assign-labels@v1
         with:
           github-token: ${{ secrets.GITHUB_TOKEN }}
           conventional-commits: |
