@@ -26,10 +26,7 @@ jobs:
       - name: Run lint
         run: npm run lint
 
-      - name: Run unit tests
-        run: npm run test
-
-      - name: Run unit tests
+      - name: Run unit tests with coverage
         run: npm run coverage
 
       - name: Run e2e tests
