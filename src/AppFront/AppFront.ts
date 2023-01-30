@@ -17,14 +17,8 @@ export class AppFront extends LitElement {
           <div class="description fadeEnterDown fadeEnterDown-3" style="transition-delay: 400ms;">
             <p>
               Soy un profesional apasionado por la tecnología y la ingeniería del software.
-              Mis trabajos suelen generar un valor agregado que permite mejorar la calidad de vida de las personas.
+              Busco en cada proyecto generar un valor agregado que impacte en la calidad de vida de las personas.
               Me entusiasma mucho aprender cosas nuevas y compartir mi experiencia.
-            </p>
-          </div>
-          <div class="description fadeEnterDown fadeEnterDown-4" style="transition-delay: 500ms;">
-            <p>
-              Me desempeño con gran facilidad en muchos roles.
-              Elegí cualquiera de mis perfiles profesionales para saber más sobre mí.
             </p>
           </div>
         </section>
