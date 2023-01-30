@@ -11,10 +11,10 @@ export class AppFront extends LitElement {
     return html`
       <div class="content">
         <section class="introduction">
-          <div class="greeting fadeEnterDown" style="transition-delay: 100ms;"><h1>Hola, mi nombre es<h1></div>
-          <div class="name fadeEnterDown fadeEnterDown-1" style="transition-delay: 200ms;"><h1>Mauro Alderete<h1></div>
-          <div class="what-do fadeEnterDown fadeEnterDown-2" style="transition-delay: 300ms;"><h1><span style="white-space: nowrap">Desarrollo software y</span> brindo mentorías<h1></div>
-          <div class="description fadeEnterDown fadeEnterDown-3" style="transition-delay: 400ms;">
+          <div class="greeting fadeUp" style="transition-delay: 100ms;"><h1>Hola, mi nombre es<h1></div>
+          <div class="name fadeUp fadeUp-1" style="transition-delay: 200ms;"><h1>Mauro Alderete<h1></div>
+          <div class="what-do fadeUp fadeUp-2" style="transition-delay: 300ms;"><h1><span style="white-space: nowrap">Desarrollo software y</span> brindo mentorías<h1></div>
+          <div class="description fadeUp fadeUp-3" style="transition-delay: 400ms;">
             <p>
               Soy un profesional apasionado por la tecnología y la ingeniería del software.
               Busco en cada proyecto generar un valor agregado que impacte en la calidad de vida de las personas.
