@@ -2,24 +2,24 @@ import { css } from 'lit';
 
 export const style = css`
   :host {
-    --default-color: #8892b0;
-    --default-color-title: #ccd6f6;
-    --default-color-accent: #64ffda;
-    --default-color-dark: #030303;
-    --default-font: 'Montserrat', sans-serif;
-    --default-weight: 300;
-    --default-weight-title: 600;
+    --inner-primary-text-color: var(--primary-text-color, #ccd6f6);
+    --inner-secondary-text-color: var(--secondary-text-color, #8892b0);
+    --inner-black-text-color: var(--black-text-color, #030303);
+    --inner-primary-color: var(--primary-color, #64ffda);
 
-    --default-fadeenterdown-offset: 0.1s;
-    --default-fadeenterdown-duration: 0.3s;
-    --default-fadeenterdown-function: cubic-bezier(0.645, 0.045, 0.355, 1);
-    --default-fadeenterdown-delay: 0.5s;
-    --default-fadeenterdown-fill: forwards;
-    --default-fadeenterdown-name: fadeEnterDown;
+    --inner-font: var(--font, 'Montserrat', sans-serif);
+    --inner-font-normal-weight: var(--font-normal-weight, 300);
+    --inner-font-bold-weight: var(--font-bold-weight, 600);
 
-    color: var(--app-front-color, var(--default-color));
-    font-family: var(--app-front-font, var(--default-font));
-    font-weight: var(--app-front-weight, var(--default-weight));
+    --inner-primary-background-color: var(--primary-background-color, rgba(56, 56, 56, 1));
+    --inner-secondary-background-color: var(--secondary-background-color, rgba(9, 9, 9, 1));
+
+    --inner-fadeUp-offset: 0.1s;
+    --inner-fadeUp-duration: 0.3s;
+    --inner-fadeUp-function: cubic-bezier(0.645, 0.045, 0.355, 1);
+    --inner-fadeUp-delay: 0.5s;
+    --inner-fadeUp-fill: forwards;
+    --inner-fadeUp-name: fadeUp;
 
     min-width: 100vw;
     min-height: 100vh;
@@ -27,13 +27,28 @@ export const style = css`
     display: flex;
     flex-direction: column;
     background: rgb(56, 56, 56);
-    background: -moz-radial-gradient(circle, rgba(56, 56, 56, 1) 0%, rgba(9, 9, 9, 1) 100%);
-    background: -webkit-radial-gradient(circle, rgba(56, 56, 56, 1) 0%, rgba(9, 9, 9, 1) 100%);
-    background: radial-gradient(circle, rgba(56, 56, 56, 1) 0%, rgba(9, 9, 9, 1) 100%);
-    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#383838",endColorstr="#090909",GradientType=1);
+    background: -moz-radial-gradient(
+      circle,
+      var(--inner-primary-background-color) 0%,
+      var(--inner-secondary-background-color) 100%
+    );
+    background: -webkit-radial-gradient(
+      circle,
+      var(--inner-primary-background-color) 0%,
+      var(--inner-secondary-background-color) 100%
+    );
+    background: radial-gradient(
+      circle,
+      var(--inner-primary-background-color) 0%,
+      var(--inner-secondary-background-color) 100%
+    );
+
+    font: var(--inner-font);
+    font-weight: var(--inner-font-normal-weight);
+    color: var(--inner-secondary-text-color);
   }
 
-  @keyframes fadeEnterDown {
+  @keyframes fadeUp {
     0% {
       opacity: 0.01;
       transform: translatey(20px);
@@ -44,29 +59,29 @@ export const style = css`
     }
   }
 
-  .fadeEnterDown {
+  .fadeUp {
     opacity: 0;
-    animation-duration: var(--default-fadeenterdown-duration);
-    animation-timing-function: var(--default-fadeenterdown-function);
-    animation-delay: var(--default-fadeenterdown-delay);
-    animation-fill-mode: var(--default-fadeenterdown-fill);
-    animation-name: var(--default-fadeenterdown-name);
+    animation-duration: var(--inner-fadeUp-duration);
+    animation-timing-function: var(--inner-fadeUp-function);
+    animation-delay: var(--inner-fadeUp-delay);
+    animation-fill-mode: var(--inner-fadeUp-fill);
+    animation-name: var(--inner-fadeUp-name);
   }
 
-  .fadeEnterDown-1 {
-    animation-delay: calc(var(--default-fadeenterdown-delay) + var(--default-fadeenterdown-offset));
+  .fadeUp-1 {
+    animation-delay: calc(var(--inner-fadeUp-delay) + var(--inner-fadeUp-offset));
   }
 
-  .fadeEnterDown-2 {
-    animation-delay: calc(var(--default-fadeenterdown-delay) + var(--default-fadeenterdown-offset) * 2);
+  .fadeUp-2 {
+    animation-delay: calc(var(--inner-fadeUp-delay) + var(--inner-fadeUp-offset) * 2);
   }
 
-  .fadeEnterDown-3 {
-    animation-delay: calc(var(--default-fadeenterdown-delay) + var(--default-fadeenterdown-offset) * 3);
+  .fadeUp-3 {
+    animation-delay: calc(var(--inner-fadeUp-delay) + var(--inner-fadeUp-offset) * 3);
   }
 
-  .fadeEnterDown-4 {
-    animation-delay: calc(var(--default-fadeenterdown-delay) + var(--default-fadeenterdown-offset) * 4);
+  .fadeUp-4 {
+    animation-delay: calc(var(--inner-fadeUp-delay) + var(--inner-fadeUp-offset) * 4);
   }
 
   .content {
@@ -85,22 +100,22 @@ export const style = css`
   }
 
   .content section.introduction .greeting h1 {
-    font-weight: var(--app-front-weight, var(--default-weight));
+    font-weight: var(--inner-font-normal-weight);
     font-size: clamp(14px, 5vw, 18px);
-    color: var(--app-front-color-accent, var(--default-color-accent));
+    color: var(--inner-primary-color);
   }
 
   .content section.introduction .name h1 {
-    font-weight: var(--app-front-weight-title, var(--default-weight-title));
+    font-weight: var(--inner-font-bold-weight);
     font-size: clamp(40px, 8vw, 80px);
     line-height: 1em;
-    color: var(--app-front-color-title, var(--default-color-title));
+    color: var(--inner-primary-text-color);
   }
 
   .content section.introduction .what-do h1 {
-    font-weight: var(--app-front-weight-title, var(--default-weight-title));
+    font-weight: var(--inner-font-bold-weight);
     font-size: clamp(40px, 8vw, 80px);
-    color: var(--app-front-color, var(--default-color));
+    color: var(--inner-secondary-text-color);
     line-height: 1em;
   }
 
@@ -136,16 +151,16 @@ export const style = css`
     background-repeat: no-repeat;
     background-position: center center;
 
-    -webkit-filter: drop-shadow(rgb(161, 255, 218) 15px 15px 5px);
-    filter: drop-shadow(rgb(161, 255, 218) 15px 15px 5px)
+    -webkit-filter: drop-shadow(15px 15px 5px var(--inner-primary-color));
+    filter: drop-shadow(15px 15px 5px var(--inner-primary-color));
 
     opacity: 0;
     animation-duration: 10s, 6s;
-    animation-timing-function: var(--default-fadeenterdown-function), ease-in-out;
-    animation-delay: var(--default-fadeenterdown-delay), 0s;
-    animation-fill-mode: var(--default-fadeenterdown-fill);
+    animation-timing-function: var(--inner-fadeUp-function), ease-in-out;
+    animation-delay: var(--inner-fadeUp-delay), 0s;
+    animation-fill-mode: var(--inner-fadeUp-fill);
     animation-iteration-count: 1, infinite;
-    animation-name: var(--default-fadeenterdown-name), picture-float;
+    animation-name: var(--inner-fadeUp-name), picture-float;
   }
 
   .callaction {
@@ -162,13 +177,16 @@ export const style = css`
     width: 8em;
     border-radius: 1em;
     border: none;
+
+    font: var(--inner-font);
+    font-weight: var(--inner-font-bold-weight);
     font-size: 1.5em;
 
     margin-left: 0.2em;
     margin-right: 0.2em;
 
     box-shadow: 1px 1px 10px #aaa;
-    transition: all 0.3s var(--default-fadeenterdown-function);
+    transition: all 0.3s var(--inner-fadeUp-function);
   }
 
   .callaction button:hover {
@@ -183,17 +201,15 @@ export const style = css`
   .callaction button.outline {
     background-color: transparent;
     border-style: solid;
-    border-color: var(--app-front-color-accent, var(--default-color-accent));
+    border-color: var(--inner-primary-color);
     border-width: 2px;
-    color: var(--app-front-color-accent, var(--default-color-accent));
-    font-weight: 600;
+    color: var(--inner-primary-color);
   }
 
   .callaction button.fill {
-    background-color: var(--app-front-color-accent, var(--default-color-accent));
+    background-color: var(--inner-primary-color);
     border-style: none;
-    color: var(--app-front-color-dark, var(--default-color-dark));
-    font-weight: 600;
+    color: var(--inner-black-text-color);
   }
 
   .callaction-bottom {
@@ -255,9 +271,9 @@ export const style = css`
     }
 
     .callaction-bottom {
-        display: flex;
-        flex-grow: 1;
-        margin-bottom: 0;
+      display: flex;
+      flex-grow: 1;
+      margin-bottom: 0;
     }
   }
 
