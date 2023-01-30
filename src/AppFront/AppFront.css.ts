@@ -70,10 +70,11 @@ export const style = css`
   }
 
   .content {
-    flex-grow: 1;
+    flex-grow: 2;
     display: flex;
     flex-direction: row;
     flex-wrap: nowrap;
+    justify-content: center;
   }
 
   .content section.introduction {
@@ -92,6 +93,7 @@ export const style = css`
   .content section.introduction .name h1 {
     font-weight: var(--app-front-weight-title, var(--default-weight-title));
     font-size: clamp(40px, 8vw, 80px);
+    line-height: 1em;
     color: var(--app-front-color-title, var(--default-color-title));
   }
 
@@ -134,8 +136,8 @@ export const style = css`
     background-repeat: no-repeat;
     background-position: center center;
 
-    -webkit-filter: drop-shadow(20px 20px 5px rgba(1, 1, 1, 1));
-    filter: drop-shadow(20px 20px 5px rgba(1, 1, 1, 1));
+    -webkit-filter: drop-shadow(rgb(161, 255, 218) 15px 15px 5px);
+    filter: drop-shadow(rgb(161, 255, 218) 15px 15px 5px)
 
     opacity: 0;
     animation-duration: 10s, 6s;
@@ -146,7 +148,7 @@ export const style = css`
     animation-name: var(--default-fadeenterdown-name), picture-float;
   }
 
-  .content .side .callaction {
+  .callaction {
     margin-bottom: 4em;
     justify-content: center;
     align-items: center;
@@ -155,7 +157,7 @@ export const style = css`
     flex-direction: row;
   }
 
-  .content .side .callaction button {
+  .callaction button {
     height: 2.5em;
     width: 8em;
     border-radius: 1em;
@@ -169,7 +171,7 @@ export const style = css`
     transition: all 0.3s var(--default-fadeenterdown-function);
   }
 
-  .content .side .callaction button:hover {
+  .callaction button:hover {
     cursor: pointer;
 
     box-shadow: 1px 1px 25px #fff;
@@ -178,7 +180,7 @@ export const style = css`
     font-size: 2em;
   }
 
-  .content .side .callaction button.outline {
+  .callaction button.outline {
     background-color: transparent;
     border-style: solid;
     border-color: var(--app-front-color-accent, var(--default-color-accent));
@@ -187,15 +189,19 @@ export const style = css`
     font-weight: 600;
   }
 
-  .content .side .callaction button.fill {
+  .callaction button.fill {
     background-color: var(--app-front-color-accent, var(--default-color-accent));
     border-style: none;
     color: var(--app-front-color-dark, var(--default-color-dark));
     font-weight: 600;
   }
 
+  .callaction-bottom {
+    display: none;
+  }
+
   section.profiles {
-    flex-grow: 1;
+    flex-grow: 4;
     display: flex;
     justify-content: space-around;
   }
@@ -229,6 +235,12 @@ export const style = css`
     }
   }
 
+  @media (max-width: 1080px) {
+    .content section.introduction .what-do h1 {
+      font-size: clamp(25px, 8vw, 30px);
+    }
+  }
+
   @media (max-width: 870px) {
     .content section.introduction {
       max-width: 100%;
@@ -238,8 +250,14 @@ export const style = css`
       margin-right: 5em;
     }
 
-    .content .picture {
+    .content .side {
       display: none;
+    }
+
+    .callaction-bottom {
+        display: flex;
+        flex-grow: 1;
+        margin-bottom: 0;
     }
   }
 
