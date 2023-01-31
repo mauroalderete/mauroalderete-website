@@ -38,7 +38,7 @@ export class AppSocialIcon extends LitElement {
     `;
   }
 
-  _handleClick(_: Event) {
+  _handleClick() {
     this.emitClick();
     window.open(this.target, '_blank');
   }
