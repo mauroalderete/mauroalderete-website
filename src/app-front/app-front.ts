@@ -61,21 +61,25 @@ export class AppFront extends LitElement {
         <div class="side">
           <div class="social-icons">
             <app-social-icon
+              class="fadeDown-social-icon fadeDown-social-icon-4"
               name="twitter"
               target="https://twitter.com/_mauroalderete"
               src="/twitter.svg"
             ></app-social-icon>
             <app-social-icon
+              class="fadeDown-social-icon fadeDown-social-icon-3"
               name="linkedin"
               target="https://www.linkedin.com/in/mauroalderete/"
               src="/linkedin.svg"
             ></app-social-icon>
             <app-social-icon
+              class="fadeDown-social-icon fadeDown-social-icon-2"
               name="github"
               target="https://github.com/mauroalderete"
               src="/github.svg"
             ></app-social-icon>
             <app-social-icon
+              class="fadeDown-social-icon fadeDown-social-icon-1"
               name="docker"
               target="https://hub.docker.com/u/mauroalderete"
               src="/docker.svg"
@@ -87,7 +91,7 @@ export class AppFront extends LitElement {
       <section class="profiles">
         <div class="fake-profile-card"></div>
         <app-profile-card
-          class="profile-card profile-card-frontend fadeUp-profile fadeUp-profile-3"
+          class="profile-card profile-card-frontend fadeUp-profile fadeUp-profile-1"
           profile="Frontend"
           src="/frontend.svg"
         ></app-profile-card>
@@ -97,17 +101,17 @@ export class AppFront extends LitElement {
           src="/database.svg"
         ></app-profile-card>
         <app-profile-card
-          class="profile-card profile-card-gamedev fadeUp-profile fadeUp-profile-1"
+          class="profile-card profile-card-gamedev fadeUp-profile fadeUp-profile-3"
           profile="Gamedev"
           src="/gamedev.svg"
         ></app-profile-card>
         <app-profile-card
-          class="profile-card profile-card-devops fadeUp-profile fadeUp-profile-2"
+          class="profile-card profile-card-devops fadeUp-profile fadeUp-profile-4"
           profile="DevOps"
           src="/infraestructure.svg"
         ></app-profile-card>
         <app-profile-card
-          class="profile-card profile-card-mentorship fadeUp-profile fadeUp-profile-3"
+          class="profile-card profile-card-mentorship fadeUp-profile fadeUp-profile-5"
           profile="Mentorship"
           src="/mentorship.svg"
         ></app-profile-card>
