@@ -91,6 +91,41 @@
   animation-delay: calc(var(--inner-fadeUp-delay) + var(--inner-fadeUp-offset) * 4);
 }
 
+@keyframes fadeUp-profile {
+  0% {
+    opacity: 0.01;
+    transform: translatey(50px);
+  }
+  50% {
+    opacity: 100;
+  }
+  100% {
+    opacity: 100;
+    transform: translatey(0px);
+  }
+}
+
+.fadeUp-profile {
+  opacity: 0;
+  animation-duration: calc(var(--inner-fadeUp-duration) * 2);
+  animation-timing-function: var(--inner-fadeUp-function);
+  animation-delay: var(--inner-fadeUp-delay);
+  animation-fill-mode: var(--inner-fadeUp-fill);
+  animation-name: fadeUp-profile;
+}
+
+.fadeUp-profile-1 {
+  animation-delay: calc(var(--inner-fadeUp-delay) + var(--inner-fadeUp-offset) * 5);
+}
+
+.fadeUp-profile-2 {
+  animation-delay: calc(var(--inner-fadeUp-delay) + var(--inner-fadeUp-offset) * 6);
+}
+
+.fadeUp-profile-3 {
+  animation-delay: calc(var(--inner-fadeUp-delay) + var(--inner-fadeUp-offset) * 7);
+}
+
 @keyframes picture-float {
   0% {
     transform: translatey(10px);
@@ -269,10 +304,6 @@
 
 /* #endregion */
 /* #region profiles */
-.fake-profile-card {
-  height: 21rem;
-}
-
 .profile-card {
   width: 15rem;
   margin-left: 1rem;

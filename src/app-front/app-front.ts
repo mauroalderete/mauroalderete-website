@@ -52,27 +52,27 @@ export class AppFront extends LitElement {
       <section class="profiles">
         <div class="fake-profile-card"></div>
         <app-profile-card
-          class="profile-card profile-card-frontend"
+          class="profile-card profile-card-frontend fadeUp-profile fadeUp-profile-3"
           profile="Frontend"
           src="./public/frontend.svg"
         ></app-profile-card>
         <app-profile-card
-          class="profile-card profile-card-backend"
+          class="profile-card profile-card-backend fadeUp-profile fadeUp-profile-2"
           profile="Backend"
           src="./public/database.svg"
         ></app-profile-card>
         <app-profile-card
-          class="profile-card profile-card-gamedev"
+          class="profile-card profile-card-gamedev fadeUp-profile fadeUp-profile-1"
           profile="Gamedev"
           src="./public/gamedev.svg"
         ></app-profile-card>
         <app-profile-card
-          class="profile-card profile-card-devops"
+          class="profile-card profile-card-devops fadeUp-profile fadeUp-profile-2"
           profile="DevOps"
           src="./public/infraestructure.svg"
         ></app-profile-card>
         <app-profile-card
-          class="profile-card profile-card-mentorship"
+          class="profile-card profile-card-mentorship fadeUp-profile fadeUp-profile-3"
           profile="Mentorship"
           src="./public/mentorship.svg"
         ></app-profile-card>
