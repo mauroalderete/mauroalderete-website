@@ -1,0 +1,69 @@
+/* #region default values */
+
+:host {
+  --inner-transition-function: cubic-bezier(0.645, 0.045, 0.355, 1);
+
+  --inner-fill-filter: var(
+    --fill-filter,
+    invert(60%) sepia(130%) saturate(100%) hue-rotate(187deg) brightness(86%) contrast(120%)
+  );
+  --inner-light-off-color: var(--light-off-color, rgba (14, 14, 14, 0.4));
+  --inner-light-on-color: var(--light-on-color, rgba(204, 214, 246, 1));
+  --inner-low-shadow: var(--low-shadow, rgba(255, 255, 255, 0.5));
+  --inner-high-shadow: var(--high-shadow, rgba(255, 255, 255, 1));
+}
+
+/* #endregion */
+/* #region layouts */
+
+.svg {
+  width: 100%;
+  height: 100%;
+
+  background-color: var(--inner-light-off-color);
+  backdrop-filter: blur(10px);
+
+  border-radius: 5rem;
+
+  -webkit-filter: drop-shadow(0rem 0rem 0.2rem var(--inner-low-shadow));
+  filter: drop-shadow(0rem 0rem 0.2rem var(--inner-low-shadow));
+
+  transition-property: all;
+  transition-delay: 0;
+  transition-timing-function: var(--inner-transition-function);
+  transition-duration: 0.4s;
+}
+
+.svg img {
+  width: 100%;
+  height: 100%;
+
+  filter: var(--inner-fill-filter);
+
+  transition-property: all;
+  transition-delay: 0;
+  transition-timing-function: var(--inner-transition-function);
+  transition-duration: 0.4s;
+}
+
+/* #endregion */
+/* #region hover */
+
+:host(:hover) {
+  cursor: pointer;
+}
+
+:host(:hover) .svg {
+  background-color: var(--inner-light-on-color);
+
+  box-shadow: 0rem 0rem 3rem var(--inner-high-shadow);
+
+  -webkit-filter: drop-shadow(0rem 0rem 2rem var(--inner-high-shadow));
+  filter: drop-shadow(0rem 0rem 2rem var(--inner-high-shadow));
+}
+
+:host(:hover) .svg img {
+  filter: none;
+}
+
+/* #endregion */

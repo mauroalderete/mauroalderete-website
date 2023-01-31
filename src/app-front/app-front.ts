@@ -16,6 +16,28 @@ export class AppFront extends LitElement {
       <div class="spacing"></div>
       <div class="front">
         <section class="welcome">
+          <div class="social-icons hide">
+            <app-social-icon
+              name="twitter"
+              target="https://twitter.com/_mauroalderete"
+              src="./public/twitter.svg"
+            ></app-social-icon>
+            <app-social-icon
+              name="linkedin"
+              target="https://www.linkedin.com/in/mauroalderete/"
+              src="./public/linkedin.svg"
+            ></app-social-icon>
+            <app-social-icon
+              name="github"
+              target="https://github.com/mauroalderete"
+              src="./public/github.svg"
+            ></app-social-icon>
+            <app-social-icon
+              name="docker"
+              target="https://hub.docker.com/u/mauroalderete"
+              src="./public/docker.svg"
+            ></app-social-icon>
+          </div>
           <div class="fadeUp" style="margin-bottom: 1.5rem;">
             <span class="text-normal textcolor-accent">Hola, mi nombre es</span>
           </div>
@@ -35,18 +57,31 @@ export class AppFront extends LitElement {
               cosas nuevas y compartir mi experiencia.
             </p>
           </div>
-          <div class="call2action hide">
-            <button class="outline">CV</button>
-            <div style="font-size: 2.5em; height: 2em;"></div>
-            <button class="fill">Hablemos</button>
-          </div>
         </section>
         <div class="side">
-          <div class="picture"></div>
-          <div class="call2action">
-            <button class="outline">CV</button>
-            <button class="fill">Hablemos</button>
+          <div class="social-icons">
+            <app-social-icon
+              name="twitter"
+              target="https://twitter.com/_mauroalderete"
+              src="./public/twitter.svg"
+            ></app-social-icon>
+            <app-social-icon
+              name="linkedin"
+              target="https://www.linkedin.com/in/mauroalderete/"
+              src="./public/linkedin.svg"
+            ></app-social-icon>
+            <app-social-icon
+              name="github"
+              target="https://github.com/mauroalderete"
+              src="./public/github.svg"
+            ></app-social-icon>
+            <app-social-icon
+              name="docker"
+              target="https://hub.docker.com/u/mauroalderete"
+              src="./public/docker.svg"
+            ></app-social-icon>
           </div>
+          <div class="picture"></div>
         </div>
       </div>
       <section class="profiles">

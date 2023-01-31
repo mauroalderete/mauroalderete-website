@@ -1,4 +1,5 @@
 /* #region default values */
+
 :host {
   --inner-primary-text-color: var(--primary-text-color, #ccd6f6);
   --inner-secondary-text-color: var(--secondary-text-color, #8892b0);
@@ -47,11 +48,14 @@
   font-weight: var(--inner-font-normal-weight);
   color: var(--inner-secondary-text-color);
 }
+
 /* #endregion */
-/* #region utils*/
+/* #region utils */
+
 .hide {
   display: none !important;
 }
+
 /* #endregion */
 /* #region animations */
 
@@ -171,6 +175,7 @@
 
 /* #endregion */
 /* #region layouts */
+
 .spacing {
   flex-grow: 3;
 }
@@ -201,8 +206,9 @@
   margin-left: 3rem;
   margin-right: 3rem;
 
-  display: flex;
-  flex-direction: column;
+  width: 20vw;
+
+  position: relative;
 }
 
 .profiles {
@@ -214,10 +220,15 @@
 
   justify-content: center;
 }
+
 /* #endregion */
 /* #region picture */
+
 .picture {
   flex-grow: 2;
+
+  height: 100%;
+
   background-image: url('../public/space-invaders.svg');
   background-size: contain;
   background-repeat: no-repeat;
@@ -238,31 +249,29 @@
 }
 
 /* #endregion */
-/* #region call to action */
+/* #region social icons */
 
-.call2action {
-  margin-bottom: 3rem;
-  justify-content: center;
-  align-items: center;
+.social-icons {
+  width: 100%;
+
+  position: absolute;
+  top: 1rem;
+  z-index: 1;
 
   display: flex;
   flex-direction: row;
+  justify-content: center;
+  align-items: center;
+
+  margin-bottom: 3rem;
 }
 
-.call2action button {
-  width: 15rem;
+.social-icons app-social-icon {
+  width: 4rem;
   height: 4rem;
-  border-radius: 2rem;
-  border: none;
-
-  font: var(--inner-font);
-  font-weight: var(--inner-font-bold-weight);
-  font-size: 1.5rem;
 
   margin-left: 1rem;
   margin-right: 1rem;
-
-  box-shadow: 0rem 0rem 1rem rgba(255, 255, 255, 0.5);
 
   transition-property: all;
   transition-delay: 0;
@@ -270,40 +279,9 @@
   transition-duration: 0.4s;
 }
 
-.call2action button:hover {
-  cursor: pointer;
-
-  --scale: 1.15;
-
-  width: calc(15rem * var(--scale));
-  height: calc(4rem * var(--scale));
-  border-radius: calc(2rem * var(--scale));
-
-  font-size: calc(1.5rem * var(--scale));
-
-  box-shadow: 0rem 0rem calc(1rem * var(--scale) * 2) rgba(255, 255, 255, 1);
-}
-
-.call2action button.outline {
-  color: var(--inner-primary-color);
-  border-color: var(--inner-primary-color);
-
-  background-color: rgba(0, 0, 0, 0.1);
-  backdrop-filter: blur(10px);
-
-  border-style: solid;
-  border-width: 2px;
-}
-
-.call2action button.fill {
-  color: var(--inner-black-text-color);
-  background-color: var(--inner-primary-color);
-
-  border-style: none;
-}
-
 /* #endregion */
 /* #region profiles */
+
 .profile-card {
   width: 15rem;
   margin-left: 1rem;
@@ -336,10 +314,14 @@
 
 /* #endregion */
 /* #region media queries */
+
 @media (max-width: 425px) {
   .hide {
     display: flex !important;
-    margin-top: 3rem;
+  }
+
+  .social-icons.hide {
+    position: inherit;
   }
 
   .side {
@@ -356,4 +338,5 @@
     margin-right: 0.5rem;
   }
 }
+
 /* #endregion */

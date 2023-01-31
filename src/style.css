@@ -1,4 +1,9 @@
+/* #region import fonts */
+
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;600&display=swap');
+
+/* #endregion */
+/* #region default values */
 
 :root {
   font-family: 'Monserrat', sans-serif;
@@ -10,6 +15,9 @@
   background-color: #242424;
 }
 
+/* #endregion */
+/* #region global */
+
 * {
   margin: 0;
   padding: 0;
@@ -20,12 +28,18 @@ html {
   font-size: 16px;
 }
 
+/* #endregion */
+/* #region app styles */
+
 #app {
   margin: 0;
   padding: 0;
 
   display: flex;
 }
+
+/* #endregion */
+/* #region principal media queries */
 
 @media (max-width: 2560px) {
   html {
@@ -74,3 +88,5 @@ html {
     font-size: 5px;
   }
 }
+
+/* #endregion */
