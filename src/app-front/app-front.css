@@ -1,3 +1,4 @@
+/* #region default values */
 :host {
   --inner-primary-text-color: var(--primary-text-color, #ccd6f6);
   --inner-secondary-text-color: var(--secondary-text-color, #8892b0);
@@ -45,6 +46,9 @@
   color: var(--inner-secondary-text-color);
 }
 
+/* #endregion */
+/* #region animations */
+
 @keyframes fadeUp {
   0% {
     opacity: 0.01;
@@ -81,47 +85,6 @@
   animation-delay: calc(var(--inner-fadeUp-delay) + var(--inner-fadeUp-offset) * 4);
 }
 
-.content {
-  flex-grow: 2;
-  width: 100%;
-
-  display: flex;
-  flex-direction: row;
-  flex-wrap: nowrap;
-  justify-content: center;
-}
-
-.content section.introduction {
-  margin-left: 5em;
-  margin-right: 5em;
-  max-width: 50vw;
-  align-self: center;
-}
-
-.content section.introduction .greeting h1 {
-  font-weight: var(--inner-font-normal-weight);
-  font-size: clamp(14px, 5vw, 18px);
-  color: var(--inner-primary-color);
-}
-
-.content section.introduction .name h1 {
-  font-weight: var(--inner-font-bold-weight);
-  font-size: clamp(40px, 8vw, 80px);
-  line-height: 1em;
-  color: var(--inner-primary-text-color);
-}
-
-.content section.introduction .what-do h1 {
-  font-weight: var(--inner-font-bold-weight);
-  font-size: clamp(40px, 8vw, 80px);
-  color: var(--inner-secondary-text-color);
-  line-height: 1em;
-}
-
-.content section.introduction .description {
-  font-size: clamp(14px, 5vw, 18px);
-}
-
 @keyframes picture-float {
   0% {
     transform: translatey(10px);
@@ -134,7 +97,63 @@
   }
 }
 
-.content .side {
+/* #endregion */
+/* #region typography */
+
+.textcolor-primary {
+  color: var(--inner-primary-text-color);
+}
+
+.textcolor-secondary {
+  color: var(--inner-secondary-text-color);
+}
+
+.textcolor-black {
+  color: var(--inner-black-text-color);
+}
+
+.textcolor-accent {
+  color: var(--inner-primary-color);
+}
+
+.text-normal {
+  font-weight: var(--inner-font-normal-weight);
+  font-size: 1.1rem;
+  line-height: 1.5em;
+}
+
+.text-title {
+  font-weight: var(--inner-font-bold-weight);
+  font-size: 4.5rem;
+  line-height: 1.1em;
+}
+
+/* #endregion */
+/* #region layouts */
+
+.front {
+  flex-grow: 2;
+  width: 100%;
+
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: space-evenly;
+}
+
+.welcome {
+  width: 50vw;
+
+  padding-top: 3rem;
+  margin-left: 3rem;
+  margin-right: 3rem;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.front .side {
   margin-left: 5em;
   margin-right: 5em;
   display: flex;
@@ -143,7 +162,9 @@
   flex-direction: column;
 }
 
-.content .side .picture {
+/* #endregion */
+
+.front .side .picture {
   flex-grow: 2;
   background-image: url('../public/space-invaders.svg');
   background-size: 100% 80%;
@@ -215,7 +236,7 @@
   display: none;
 }
 
-section.profiles {
+.profiles {
   margin-top: 3rem;
   margin-bottom: 3rem;
 
@@ -225,35 +246,35 @@ section.profiles {
   justify-content: center;
 }
 
-section.profiles .profile-cards {
+.profiles .profile-cards {
   width: 15rem;
   margin-left: 1rem;
   margin-right: 1rem;
 }
-
+/* 
 @media (max-width: 1741px) {
-  .content section.introduction .what-do h1 {
+  .front section.content .what-do h1 {
     font-size: clamp(25px, 8vw, 50px);
   }
 }
 
 @media (max-width: 1280px) {
-  .content section.introduction .greeting h1 {
+  .front section.content .greeting h1 {
     font-size: clamp(12px, 5vw, 14px);
   }
 
-  .content section.introduction .name h1 {
+  .front section.content .name h1 {
     font-size: clamp(36px, 10vw, 40px);
   }
 
-  .content section.introduction .what-do h1 {
+  .front section.content .what-do h1 {
     font-size: clamp(36px, 8vw, 40px);
   }
 
-  .content section.introduction {
+  .front section.content {
     margin-right: 0em;
   }
-  .content .picture {
+  .front .picture {
     width: clamp(200px, 50vw, 300px);
     margin-left: auto;
     margin-right: auto;
@@ -261,21 +282,21 @@ section.profiles .profile-cards {
 }
 
 @media (max-width: 1080px) {
-  .content section.introduction .what-do h1 {
+  .front section.content .what-do h1 {
     font-size: clamp(25px, 8vw, 30px);
   }
 }
 
 @media (max-width: 870px) {
-  .content section.introduction {
+  .front section.content {
     max-width: 100%;
   }
 
-  .content section.introduction {
+  .front section.content {
     margin-right: 5em;
   }
 
-  .content .side {
+  .front .side {
     display: none;
   }
 
@@ -284,38 +305,33 @@ section.profiles .profile-cards {
     flex-grow: 1;
     margin-bottom: 0;
   }
-
-  /* section.profiles {
-    flex-wrap: wrap;
-    height: 10rem;
-  } */
 }
 
 @media (max-width: 595px) {
-  .content section.introduction {
+  .front section.content {
     margin-left: 3em;
     margin-right: 3em;
   }
 
-  .content section.introduction .greeting h1 {
+  .front section.content .greeting h1 {
     font-size: clamp(9px, 5vw, 16px);
   }
 
-  .content section.introduction .name h1 {
+  .front section.content .name h1 {
     font-size: clamp(16px, 8vw, 36px);
   }
 
-  .content section.introduction .what-do h1 {
+  .front section.content .what-do h1 {
     font-size: clamp(16px, 8vw, 25px);
   }
 
-  .content section.introduction .description {
+  .front section.content .description {
     font-size: clamp(10px, 5vw, 16px);
   }
-}
+} */
 
 @media (max-width: 375px) {
-  .content section.introduction {
+  .front section.content {
     margin-left: 1em;
     margin-right: 1em;
   }

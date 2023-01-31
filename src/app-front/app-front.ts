@@ -13,27 +13,35 @@ export class AppFront extends LitElement {
 
   render() {
     return html`
-      <div class="content">
-        <section class="introduction">
-          <div class="greeting fadeUp" style="transition-delay: 100ms;"><h1>Hola, mi nombre es<h1></div>
-          <div class="name fadeUp fadeUp-1" style="transition-delay: 200ms;"><h1>Mauro Alderete<h1></div>
-          <div class="what-do fadeUp fadeUp-2" style="transition-delay: 300ms;"><h1><span style="white-space: nowrap">Desarrollo software y</span> brindo mentorías<h1></div>
-          <div class="description fadeUp fadeUp-3" style="transition-delay: 400ms;">
-            <p>
-              Soy un profesional apasionado por la tecnología y la ingeniería del software.
-              Busco en cada proyecto generar un valor agregado que impacte en la calidad de vida de las personas.
-              Me entusiasma mucho aprender cosas nuevas y compartir mi experiencia.
+      <div class="front">
+        <section class="welcome">
+          <div class="fadeUp" style="margin-bottom: 1.5rem;">
+            <span class="text-normal textcolor-accent">Hola, mi nombre es</span>
+          </div>
+          <div class="fadeUp fadeUp-1" style="margin-bottom: 0.5rem;">
+            <span class="text-title textcolor-primary">Mauro Alderete</span>
+          </div>
+          <div class="fadeUp fadeUp-2" style="margin-bottom: 1rem;">
+            <span class="text-title textcolor-secondary">
+              <span style="white-space: nowrap">Desarrollo software y</span>
+              brindo mentorías
+            </span>
+          </div>
+          <div class="fadeUp fadeUp-3">
+            <p class="text-normal textcolor-secondary">
+              Soy un profesional apasionado por la tecnología y la ingeniería del software. Busco en cada proyecto
+              generar un valor agregado que impacte en la calidad de vida de las personas. Me entusiasma mucho aprender
+              cosas nuevas y compartir mi experiencia.
             </p>
           </div>
           <div class="callaction callaction-bottom">
-        <button class="outline">CV</button>
-        <div style="font-size: 2.5em; height: 2em;"></div>
-        <button class="fill">Hablemos</button>
-      </div>
+            <button class="outline">CV</button>
+            <div style="font-size: 2.5em; height: 2em;"></div>
+            <button class="fill">Hablemos</button>
+          </div>
         </section>
         <div class="side">
-          <div class="picture">
-          </div>
+          <div class="picture"></div>
           <div class="callaction">
             <button class="outline">CV</button>
             <button class="fill">Hablemos</button>
