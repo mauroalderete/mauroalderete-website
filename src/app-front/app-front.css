@@ -24,6 +24,8 @@
 
   display: flex;
   flex-direction: column;
+  justify-content: center;
+
   background: rgb(56, 56, 56);
   background: -moz-radial-gradient(
     circle,
@@ -45,7 +47,11 @@
   font-weight: var(--inner-font-normal-weight);
   color: var(--inner-secondary-text-color);
 }
-
+/* #endregion */
+/* #region utils*/
+.hide {
+  display: none !important;
+}
 /* #endregion */
 /* #region animations */
 
@@ -130,10 +136,13 @@
 
 /* #endregion */
 /* #region layouts */
+.spacing {
+  flex-grow: 3;
+}
 
 .front {
-  flex-grow: 2;
   width: 100%;
+  flex-grow: 1;
 
   display: flex;
   flex-direction: row;
@@ -153,87 +162,12 @@
   justify-content: center;
 }
 
-.front .side {
-  margin-left: 5em;
-  margin-right: 5em;
-  display: flex;
-  width: clamp(600px, 30vw, 30vw);
+.side {
+  margin-left: 3rem;
+  margin-right: 3rem;
 
+  display: flex;
   flex-direction: column;
-}
-
-/* #endregion */
-
-.front .side .picture {
-  flex-grow: 2;
-  background-image: url('../public/space-invaders.svg');
-  background-size: 100% 80%;
-  background-repeat: no-repeat;
-  background-position: center center;
-
-  -webkit-filter: drop-shadow(15px 15px 5px var(--inner-primary-color));
-  filter: drop-shadow(15px 15px 5px var(--inner-primary-color));
-
-  opacity: 0;
-  animation-duration: 10s, 6s;
-  animation-timing-function: var(--inner-fadeUp-function), ease-in-out;
-  animation-delay: var(--inner-fadeUp-delay), 0s;
-  animation-fill-mode: var(--inner-fadeUp-fill);
-  animation-iteration-count: 1, infinite;
-  animation-name: var(--inner-fadeUp-name), picture-float;
-}
-
-.callaction {
-  margin-bottom: 4em;
-  justify-content: center;
-  align-items: center;
-
-  display: flex;
-  flex-direction: row;
-}
-
-.callaction button {
-  height: 2.5em;
-  width: 8em;
-  border-radius: 1em;
-  border: none;
-
-  font: var(--inner-font);
-  font-weight: var(--inner-font-bold-weight);
-  font-size: 1.5em;
-
-  margin-left: 0.2em;
-  margin-right: 0.2em;
-
-  box-shadow: 1px 1px 10px #aaa;
-  transition: all 0.3s var(--inner-fadeUp-function);
-}
-
-.callaction button:hover {
-  cursor: pointer;
-
-  box-shadow: 1px 1px 25px #fff;
-
-  width: 9em;
-  font-size: 2em;
-}
-
-.callaction button.outline {
-  background-color: transparent;
-  border-style: solid;
-  border-color: var(--inner-primary-color);
-  border-width: 2px;
-  color: var(--inner-primary-color);
-}
-
-.callaction button.fill {
-  background-color: var(--inner-primary-color);
-  border-style: none;
-  color: var(--inner-black-text-color);
-}
-
-.callaction-bottom {
-  display: none;
 }
 
 .profiles {
@@ -245,94 +179,113 @@
 
   justify-content: center;
 }
+/* #endregion */
+/* #region picture */
+.picture {
+  flex-grow: 2;
+  background-image: url('../public/space-invaders.svg');
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center center;
 
-.profiles .profile-cards {
+  -webkit-filter: drop-shadow(0rem 0rem 5rem var(--inner-primary-color));
+  filter: drop-shadow(0rem 0rem 5rem var(--inner-primary-color));
+
+  opacity: 0;
+  animation-duration: 10s, 6s;
+  animation-timing-function: var(--inner-fadeUp-function), ease-in-out;
+  animation-delay: var(--inner-fadeUp-delay), 0s;
+  animation-fill-mode: var(--inner-fadeUp-fill);
+  animation-iteration-count: 1, infinite;
+  animation-name: var(--inner-fadeUp-name), picture-float;
+
+  margin-bottom: 0rem;
+}
+
+/* #endregion */
+/* #region call to action */
+
+.call2action {
+  margin-bottom: 3rem;
+  justify-content: center;
+  align-items: center;
+
+  display: flex;
+  flex-direction: row;
+}
+
+.call2action button {
+  width: 15rem;
+  height: 4rem;
+  border-radius: 2rem;
+  border: none;
+
+  font: var(--inner-font);
+  font-weight: var(--inner-font-bold-weight);
+  font-size: 1.5rem;
+
+  margin-left: 1rem;
+  margin-right: 1rem;
+
+  box-shadow: 0rem 0rem 1rem rgba(255, 255, 255, 0.5);
+  transition: all 0.3s var(--inner-fadeUp-function);
+}
+
+.call2action button:hover {
+  cursor: pointer;
+
+  width: 20rem;
+  height: 5.3rem;
+  border-radius: 2.5rem;
+
+  font-size: 2rem;
+
+  box-shadow: 0rem 0rem 1.7em rgba(255, 255, 255, 1);
+}
+
+.call2action button.outline {
+  color: var(--inner-primary-color);
+  border-color: var(--inner-primary-color);
+
+  background-color: transparent;
+  border-style: solid;
+  border-width: 2px;
+}
+
+.call2action button.fill {
+  color: var(--inner-black-text-color);
+  background-color: var(--inner-primary-color);
+
+  border-style: none;
+}
+
+/* #endregion */
+/* #region profiles */
+.profile-cards {
   width: 15rem;
   margin-left: 1rem;
   margin-right: 1rem;
 }
-/* 
-@media (max-width: 1741px) {
-  .front section.content .what-do h1 {
-    font-size: clamp(25px, 8vw, 50px);
-  }
-}
-
-@media (max-width: 1280px) {
-  .front section.content .greeting h1 {
-    font-size: clamp(12px, 5vw, 14px);
+/* #endregion */
+/* #region media queries */
+@media (max-width: 425px) {
+  .hide {
+    display: flex !important;
+    margin-top: 3rem;
   }
 
-  .front section.content .name h1 {
-    font-size: clamp(36px, 10vw, 40px);
-  }
-
-  .front section.content .what-do h1 {
-    font-size: clamp(36px, 8vw, 40px);
-  }
-
-  .front section.content {
-    margin-right: 0em;
-  }
-  .front .picture {
-    width: clamp(200px, 50vw, 300px);
-    margin-left: auto;
-    margin-right: auto;
-  }
-}
-
-@media (max-width: 1080px) {
-  .front section.content .what-do h1 {
-    font-size: clamp(25px, 8vw, 30px);
-  }
-}
-
-@media (max-width: 870px) {
-  .front section.content {
-    max-width: 100%;
-  }
-
-  .front section.content {
-    margin-right: 5em;
-  }
-
-  .front .side {
+  .side {
     display: none;
   }
 
-  .callaction-bottom {
-    display: flex;
-    flex-grow: 1;
-    margin-bottom: 0;
+  .welcome {
+    width: 100vw;
+  }
+
+  .profile-cards {
+    width: 10rem;
+    margin-left: 0.5rem;
+    margin-right: 0.5rem;
   }
 }
-
-@media (max-width: 595px) {
-  .front section.content {
-    margin-left: 3em;
-    margin-right: 3em;
-  }
-
-  .front section.content .greeting h1 {
-    font-size: clamp(9px, 5vw, 16px);
-  }
-
-  .front section.content .name h1 {
-    font-size: clamp(16px, 8vw, 36px);
-  }
-
-  .front section.content .what-do h1 {
-    font-size: clamp(16px, 8vw, 25px);
-  }
-
-  .front section.content .description {
-    font-size: clamp(10px, 5vw, 16px);
-  }
-} */
-
-@media (max-width: 375px) {
-  .front section.content {
-    margin-left: 1em;
-    margin-right: 1em;
-  }
-}
+/* #endregion */

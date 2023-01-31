@@ -13,6 +13,7 @@ export class AppFront extends LitElement {
 
   render() {
     return html`
+      <div class="spacing"></div>
       <div class="front">
         <section class="welcome">
           <div class="fadeUp" style="margin-bottom: 1.5rem;">
@@ -34,7 +35,7 @@ export class AppFront extends LitElement {
               cosas nuevas y compartir mi experiencia.
             </p>
           </div>
-          <div class="callaction callaction-bottom">
+          <div class="call2action hide">
             <button class="outline">CV</button>
             <div style="font-size: 2.5em; height: 2em;"></div>
             <button class="fill">Hablemos</button>
@@ -42,7 +43,7 @@ export class AppFront extends LitElement {
         </section>
         <div class="side">
           <div class="picture"></div>
-          <div class="callaction">
+          <div class="call2action">
             <button class="outline">CV</button>
             <button class="fill">Hablemos</button>
           </div>
@@ -55,6 +56,7 @@ export class AppFront extends LitElement {
         <app-profile-card class="profile-cards" profile="DevOps" src="./public/infraestructure.svg"></app-profile-card>
         <app-profile-card class="profile-cards" profile="Mentorship" src="./public/mentorship.svg"></app-profile-card>
       </section>
+      <div class="spacing"></div>
     `;
   }
 }
