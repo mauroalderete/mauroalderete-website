@@ -9,8 +9,8 @@
   --inner-font-normal-weight: var(--font-normal-weight, 300);
   --inner-font-bold-weight: var(--font-bold-weight, 600);
 
-  --inner-primary-background-color: var(--primary-background-color, rgba(56, 56, 56, 1));
-  --inner-secondary-background-color: var(--secondary-background-color, rgba(9, 9, 9, 1));
+  --inner-primary-background-color: var(--primary-background-color, #383838);
+  --inner-secondary-background-color: var(--secondary-background-color, #090909);
 
   --inner-fadeUp-offset: 0.1s;
   --inner-fadeUp-duration: 0.3s;
@@ -171,8 +171,8 @@
 }
 
 .profiles {
-  margin-top: 3rem;
-  margin-bottom: 3rem;
+  margin-top: 2rem;
+  margin-bottom: 2rem;
 
   display: flex;
   flex-wrap: nowrap;
@@ -228,26 +228,34 @@
   margin-right: 1rem;
 
   box-shadow: 0rem 0rem 1rem rgba(255, 255, 255, 0.5);
-  transition: all 0.3s var(--inner-fadeUp-function);
+
+  transition-property: all;
+  transition-delay: 0;
+  transition-timing-function: var(--inner-fadeUp-function);
+  transition-duration: 0.4s;
 }
 
 .call2action button:hover {
   cursor: pointer;
 
-  width: 20rem;
-  height: 5.3rem;
-  border-radius: 2.5rem;
+  --scale: 1.15;
 
-  font-size: 2rem;
+  width: calc(15rem * var(--scale));
+  height: calc(4rem * var(--scale));
+  border-radius: calc(2rem * var(--scale));
 
-  box-shadow: 0rem 0rem 1.7em rgba(255, 255, 255, 1);
+  font-size: calc(1.5rem * var(--scale));
+
+  box-shadow: 0rem 0rem calc(1rem * var(--scale) * 2) rgba(255, 255, 255, 1);
 }
 
 .call2action button.outline {
   color: var(--inner-primary-color);
   border-color: var(--inner-primary-color);
 
-  background-color: transparent;
+  background-color: rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(10px);
+
   border-style: solid;
   border-width: 2px;
 }
@@ -261,11 +269,40 @@
 
 /* #endregion */
 /* #region profiles */
-.profile-cards {
+.fake-profile-card {
+  height: 21rem;
+}
+
+.profile-card {
   width: 15rem;
   margin-left: 1rem;
   margin-right: 1rem;
 }
+
+.profile-card-devops {
+  --primary-color: #ff656f;
+  --primary-filter-color: invert(48%) sepia(71%) saturate(550%) hue-rotate(308deg) brightness(101%) contrast(103%);
+  --high-shadow-color: var(--primary-color);
+}
+
+.profile-card-mentorship {
+  --primary-color: #30bbff;
+  --primary-filter-color: invert(41%) sepia(44%) saturate(5165%) hue-rotate(202deg) brightness(102%) contrast(101%);
+  --high-shadow-color: var(--primary-color);
+}
+
+.profile-card-frontend {
+  --primary-color: #ffc176;
+  --primary-filter-color: invert(99%) sepia(48%) saturate(5094%) hue-rotate(305deg) brightness(102%) contrast(102%);
+  --high-shadow-color: var(--primary-color);
+}
+
+.profile-card-backend {
+  --primary-color: #bf2eff;
+  --primary-filter-color: invert(23%) sepia(75%) saturate(5089%) hue-rotate(270deg) brightness(113%) contrast(101%);
+  --high-shadow-color: var(--primary-color);
+}
+
 /* #endregion */
 /* #region media queries */
 @media (max-width: 425px) {

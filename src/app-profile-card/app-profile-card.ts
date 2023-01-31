@@ -27,7 +27,7 @@ export class AppProfileCard extends LitElement {
   render() {
     return html`
       <div class="svg">
-        <img class="svg" src="${this.src}" alt="${this.profile}" />
+        <img src="${this.src}" alt="${this.profile}" />
       </div>
       <div class="label">
         <h1>${this.profile}</h1>

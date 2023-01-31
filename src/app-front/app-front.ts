@@ -50,11 +50,32 @@ export class AppFront extends LitElement {
         </div>
       </div>
       <section class="profiles">
-        <app-profile-card class="profile-cards" profile="Frontend" src="./public/frontend.svg"></app-profile-card>
-        <app-profile-card class="profile-cards" profile="Backend" src="./public/database.svg"></app-profile-card>
-        <app-profile-card class="profile-cards" profile="Gamedev" src="./public/gamedev.svg"></app-profile-card>
-        <app-profile-card class="profile-cards" profile="DevOps" src="./public/infraestructure.svg"></app-profile-card>
-        <app-profile-card class="profile-cards" profile="Mentorship" src="./public/mentorship.svg"></app-profile-card>
+        <div class="fake-profile-card"></div>
+        <app-profile-card
+          class="profile-card profile-card-frontend"
+          profile="Frontend"
+          src="./public/frontend.svg"
+        ></app-profile-card>
+        <app-profile-card
+          class="profile-card profile-card-backend"
+          profile="Backend"
+          src="./public/database.svg"
+        ></app-profile-card>
+        <app-profile-card
+          class="profile-card profile-card-gamedev"
+          profile="Gamedev"
+          src="./public/gamedev.svg"
+        ></app-profile-card>
+        <app-profile-card
+          class="profile-card profile-card-devops"
+          profile="DevOps"
+          src="./public/infraestructure.svg"
+        ></app-profile-card>
+        <app-profile-card
+          class="profile-card profile-card-mentorship"
+          profile="Mentorship"
+          src="./public/mentorship.svg"
+        ></app-profile-card>
       </section>
       <div class="spacing"></div>
     `;

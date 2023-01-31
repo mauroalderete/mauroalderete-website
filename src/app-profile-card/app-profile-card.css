@@ -1,25 +1,75 @@
+/* #region default values */
 :host {
-  background-color: #0e0e0e;
+  --inner-transition-function: cubic-bezier(0.645, 0.045, 0.355, 1);
+
+  --inner-primary-color: var(--primary-color, #64ffda);
+  --inner-secondary-color: var(--secondary-color, #8892b0);
+
+  --inner-primary-filter-color: var(
+    --primary-filter-color,
+    invert(83%) sepia(51%) saturate(437%) hue-rotate(99deg) brightness(101%) contrast(102%)
+  );
+  --inner-secondary-filter-color: var(
+    --secondary-filter-color,
+    invert(67%) sepia(25%) saturate(312%) hue-rotate(187deg) brightness(82%) contrast(91%)
+  );
+
+  --inner-background-color: var(--background-color, rgba (14, 14, 14, 0.4));
+
+  --inner-low-shadow-color: var(--low-shadow-color, rgba(255, 255, 255, 0.3));
+  --inner-high-shadow-color: var(--high-shadow-color, #64ffda);
+
+  width: 100%;
   height: 100%;
+
+  background-color: var(--inner-background-color);
+  backdrop-filter: blur(10px);
+
+  border-top-left-radius: 5rem;
+  border-top-right-radius: 1rem;
+  border-bottom-left-radius: 1rem;
+  border-bottom-right-radius: 5rem;
+
+  box-shadow: 0px 0px 1.5rem var(--inner-low-shadow-color);
 
   display: flex;
   flex-direction: column;
-
   justify-content: space-evenly;
 
-  border-radius: 1rem;
-  box-shadow: 1px 1px 20px rgba(170, 170, 170, 0.2);
+  font-size: 1.1rem;
+
+  transition-property: all;
+  transition-delay: 0;
+  transition-timing-function: var(--inner-transition-function);
+  transition-duration: 0.4s;
 }
 
+:host .svg img {
+  transition-property: filter;
+  transition-delay: 0s;
+  transition-timing-function: var(--inner-transition-function);
+  transition-duration: 0.4s;
+}
+
+:host .label {
+  transition-property: color;
+  transition-delay: 0.1s;
+  transition-timing-function: var(--inner-transition-function);
+  transition-duration: 0.4s;
+}
+
+/* #endregion */
+/* #region layouts */
 .svg {
   text-align: center;
-
   margin-top: 1rem;
 }
 
 .svg img {
   width: 80%;
   height: 80%;
+
+  filter: var(--inner-secondary-filter-color);
 }
 
 .label {
@@ -31,8 +81,30 @@
 .label h1 {
   margin-bottom: 2rem;
   font: 'Montserrat', sans-serif;
-  font-size: 1.1rem;
   font-weight: 300;
   text-transform: uppercase;
   text-align: center;
+
+  font-size: 1em;
 }
+/* #endregion */
+/* #region hover action */
+:host(:hover) {
+  cursor: pointer;
+
+  --scale: 1.2;
+
+  width: calc(15rem * var(--scale));
+  font-size: calc(1.1rem * var(--scale));
+
+  box-shadow: 0px 0px calc(1.5rem * var(--scale) * 2.5) var(--inner-high-shadow-color);
+}
+
+:host(:hover) .svg img {
+  filter: var(--inner-primary-filter-color);
+}
+
+:host(:hover) .label {
+  color: var(--inner-primary-color);
+}
+/* #endregion */
