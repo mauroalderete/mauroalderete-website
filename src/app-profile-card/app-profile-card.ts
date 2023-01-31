@@ -1,7 +1,9 @@
 import { LitElement, html, css, unsafeCSS } from 'lit';
 import { customElement, property } from 'lit/decorators.js';
 
-import style from './app-profile-card.css' assert { type: 'css' };
+/*eslint-disable */
+import style from './app-profile-card.css?inline' assert { type: 'css' };
+/*eslint-enable */
 
 @customElement('app-profile-card')
 export class AppProfileCard extends LitElement {

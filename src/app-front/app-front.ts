@@ -1,7 +1,9 @@
 import { LitElement, html, unsafeCSS, css } from 'lit';
 import { customElement } from 'lit/decorators.js';
 
-import style from './app-front.css' assert { type: 'css' };
+/*eslint-disable */
+import style from './app-front.css?inline' assert { type: 'css' };
+/*eslint-enable */
 
 @customElement('app-front')
 export class AppFront extends LitElement {
