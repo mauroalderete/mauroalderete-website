@@ -98,7 +98,7 @@
 @keyframes fadeUp-profile {
   0% {
     opacity: 0.01;
-    transform: translatey(50px);
+    transform: translatey(100px);
   }
   50% {
     opacity: 100;
@@ -140,13 +140,13 @@
 
 @keyframes picture-float {
   0% {
-    transform: translatey(10px);
+    transform: translatey(20px);
   }
   50% {
-    transform: translatey(-10px);
+    transform: translatey(-20px);
   }
   100% {
-    transform: translatey(10px);
+    transform: translatey(20px);
   }
 }
 
@@ -278,17 +278,18 @@
   background-repeat: no-repeat;
   background-position: center center;
 
-  -webkit-filter: drop-shadow(0rem 0rem 5rem var(--inner-primary-color));
-  filter: drop-shadow(0rem 0rem 5rem var(--inner-primary-color));
+  -webkit-filter: drop-shadow(0rem 0rem 10rem var(--inner-primary-color));
+  filter: drop-shadow(0rem 0rem 10rem var(--inner-primary-color));
 
   opacity: 0;
-  animation-duration: 10s, 6s;
+  animation-duration: 60s, 6s;
   animation-timing-function: var(--inner-fade-function), ease-in-out;
-  animation-delay: var(--inner-fade-delay), 0s;
+  animation-delay: calc(var(--inner-fade-delay) * 6), 0s;
   animation-fill-mode: var(--inner-fade-fill);
   animation-iteration-count: 1, infinite;
   animation-name: var(--inner-fade-name), picture-float;
 
+  margin-top: 5rem;
   margin-bottom: 0rem;
 }
 
@@ -327,9 +328,10 @@
 /* #region profiles */
 
 .profile-card {
-  width: 15rem;
-  margin-left: 1rem;
-  margin-right: 1rem;
+  width: 12rem;
+  height: calc(12rem * 1.618);
+  margin-left: 0.75rem;
+  margin-right: 0.75rem;
 }
 
 .profile-card-devops {
