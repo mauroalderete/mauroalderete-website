@@ -229,7 +229,7 @@
 
   height: 100%;
 
-  background-image: url('../public/space-invaders.svg');
+  background-image: url('/space-invaders.svg');
   background-size: contain;
   background-repeat: no-repeat;
   background-position: center center;

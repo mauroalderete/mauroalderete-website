@@ -20,22 +20,22 @@ export class AppFront extends LitElement {
             <app-social-icon
               name="twitter"
               target="https://twitter.com/_mauroalderete"
-              src="./public/twitter.svg"
+              src="/twitter.svg"
             ></app-social-icon>
             <app-social-icon
               name="linkedin"
               target="https://www.linkedin.com/in/mauroalderete/"
-              src="./public/linkedin.svg"
+              src="/linkedin.svg"
             ></app-social-icon>
             <app-social-icon
               name="github"
               target="https://github.com/mauroalderete"
-              src="./public/github.svg"
+              src="/github.svg"
             ></app-social-icon>
             <app-social-icon
               name="docker"
               target="https://hub.docker.com/u/mauroalderete"
-              src="./public/docker.svg"
+              src="/docker.svg"
             ></app-social-icon>
           </div>
           <div class="fadeUp" style="margin-bottom: 1.5rem;">
@@ -63,22 +63,22 @@ export class AppFront extends LitElement {
             <app-social-icon
               name="twitter"
               target="https://twitter.com/_mauroalderete"
-              src="./public/twitter.svg"
+              src="/twitter.svg"
             ></app-social-icon>
             <app-social-icon
               name="linkedin"
               target="https://www.linkedin.com/in/mauroalderete/"
-              src="./public/linkedin.svg"
+              src="/linkedin.svg"
             ></app-social-icon>
             <app-social-icon
               name="github"
               target="https://github.com/mauroalderete"
-              src="./public/github.svg"
+              src="/github.svg"
             ></app-social-icon>
             <app-social-icon
               name="docker"
               target="https://hub.docker.com/u/mauroalderete"
-              src="./public/docker.svg"
+              src="/docker.svg"
             ></app-social-icon>
           </div>
           <div class="picture"></div>
@@ -89,27 +89,27 @@ export class AppFront extends LitElement {
         <app-profile-card
           class="profile-card profile-card-frontend fadeUp-profile fadeUp-profile-3"
           profile="Frontend"
-          src="./public/frontend.svg"
+          src="/frontend.svg"
         ></app-profile-card>
         <app-profile-card
           class="profile-card profile-card-backend fadeUp-profile fadeUp-profile-2"
           profile="Backend"
-          src="./public/database.svg"
+          src="/database.svg"
         ></app-profile-card>
         <app-profile-card
           class="profile-card profile-card-gamedev fadeUp-profile fadeUp-profile-1"
           profile="Gamedev"
-          src="./public/gamedev.svg"
+          src="/gamedev.svg"
         ></app-profile-card>
         <app-profile-card
           class="profile-card profile-card-devops fadeUp-profile fadeUp-profile-2"
           profile="DevOps"
-          src="./public/infraestructure.svg"
+          src="/infraestructure.svg"
         ></app-profile-card>
         <app-profile-card
           class="profile-card profile-card-mentorship fadeUp-profile fadeUp-profile-3"
           profile="Mentorship"
-          src="./public/mentorship.svg"
+          src="/mentorship.svg"
         ></app-profile-card>
       </section>
       <div class="spacing"></div>
