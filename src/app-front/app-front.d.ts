@@ -1,4 +1,4 @@
-import { AppFront } from './AppFront';
+import { AppFront } from './app-front';
 
 declare global {
   interface HTMLElementTagNameMap {

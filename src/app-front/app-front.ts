@@ -1,11 +1,13 @@
-import { LitElement, html } from 'lit';
+import { LitElement, html, unsafeCSS, css } from 'lit';
 import { customElement } from 'lit/decorators.js';
 
-import { style } from './AppFront.css';
+import style from './app-front.css?inline' assert { type: 'css' };
 
 @customElement('app-front')
 export class AppFront extends LitElement {
-  static styles = style;
+  static styles = css`
+    ${unsafeCSS(style)}
+  `;
 
   render() {
     return html`
@@ -21,6 +23,11 @@ export class AppFront extends LitElement {
               Me entusiasma mucho aprender cosas nuevas y compartir mi experiencia.
             </p>
           </div>
+          <div class="callaction callaction-bottom">
+        <button class="outline">CV</button>
+        <div style="font-size: 2.5em; height: 2em;"></div>
+        <button class="fill">Hablemos</button>
+      </div>
         </section>
         <div class="side">
           <div class="picture">
@@ -31,17 +38,12 @@ export class AppFront extends LitElement {
           </div>
         </div>
       </div>
-      <div class="callaction callaction-bottom">
-        <button class="outline">CV</button>
-        <div style="font-size: 2.5em; height: 2em;"></div>
-        <button class="fill">Hablemos</button>
-      </div>
       <section class="profiles">
-        <div>Frontend</div>
-        <div>Backend</div>
-        <div>Gamedev</div>
-        <div>DevOps</div>
-        <div>Mentorship</div>
+        <app-profile-card class="profile-cards" profile="Frontend" src="./public/frontend.svg"></app-profile-card>
+        <app-profile-card class="profile-cards" profile="Backend" src="./public/database.svg"></app-profile-card>
+        <app-profile-card class="profile-cards" profile="Gamedev" src="./public/gamedev.svg"></app-profile-card>
+        <app-profile-card class="profile-cards" profile="DevOps" src="./public/infraestructure.svg"></app-profile-card>
+        <app-profile-card class="profile-cards" profile="Mentorship" src="./public/mentorship.svg"></app-profile-card>
       </section>
     `;
   }
