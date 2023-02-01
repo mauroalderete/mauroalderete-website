@@ -3,26 +3,30 @@
   <head>
     <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href="/vite.svg" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1.0" />
     <title>Mauro Alderete</title>
   </head>
   <body>
     <div id="app">
       <app-front></app-front>
-      <!--
-        yellow: FFD864 / FFEE64
-        orange: FF9764
-        red: FF6464
-        green: 64FFAD
-        blue: 64C5FF
-        white: FAFAFA
-
-        pink: FF64E7
-        lila: C764FF
-        violet: 8664FF
-
-        -->
     </div>
+
+    <script>
+      function calculateVh() {
+        var vh = window.innerHeight * 0.01;
+        document.documentElement.style.setProperty('--vh', vh + 'px');
+      }
+
+      // Initial calculation
+      calculateVh();
+
+      // Re-calculate on resize
+      window.addEventListener('resize', calculateVh);
+
+      // Re-calculate on device orientation change
+      window.addEventListener('orientationchange', calculateVh);
+    </script>
+
     <script type="module" src="/src/app-modal/app-modal.ts"></script>
     <script type="module" src="/src/app-profile-modal/app-profile-modal.ts"></script>
     <script type="module" src="/src/app-social-icon/app-social-icon.ts"></script>
