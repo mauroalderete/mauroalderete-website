@@ -58,8 +58,9 @@ export class AppProfileModal extends LitElement {
           </div>
           <div class="footer">
             <p class="text-normal textcolor-secondary">
-              ¿Tenés algún proyecto en mente?<br />No lo dudes, ¡hablemos!.<br />Estaré encantado en resolver cualquier
-              inquietud.
+              <span style="white-space: nowrap;">¿Tenés algún proyecto en mente?</span>
+              <span style="white-space: nowrap;">No lo dudes, ¡hablemos!.</span>
+              <br />Estaré encantado en resolver cualquier inquietud.
             </p>
             <div class="buttons">
               <button @click="${this._handleProvideResume}"><span style="white-space: nowrap">CV</span></button>

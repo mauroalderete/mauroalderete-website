@@ -193,8 +193,13 @@ export class AppFront extends LitElement {
             construyendo videojuegos. Espero continuar haciéndolo formando parte de un grandioso equipo.
           </p>
         </div>
-        <div slot="multimedia">photo</div>
-        <div slot="multimedia-description">one photo</div>
+        <div slot="multimedia"><img src="./public/gamedev-show-1.gif" /></div>
+        <div slot="multimedia-description">
+          <i>
+            <span style="white-space: nowrap;">Adelanto de mi proximo proyecto</span>
+            <span style="white-space: nowrap;"><b>[Archelon]Prelude</b></span>
+          </i>
+        </div>
       </app-profile-modal>
       <app-profile-modal
         data-profile="sre"
