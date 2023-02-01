@@ -91,3 +91,12 @@
 }
 
 /* #endregion */
+/* #region media queries */
+
+@media (max-width: 425px) {
+  .modal {
+    height: calc(var(--vh) * 90);
+  }
+}
+
+/* #endregion */

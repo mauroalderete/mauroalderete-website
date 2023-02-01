@@ -43,24 +43,26 @@ export class AppFront extends LitElement {
               src="/docker.svg"
             ></app-social-icon>
           </div>
-          <div class="fadeUp" style="margin-bottom: 1.5rem;">
-            <span class="text-normal textcolor-accent">Hola, mi nombre es</span>
-          </div>
-          <div class="fadeUp fadeUp-1" style="margin-bottom: 0.5rem;">
-            <span class="text-title textcolor-primary">Mauro Alderete</span>
-          </div>
-          <div class="fadeUp fadeUp-2" style="margin-bottom: 1rem;">
-            <span class="text-title textcolor-secondary">
-              <span style="white-space: nowrap">Desarrollo software y</span>
-              brindo mentorías
-            </span>
-          </div>
-          <div class="fadeUp fadeUp-3">
-            <p class="text-normal textcolor-secondary">
-              Soy un profesional apasionado por la tecnología y la ingeniería del software. Busco en cada proyecto
-              generar un valor agregado que impacte en la calidad de vida de las personas. Me entusiasma mucho aprender
-              cosas nuevas y compartir mi experiencia.
-            </p>
+          <div class="welcome-content">
+            <div class="fadeUp" style="margin-bottom: 1.5rem;">
+              <span class="text-normal textcolor-accent">Hola, mi nombre es</span>
+            </div>
+            <div class="fadeUp fadeUp-1" style="margin-bottom: 0.5rem;">
+              <span class="text-title textcolor-primary">Mauro Alderete</span>
+            </div>
+            <div class="fadeUp fadeUp-2" style="margin-bottom: 1rem;">
+              <span class="text-title textcolor-secondary">
+                <span style="white-space: nowrap">Desarrollo software y</span>
+                brindo mentorías
+              </span>
+            </div>
+            <div class="fadeUp fadeUp-3">
+              <p class="text-normal textcolor-secondary">
+                Soy un profesional apasionado por la tecnología y la ingeniería del software. Busco en cada proyecto
+                generar un valor agregado que impacte en la calidad de vida de las personas. Me entusiasma mucho
+                aprender cosas nuevas y compartir mi experiencia.
+              </p>
+            </div>
           </div>
         </section>
         <div class="side">

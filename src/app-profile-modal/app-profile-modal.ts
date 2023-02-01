@@ -58,7 +58,7 @@ export class AppProfileModal extends LitElement {
           </div>
           <div class="footer">
             <p class="text-normal textcolor-secondary">
-              ¿Tenés algún proyecto en mente? No lo dudes, ¡hablemos!.<br />Estaré encantado en resolver cualquier
+              ¿Tenés algún proyecto en mente?<br />No lo dudes, ¡hablemos!.<br />Estaré encantado en resolver cualquier
               inquietud.
             </p>
             <div class="buttons">
