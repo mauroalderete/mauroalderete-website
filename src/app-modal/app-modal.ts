@@ -43,7 +43,15 @@ export class AppModal extends LitElement {
   }
 
   public Show() {
+    const modal = <HTMLDivElement>this.shadowRoot?.querySelector('.modal');
+    modal.classList.add('one');
+
     this.style.visibility = 'visible';
     this.style.display = 'flex';
+
+    this.style.transform = 'scaleY(0.01) scaleX(0)';
+    this.style.animation = 'unfoldIn 1s cubic-bezier(0.645, 0.045, 0.355, 1) forwards';
+    modal.style.transform = 'scale(0)';
+    modal.style.animation = 'zoomIn 0.5s 0.8s cubic-bezier(0.165, 0.84, 0.44, 1) forwards';
   }
 }
