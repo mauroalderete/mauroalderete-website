@@ -22,6 +22,8 @@ export class AppProfileCard extends LitElement {
 
     this.profile = 'profile';
     this.src = '';
+
+    this.addEventListener('click', this._handleClick);
   }
 
   render() {
@@ -33,5 +35,15 @@ export class AppProfileCard extends LitElement {
         <h1>${this.profile}</h1>
       </div>
     `;
+  }
+
+  private _handleClick(e: Event) {
+    const detail = { profile: this.profile, src: this.src };
+    const event = new CustomEvent('open', { detail, bubbles: true, composed: true });
+
+    this.dispatchEvent(event);
+    if (event.defaultPrevented) {
+      e.preventDefault();
+    }
   }
 }
