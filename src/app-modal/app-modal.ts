@@ -26,16 +26,25 @@ export class AppModal extends LitElement {
   }
 
   private _handleOverlyClick(e: Event) {
-    const detail = { mode: 'background' };
-    const event = new CustomEvent('close', { detail, bubbles: true, composed: true, cancelable: true });
+    e.stopPropagation();
 
-    this.dispatchEvent(event);
-    if (event.defaultPrevented) {
-      e.preventDefault();
-      return;
-    }
+    const modal = <HTMLDivElement>this.shadowRoot?.querySelector('.modal');
 
-    this.style.display = 'none';
+    this.style.transform = 'scaleY(1) scaleX(1)';
+    this.style.animation = 'unfoldOut 1s .1s cubic-bezier(0.645, 0.045, 0.355, 1) forwards';
+    modal.style.transform = 'scale(1)';
+    modal.style.animation = 'zoomOut .5s cubic-bezier(0.645, 0.045, 0.355, 1) forwards';
+
+    setTimeout(() => {
+      const detail = { mode: 'background' };
+      const event = new CustomEvent('close', { detail, bubbles: true, composed: true, cancelable: true });
+
+      this.dispatchEvent(event);
+      if (event.defaultPrevented) {
+        e.preventDefault();
+        return;
+      }
+    }, 1300);
   }
 
   private _handleModalClick(e: Event) {
@@ -44,7 +53,6 @@ export class AppModal extends LitElement {
 
   public Show() {
     const modal = <HTMLDivElement>this.shadowRoot?.querySelector('.modal');
-    modal.classList.add('one');
 
     this.style.visibility = 'visible';
     this.style.display = 'flex';
