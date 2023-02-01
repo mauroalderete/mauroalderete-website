@@ -15,7 +15,7 @@
   bottom: 0;
 
   background-color: var(--inner-background-overly-color);
-  backdrop-filter: blur(7px);
+  backdrop-filter: blur(10px);
 
   z-index: 2;
 
