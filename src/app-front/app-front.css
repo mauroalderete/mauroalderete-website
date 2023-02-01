@@ -1,6 +1,16 @@
 /* #region default values */
-
 :host {
+  --frontend-color: #ffc176;
+  --frontend-filter: invert(99%) sepia(48%) saturate(5094%) hue-rotate(305deg) brightness(102%) contrast(102%);
+  --backend-color: #bf2eff;
+  --backend-filter: invert(23%) sepia(75%) saturate(5089%) hue-rotate(270deg) brightness(113%) contrast(101%);
+  --gamedev-color: #64ffda;
+  --gamedev-filter: invert(83%) sepia(51%) saturate(437%) hue-rotate(99deg) brightness(101%) contrast(102%);
+  --sre-color: #ff656f;
+  --sre-filter: invert(48%) sepia(71%) saturate(550%) hue-rotate(308deg) brightness(101%) contrast(103%);
+  --mentorship-color: #30bbff;
+  --mentorship-filter: invert(41%) sepia(44%) saturate(5165%) hue-rotate(202deg) brightness(102%) contrast(101%);
+
   --inner-primary-text-color: var(--primary-text-color, #ccd6f6);
   --inner-secondary-text-color: var(--secondary-text-color, #8892b0);
   --inner-black-text-color: var(--black-text-color, #030303);
@@ -357,6 +367,9 @@
   --primary-filter-color: invert(23%) sepia(75%) saturate(5089%) hue-rotate(270deg) brightness(113%) contrast(101%);
   --high-shadow-color: var(--primary-color);
 }
+
+/* #endregion */
+/* #region profile modal */
 
 /* #endregion */
 /* #region media queries */
