@@ -146,8 +146,8 @@ export class AppFront extends LitElement {
           <p>Como frontender...</p>
         </div>
         <div slot="multimedia">photo</div>
-        <div slot="multimedia-description">one photo</div>
       </app-profile-modal>
+
       <app-profile-modal
         data-profile="backend"
         profile="Backend Developer"
@@ -164,8 +164,8 @@ export class AppFront extends LitElement {
           <p>Como backender...</p>
         </div>
         <div slot="multimedia">photo</div>
-        <div slot="multimedia-description">one photo</div>
       </app-profile-modal>
+
       <app-profile-modal
         data-profile="gamedev"
         profile="Game Developer"
@@ -193,14 +193,9 @@ export class AppFront extends LitElement {
             construyendo videojuegos. Espero continuar haciéndolo formando parte de un grandioso equipo.
           </p>
         </div>
-        <div slot="multimedia"><img src="./public/gamedev-show-1.gif" /></div>
-        <div slot="multimedia-description">
-          <i>
-            <span style="white-space: nowrap;">Adelanto de mi proximo proyecto</span>
-            <span style="white-space: nowrap;"><b>[Archelon]Prelude</b></span>
-          </i>
-        </div>
+        <div slot="media"><img src="./gamedev-show-1.gif" /></div>
       </app-profile-modal>
+
       <app-profile-modal
         data-profile="sre"
         profile="Site Reliability Engineering"
@@ -217,8 +212,8 @@ export class AppFront extends LitElement {
           <p>Como SRE...</p>
         </div>
         <div slot="multimedia">photo</div>
-        <div slot="multimedia-description">one photo</div>
       </app-profile-modal>
+
       <app-profile-modal
         data-profile="mentorship"
         profile="Mentorship"
@@ -235,7 +230,6 @@ export class AppFront extends LitElement {
           <p>Como mentor</p>
         </div>
         <div slot="multimedia">photo</div>
-        <div slot="multimedia-description">one photo</div>
       </app-profile-modal>
     `;
   }

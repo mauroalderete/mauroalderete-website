@@ -38,24 +38,20 @@ export class AppProfileModal extends LitElement {
   render() {
     return html`
       <app-modal id="modal" @close="${this._handleModalClose}">
-        <div class="modal-content" slot="content">
-          <div class="title">
+        <div class="modal" slot="content">
+          <div class="background">
             <img src="${this.iconSrc}" />
-            ${this.profile}
           </div>
-          <div class="middle">
-            <div class="left">
-              <div class="summary">
-                <slot class="text-normal textcolor-secondary" name="summary"></slot>
-              </div>
-            </div>
-            <div class="right">
-              <slot class="multimedia" name="multimedia"></slot>
-              <div class="description">
-                <slot class="text-normal textcolor-secondary" name="multimedia-description"></slot>
-              </div>
-            </div>
+          <div class="header">${this.profile}</div>
+
+          <div class="summary">
+            <slot name="summary"></slot>
           </div>
+
+          <div class="media">
+            <slot name="media"></slot>
+          </div>
+
           <div class="footer">
             <p class="text-normal textcolor-secondary">
               <span style="white-space: nowrap;">¿Tenés algún proyecto en mente?</span>
@@ -63,7 +59,10 @@ export class AppProfileModal extends LitElement {
               <br />Estaré encantado en resolver cualquier inquietud.
             </p>
             <div class="buttons">
-              <button @click="${this._handleProvideResume}"><span style="white-space: nowrap">CV</span></button>
+              <button @click="${this._handleProvideResume}">
+                <span style="white-space: nowrap">Curriculúm Vitae</span>
+              </button>
+              <div style="width: 1rem"></div>
               <button @click="${this._handleProvideContact}">CONTACTAR</button>
             </div>
           </div>
