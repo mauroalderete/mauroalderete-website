@@ -1,13 +1,36 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es-AR">
   <head>
     <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href="/vite.svg" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Vite + TS</title>
+    <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1.0" />
+    <title>Mauro Alderete</title>
   </head>
   <body>
-    <div id="app"></div>
+    <home-page></home-page>
+
+    <script>
+      function calculateVh() {
+        var vh = window.innerHeight * 0.01;
+        document.documentElement.style.setProperty('--vh', vh + 'px');
+      }
+
+      // Initial calculation
+      calculateVh();
+
+      // Re-calculate on resize
+      window.addEventListener('resize', calculateVh);
+
+      // Re-calculate on device orientation change
+      window.addEventListener('orientationchange', calculateVh);
+    </script>
+
+    <script type="module" src="/src/app-modal/app-modal.ts"></script>
+    <script type="module" src="/src/app-profile-modal/app-profile-modal.ts"></script>
+    <script type="module" src="/src/app-social-icon/app-social-icon.ts"></script>
+    <script type="module" src="/src/app-profile-card/app-profile-card.ts"></script>
+    <script type="module" src="/src/pages/home-page/home-page.ts"></script>
+    <script type="module" src="/src/app-front/app-front.ts"></script>
     <script type="module" src="/src/main.ts"></script>
   </body>
 </html>
