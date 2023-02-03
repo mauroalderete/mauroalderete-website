@@ -14,16 +14,37 @@
 }
 
 /* #endregion */
-/* #region layouts */
+/* #region container */
 
-.svg {
+.container {
   width: 100%;
   height: 100%;
+}
 
-  background-color: var(--inner-light-off-color);
-  backdrop-filter: blur(10px);
+.container:hover {
+  cursor: pointer;
+}
+
+.background {
+  width: 90%;
+  height: 90%;
+
+  position: absolute;
+
+  left: 5%;
+  top: 5%;
 
   border-radius: 5rem;
+
+  background-color: var(--inner-light-on-color);
+}
+
+/* #endregion */
+/* #region icon*/
+
+.icon {
+  width: 100%;
+  height: 100%;
 
   -webkit-filter: drop-shadow(0rem 0rem 0.2rem var(--inner-low-shadow));
   filter: drop-shadow(0rem 0rem 0.2rem var(--inner-low-shadow));
@@ -32,38 +53,25 @@
   transition-delay: 0;
   transition-timing-function: var(--inner-transition-function);
   transition-duration: 0.4s;
+
+  z-index: 2;
 }
 
-.svg img {
+.icon img {
   width: 100%;
   height: 100%;
-
-  filter: var(--inner-fill-filter);
 
   transition-property: all;
   transition-delay: 0;
   transition-timing-function: var(--inner-transition-function);
   transition-duration: 0.2s;
+
+  z-index: 2;
 }
 
-/* #endregion */
-/* #region hover */
-
-:host(:hover) {
-  cursor: pointer;
+.icon:hover {
+  -webkit-filter: drop-shadow(0rem 0rem 1rem var(--inner-high-shadow));
+  filter: drop-shadow(0rem 0rem 1rem var(--inner-high-shadow));
 }
 
-:host(:hover) .svg {
-  background-color: var(--inner-light-on-color);
-
-  box-shadow: 0rem 0rem 3rem var(--inner-high-shadow);
-
-  -webkit-filter: drop-shadow(0rem 0rem 2rem var(--inner-high-shadow));
-  filter: drop-shadow(0rem 0rem 2rem var(--inner-high-shadow));
-}
-
-:host(:hover) .svg img {
-  filter: none;
-}
-
-/* #endregion */
+/* #endregion*/

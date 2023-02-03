@@ -32,8 +32,11 @@ export class AppSocialIcon extends LitElement {
 
   render() {
     return html`
-      <div class="svg">
-        <img src="${this.src}" alt="${this.name}" />
+      <div class="container">
+        <div class="background"></div>
+        <div class="icon">
+          <img src="${this.src}" alt="${this.name}" />
+        </div>
       </div>
     `;
   }
