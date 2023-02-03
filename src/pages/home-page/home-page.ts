@@ -1,13 +1,12 @@
 import { LitElement, html, unsafeCSS, css } from 'lit';
 import { customElement } from 'lit/decorators.js';
-import { AppModal } from '../app-modal/app-modal';
-
+import { mdiPlay } from '@mdi/js';
 /*eslint-disable */
-import style from './app-front.css?inline' assert { type: 'css' };
+import style from './home-page.css?inline' assert { type: 'css' };
 /*eslint-enable */
 
-@customElement('app-front')
-export class AppFront extends LitElement {
+@customElement('home-page')
+export class HomePage extends LitElement {
   static styles = css`
     ${unsafeCSS(style)}
   `;
@@ -18,30 +17,61 @@ export class AppFront extends LitElement {
 
   render() {
     return html`
-      <div class="container">
-        <section class="welcome">
-          <div class="welcome-content">
-            <div class="fadeUp" style="margin-bottom: 1.5rem;">
-              <span class="text-normal textcolor-accent">Hola, mi nombre es</span>
+      <div class="page">
+        <div class="background"></div>
+        <div class="layout">
+          <div class="socialbar">
+            <app-social-icon
+              name="twitter"
+              target="https://twitter.com/_mauroalderete"
+              src="/twitter.svg"
+            ></app-social-icon>
+            <div></div>
+            <app-social-icon
+              name="linkedin"
+              target="https://www.linkedin.com/in/mauroalderete/"
+              src="/linkedin.svg"
+            ></app-social-icon>
+            <div></div>
+            <app-social-icon
+              name="github"
+              target="https://github.com/mauroalderete"
+              src="/github.svg"
+            ></app-social-icon>
+            <div></div>
+            <app-social-icon
+              name="docker"
+              target="https://hub.docker.com/u/mauroalderete"
+              src="/docker.svg"
+            ></app-social-icon>
+          </div>
+          <section class="content">
+            <div class="greeting">
+              <span>Hola, mi nombre es</span>
             </div>
-            <div class="fadeUp fadeUp-1" style="margin-bottom: 0.5rem;">
-              <span class="text-title textcolor-primary">Mauro Alderete</span>
+            <div class="title">
+              <span>Mauro Alderete</span>
             </div>
-            <div class="fadeUp fadeUp-2" style="margin-bottom: 1rem;">
-              <span class="text-title textcolor-secondary">
-                <span style="white-space: nowrap">Desarrollo software y</span>
-                brindo mentorías
-              </span>
+            <div class="subtitle">
+              <span> Desarrollo software y brindo mentorías </span>
             </div>
-            <div class="fadeUp fadeUp-3">
-              <p class="text-normal textcolor-secondary">
+            <div>
+              <p>
                 Soy un profesional apasionado por la tecnología y la ingeniería del software. Busco en cada proyecto
                 generar un valor agregado que impacte en la calidad de vida de las personas. Me entusiasma mucho
                 aprender cosas nuevas y compartir mi experiencia.
               </p>
             </div>
+          </section>
+          <div class="next">
+            <div class="button">
+              <svg viewBox="0 0 24 24">
+                <path d="${mdiPlay}" />
+              </svg>
+              <div class="ring"></div>
+            </div>
           </div>
-        </section>
+        </div>
       </div>
     `;
   }
@@ -55,7 +85,30 @@ export class AppFront extends LitElement {
 }
 
 /*
-
+<section class="welcome">
+            <div class="welcome-content">
+              <div class="fadeUp" style="margin-bottom: 1.5rem;">
+                <span class="text-normal textcolor-accent">Hola, mi nombre es</span>
+              </div>
+              <div class="fadeUp fadeUp-1" style="margin-bottom: 0.5rem;">
+                <span class="text-title textcolor-primary">Mauro Alderete</span>
+              </div>
+              <div class="fadeUp fadeUp-2" style="margin-bottom: 1rem;">
+                <span class="text-title textcolor-secondary">
+                  <span style="white-space: nowrap">Desarrollo software y</span>
+                  brindo mentorías
+                </span>
+              </div>
+              <div class="fadeUp fadeUp-3">
+                <p class="text-normal textcolor-secondary">
+                  Soy un profesional apasionado por la tecnología y la ingeniería del software. Busco en cada proyecto
+                  generar un valor agregado que impacte en la calidad de vida de las personas. Me entusiasma mucho
+                  aprender cosas nuevas y compartir mi experiencia.
+                </p>
+              </div>
+            </div>
+          </section>
+          
 
 <div class="social-icons hide">
             <app-social-icon

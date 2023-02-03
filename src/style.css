@@ -7,12 +7,20 @@
 
 :root {
   font-family: 'Monserrat', sans-serif;
-  line-height: 24px;
-  font-weight: 400;
+  line-height: 1.5em;
+  font-weight: 300;
 
   color-scheme: light dark;
   color: rgba(255, 255, 255, 0.87);
   background-color: #242424;
+
+  --animation-function: ease-in-out;
+
+  --primary-color: rgb(100, 255, 218);
+  --primary-color-80: rgb(100, 255, 218, 0.8);
+
+  --primary-text-color: #8892b0;
+  --primary-text-color-light: #ccd6f6;
 }
 
 /* #endregion */
@@ -22,10 +30,12 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+
+  color: var(--primary-text-color);
 }
 
 html {
-  font-size: 16px;
+  font-size: 12pt;
 }
 
 /* #endregion */
@@ -41,6 +51,13 @@ html {
 /* #endregion */
 /* #region principal media queries */
 
+@media (max-width: 320px) {
+  html {
+    font-size: 11pt;
+  }
+}
+
+/* 
 @media (max-width: 2560px) {
   html {
     font-size: 16px;
@@ -87,6 +104,6 @@ html {
   html {
     font-size: 5px;
   }
-}
+} */
 
 /* #endregion */
