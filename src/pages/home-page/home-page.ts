@@ -3,6 +3,7 @@ import { customElement } from 'lit/decorators.js';
 import { mdiPlay } from '@mdi/js';
 /*eslint-disable */
 import style from './home-page.css?inline' assert { type: 'css' };
+import { AnimationController } from './animation-controller';
 /*eslint-enable */
 
 @customElement('home-page')
@@ -11,8 +12,16 @@ export class HomePage extends LitElement {
     ${unsafeCSS(style)}
   `;
 
+  animationController: AnimationController;
+
   constructor() {
     super();
+
+    this.animationController = new AnimationController();
+  }
+
+  firstUpdated(): void {
+    this._handleWindowLoaded();
   }
 
   render() {
@@ -74,6 +83,15 @@ export class HomePage extends LitElement {
         </div>
       </div>
     `;
+  }
+
+  private _handleWindowLoaded() {
+    console.log('_handleWindowLoaded::begin');
+
+    if (!this.shadowRoot) {
+      return;
+    }
+    this.animationController.Start(this.shadowRoot);
   }
 
   // private _handleProfileCardClick(event: CustomEvent) {

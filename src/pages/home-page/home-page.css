@@ -88,7 +88,7 @@
   }
 }
 
-.socialbar app-social-icon {
+.anim-social-icon {
   opacity: 0;
   animation-duration: 0.4s;
   animation-timing-function: var(--animation-function);
@@ -96,20 +96,20 @@
   animation-name: fade-social-icon;
 }
 
-.socialbar app-social-icon:nth-child(1) {
-  animation-delay: calc(var(--inner-home-page-fade-delay) + var(--inner-home-page-fade-offset) * 12);
+.anim-social-icon:nth-child(1) {
+  animation-delay: calc(var(--inner-home-page-fade-delay) + var(--inner-home-page-fade-offset) * 4);
 }
 
-.socialbar app-social-icon:nth-child(3) {
-  animation-delay: calc(var(--inner-home-page-fade-delay) + var(--inner-home-page-fade-offset) * 11);
+.anim-social-icon:nth-child(3) {
+  animation-delay: calc(var(--inner-home-page-fade-delay) + var(--inner-home-page-fade-offset) * 3);
 }
 
-.socialbar app-social-icon:nth-child(5) {
-  animation-delay: calc(var(--inner-home-page-fade-delay) + var(--inner-home-page-fade-offset) * 10);
+.anim-social-icon:nth-child(5) {
+  animation-delay: calc(var(--inner-home-page-fade-delay) + var(--inner-home-page-fade-offset) * 2);
 }
 
-.socialbar app-social-icon:nth-child(7) {
-  animation-delay: calc(var(--inner-home-page-fade-delay) + var(--inner-home-page-fade-offset) * 9);
+.anim-social-icon:nth-child(7) {
+  animation-delay: calc(var(--inner-home-page-fade-delay) + var(--inner-home-page-fade-offset) * 1);
 }
 
 /* #endregion */
@@ -127,6 +127,8 @@
 
   padding-left: 1rem;
   padding-right: 1rem;
+
+  opacity: 1;
 }
 
 .greeting {
@@ -168,7 +170,7 @@ p {
   }
 }
 
-.content * {
+.anim-content {
   opacity: 0;
   animation-duration: var(--inner-home-page-fade-duration);
   animation-timing-function: var(--animation-function);
@@ -176,19 +178,19 @@ p {
   animation-name: fade-text;
 }
 
-.content *:nth-child(1) {
+.anim-content:nth-child(1) {
   animation-delay: calc(var(--inner-home-page-fade-delay) + var(--inner-home-page-fade-offset));
 }
 
-.content *:nth-child(2) {
+.anim-content:nth-child(2) {
   animation-delay: calc(var(--inner-home-page-fade-delay) + var(--inner-home-page-fade-offset) * 2);
 }
 
-.content *:nth-child(3) {
+.anim-content:nth-child(3) {
   animation-delay: calc(var(--inner-home-page-fade-delay) + var(--inner-home-page-fade-offset) * 3);
 }
 
-.content *:nth-child(4) {
+.anim-content:nth-child(4) {
   animation-delay: calc(var(--inner-home-page-fade-delay) + var(--inner-home-page-fade-offset) * 4);
 }
 
@@ -206,15 +208,6 @@ p {
   align-items: center;
 }
 
-@keyframes fade-next {
-  from {
-    opacity: 0;
-  }
-  to {
-    opacity: 1;
-  }
-}
-
 .next .button {
   width: 4rem;
   height: 4rem;
@@ -227,11 +220,24 @@ p {
   box-shadow: 0px 0px 25px 3px var(--primary-color-80);
 
   opacity: 0;
+}
+
+@keyframes fadein-next-button {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.fadein-next-button {
+  opacity: 0;
   animation-duration: 2s;
-  animation-delay: 3s;
+  animation-delay: 0s;
   animation-timing-function: var(--animation-function);
   animation-fill-mode: forwards;
-  animation-name: fade-next;
+  animation-name: fadein-next-button;
 }
 
 .next .button svg {
@@ -247,18 +253,21 @@ p {
 
   position: absolute;
 
-  opacity: 1;
   border-radius: 50%;
   border: 5px solid rgba(255, 255, 255, 0.75);
   top: -5px;
   left: -5px;
-  transform: scale(0.8);
 
-  animation-delay: 8s;
-  animation: pulsate 2s;
+  opacity: 0;
+}
+
+.pulsate-next-button {
+  animation-delay: 0s;
+  animation-duration: 2s;
   animation-direction: forwards;
   animation-iteration-count: infinite;
   animation-timing-function: var(--animation-function);
+  animation-name: pulsate;
 }
 
 @keyframes pulsate {
