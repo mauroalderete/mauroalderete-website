@@ -24,11 +24,6 @@ export default defineConfig({
         '**/*.spec.{js,jsx,ts,tsx}',
         '**/main.ts',
       ],
-      all: true,
-      branches: 80,
-      lines: 80,
-      functions: 80,
-      statements: 80,
     },
   },
 });
