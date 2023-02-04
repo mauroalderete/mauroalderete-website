@@ -126,5 +126,19 @@ class NextButtonPulsateAnimationState extends State {
     }
 
     ring?.classList.add('pulsate-next-button');
+
+    const button = (<AnimationContext>this.context).shadowRoot.querySelector('.next .button');
+
+    if (!button) {
+      return;
+    }
+
+    button.addEventListener('mouseover', () => {
+      ring?.classList.remove('pulsate-next-button');
+    });
+
+    button.addEventListener('mouseleave', () => {
+      ring?.classList.add('pulsate-next-button');
+    });
   }
 }

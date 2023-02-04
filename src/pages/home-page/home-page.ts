@@ -71,6 +71,7 @@ export class HomePage extends LitElement {
           </section>
           <div class="next">
             <div class="button">
+              <div class="state-layer"></div>
               <svg viewBox="0 0 24 24">
                 <path d="${mdiPlay}" />
               </svg>
