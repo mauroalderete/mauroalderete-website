@@ -15,47 +15,63 @@ export class AppSocialIcon extends LitElement {
   name: string;
 
   @property()
-  target: string;
+  url: string;
 
   @property()
-  src: string;
+  icon: string;
+
+  container?: HTMLElement;
+  listenClick: boolean;
 
   constructor() {
     super();
 
     this.name = 'social';
-    this.target = '#';
-    this.src = '';
+    this.url = '#';
+    this.icon = '';
 
-    this.addEventListener('click', this._handleClick);
+    this.listenClick = false;
+  }
+
+  public firstUpdated(): void {
+    this.container = <HTMLElement>this.shadowRoot?.querySelector('.container');
+
+    this.addEventListener('click', () => this._handleClick());
+    this.listenClick = true;
   }
 
   render() {
     return html`
       <div class="container">
-        <div class="background"></div>
-        <div class="icon">
-          <img src="${this.src}" alt="${this.name}" />
-        </div>
+        <div class="state-layer"></div>
+        <svg class="icon" viewBox="0 0 24 24">
+          <path d="${this.icon}" />
+        </svg>
       </div>
     `;
   }
 
   _handleClick() {
-    this.emitClick();
-    window.open(this.target, '_blank');
-  }
+    if (!this.container) {
+      return;
+    }
 
-  emitClick() {
-    const event = new CustomEvent('click', {
-      bubbles: true,
-      composed: true,
-      detail: {
-        name: this.name,
-        target: this.target,
-        src: this.src,
-      },
-    });
-    this.dispatchEvent(event);
+    if (!this.listenClick) {
+      return;
+    }
+
+    console.log('clicked!!!');
+    this.listenClick = false;
+
+    this.container?.classList.add('anim-click');
+
+    const timeout = setTimeout(() => {
+      this.container?.classList.remove('anim-click');
+      clearTimeout(timeout);
+
+      window.open(this.url, '_blank');
+
+      this.listenClick = true;
+    }, 500);
   }
 }

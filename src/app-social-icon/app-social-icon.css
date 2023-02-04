@@ -19,24 +19,110 @@
 .container {
   width: 100%;
   height: 100%;
+
+  position: absolute;
+
+  border-radius: 50%;
+  border: none;
+
+  background-color: var(--primary-color-40);
+  box-shadow: var(--elevation-shadow-level2);
+
+  padding: 30%;
+
+  transition: box-shadow, transform var(--motion-duration-medium1) cubic-bezier(var(--motion-easing-emphasized));
+}
+
+.container::before,
+.container::after {
+  content: '';
+  position: absolute;
+  top: 2%;
+  left: 2%;
+  width: 90%;
+  height: 90%;
+  border-radius: 50%;
+  border: 2px solid transparent;
+  filter: blur(0);
+  transform-origin: 50%;
+  z-index: -1;
+}
+
+.container::before {
+  animation-delay: 0s;
+}
+
+.container::after {
+  animation-delay: var(--motion-duration-short4);
 }
 
 .container:hover {
   cursor: pointer;
+
+  box-shadow: var(--elevation-shadow-level5);
+  transform: scale(var(--elevation-scale-level3));
 }
 
-.background {
-  width: 90%;
-  height: 90%;
+.container:hover .state-layer {
+  background-color: var(--primary-color-hover);
+}
+
+@keyframes anim-click-color {
+  0% {
+    border-color: rgba(var(--elevation-shadow-color), 0.7);
+  }
+  100% {
+    border-color: transparent;
+  }
+}
+
+@keyframes anim-click-blur {
+  0% {
+    filter: blur(0);
+  }
+  100% {
+    filter: blur(2px);
+  }
+}
+
+@keyframes anim-click-scale {
+  0% {
+    transform: scale(1);
+  }
+  100% {
+    transform: scale(2);
+  }
+}
+
+.container.anim-click::before,
+.container.anim-click::after {
+  animation-timing-function: cubic-bezier(var(--motion-easing-emphasized)),
+    cubic-bezier(var(--motion-easing-emphasized)), cubic-bezier(var(--motion-easing-emphasized));
+  animation-duration: var(--motion-duration-extra4), calc(var(--motion-duration-extra4) * 2),
+    var(--motion-duration-extra3);
+  animation-fill-mode: forwards, forwards, forwards;
+  animation-name: anim-click-scale, anim-click-blur, anim-click-color;
+}
+
+/* #endregion */
+/* #region state-layer */
+
+.state-layer {
+  width: inherit;
+  height: inherit;
 
   position: absolute;
+  top: 0;
+  left: 0;
 
-  left: 5%;
-  top: 5%;
+  border: inherit;
+  border-radius: inherit;
 
-  border-radius: 5rem;
+  z-index: 2;
 
-  background-color: var(--inner-light-on-color);
+  background-color: transparent;
+
+  transition: background-color var(--motion-duration-medium1) cubic-bezier(var(--motion-easing-emphasized));
 }
 
 /* #endregion */
@@ -46,32 +132,11 @@
   width: 100%;
   height: 100%;
 
-  -webkit-filter: drop-shadow(0rem 0rem 0.2rem var(--inner-low-shadow));
-  filter: drop-shadow(0rem 0rem 0.2rem var(--inner-low-shadow));
+  position: relative;
 
-  transition-property: all;
-  transition-delay: 0;
-  transition-timing-function: var(--inner-transition-function);
-  transition-duration: 0.4s;
+  fill: var(--on-primary-color-100);
 
   z-index: 2;
-}
-
-.icon img {
-  width: 100%;
-  height: 100%;
-
-  transition-property: all;
-  transition-delay: 0;
-  transition-timing-function: var(--inner-transition-function);
-  transition-duration: 0.2s;
-
-  z-index: 2;
-}
-
-.icon:hover {
-  -webkit-filter: drop-shadow(0rem 0rem 1rem var(--inner-high-shadow));
-  filter: drop-shadow(0rem 0rem 1rem var(--inner-high-shadow));
 }
 
 /* #endregion*/
