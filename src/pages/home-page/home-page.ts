@@ -23,6 +23,20 @@ export class HomePage extends LitElement {
 
   firstUpdated(): void {
     this._handleWindowLoaded();
+
+    const button = this.shadowRoot?.querySelector('.next .button');
+    if (!button) {
+      return;
+    }
+    button.addEventListener('click', () => {
+      button.classList.add('anim-click');
+
+      const timeout = setTimeout(() => {
+        button.classList.remove('anim-click');
+
+        clearTimeout(timeout);
+      }, 850);
+    });
   }
 
   render() {
@@ -71,6 +85,7 @@ export class HomePage extends LitElement {
           </section>
           <div class="next">
             <div class="button">
+              <div class="state-layer"></div>
               <svg viewBox="0 0 24 24">
                 <path d="${mdiPlay}" />
               </svg>
@@ -83,8 +98,6 @@ export class HomePage extends LitElement {
   }
 
   private _handleWindowLoaded() {
-    console.log(mdiPlay);
-
     if (!this.shadowRoot) {
       return;
     }

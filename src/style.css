@@ -21,43 +21,69 @@
 
   --green-primary-color-key: hsl(166, 100%, 50%);
   --green-primary-color-40: hsl(166, 100%, 40%);
+  --green-primary-color-40-compose: 166, 100%, 40%;
   --green-primary-color-40-70: hsla(166, 100%, 40%, 0.7);
+  --green-primary-color-40-80: hsla(166, 100%, 40%, 0.8);
   --green-primary-color-hover: rgba(0, 0, 0, 0.1);
 
   --green-on-primary-color-100: hsl(166, 10%, 50%);
+  --green-on-primary-color-100-75: hsla(166, 10%, 50%, 0.75);
   --green-on-primary-color-10: hsl(166, 10%, 10%);
 
   /* valorant theme */
   --valorant-primary-color-key: hsl(355, 100%, 50%);
   --valorant-primary-color-40: hsl(355, 100%, 64%);
+  --valorant-primary-color-40-compose: 355, 100%, 64%;
   --valorant-primary-color-40-70: hsla(355, 100%, 64%, 0.7);
+  --valorant-primary-color-40-80: hsla(355, 100%, 64%, 0.8);
   --valorant-primary-color-hover: rgba(0, 0, 0, 0.1);
 
   --valorant-on-primary-color-100: hsl(0, 0%, 100%);
+  --valorant-on-primary-color-100-75: hsla(0, 0%, 100%, 0.75);
   --valorant-on-primary-color-10: hsl(0, 0%, 10%);
-  --valorant-on-primary-color-10-70: hsla(0, 0%, 10%, 0.7);
 
-  /*#0d141e
+  --valorant-secondary-color-key: hsl(208, 40%, 50%);
+  --valorant-secondary-color-40: hsl(208, 40%, 40%);
+  --valorant-secondary-color-10: hsl(208, 40%, 10%);
 
-  #10151f
+  --valorant-on-secondary-color-100: hsl(0, 0%, 100%);
+  --valorant-on-secondary-color-10: hsl(0, 0%, 10%);
 
-  #0f1922
-  */
+  --valorant-tertiary-color-key: hsl(225, 20%, 50%);
+  --valorant-tertiary-color-40: hsl(225, 20%, 40%);
+  --valorant-tertiary-color-10: hsl(225, 20%, 10%);
+
+  --valorant-on-tertiary-color-100: hsl(0, 0%, 0%);
+  --valorant-on-tertiary-color-10: hsl(0, 0%, 90%);
+
+  /*7683a9*/
 
   /* selected */
 
   --primary-color-key: var(--valorant-primary-color-key);
   --primary-color-40: var(--valorant-primary-color-40);
+  --primary-color-40-compose: var(--valorant-primary-color-40-compose);
   --primary-color-40-70: var(--valorant-primary-color-40-70);
+  --primary-color-40-80: var(--valorant-primary-color-40-80);
   --primary-color-hover: var(--valorant-primary-color-hover);
 
   --on-primary-color-100: var(--valorant-on-primary-color-100);
+  --on-primary-color-100-75: var(--valorant-on-primary-color-100-75);
   --on-primary-color-10: var(--valorant-on-primary-color-10);
 
-  --primary-color-alpha-80: hsla(166, 100%, 50%, 0.8);
+  --secondary-color-key: var(--valorant-secondary-color-key);
+  --secondary-color-40: var(--valorant-secondary-color-40);
+  --secondary-color-10: var(--valorant-secondary-color-10);
 
-  --primary-text-color: #8892b0;
-  --primary-text-color-white: #ccd6f6;
+  --on-secondary-color-100: var(--valorant-on-secondary-color-100);
+  --on-secondary-color-10: var(--valorant-on-secondary-color-10);
+
+  --tertiary-color-key: var(--valorant-tertiary-color-key);
+  --tertiary-color-40: var(--valorant-tertiary-color-40);
+  --tertiary-color-10: var(--valorant-tertiary-color-10);
+
+  --on-tertiary-color-100: var(--valorant-on-tertiary-color-100);
+  --on-tertiary-color-10: var(--valorant-on-tertiary-color-10);
 
   /* shadow */
 
@@ -67,8 +93,8 @@
   --elevation-shadow-key-penumbra-opacity: 0.14;
   --elevation-shadow-ambient-shadow-opacity: 0.12;
 
-  --elevation-shadow-umbra: rgba(var(--elevation-shadow-color), var(--elevation-shadow-key-umbra-opacity));
   --elevation-shadow-penumbra: rgba(var(--elevation-shadow-color), var(--elevation-shadow-key-penumbra-opacity));
+  --elevation-shadow-umbra: rgba(var(--elevation-shadow-color), var(--elevation-shadow-key-umbra-opacity));
   --elevation-shadow-ambient: rgba(var(--elevation-shadow-color), var(--elevation-shadow-ambient-shadow-opacity));
 
   --elevation-shadow-level0: none;

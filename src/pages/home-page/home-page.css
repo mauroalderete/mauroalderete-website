@@ -132,12 +132,12 @@
 }
 
 .greeting {
-  color: var(--primary-color);
+  color: var(--primary-color-40);
   margin-bottom: 1rem;
 }
 
 .title {
-  color: var(--primary-text-color-light);
+  color: var(--on-primary-color-100);
 
   font-size: 3rem;
   font-weight: 600;
@@ -147,6 +147,8 @@
 }
 
 .subtitle {
+  color: var(--tertiary-color-key);
+
   font-size: 2.5rem;
   font-weight: 300;
   line-height: 1.1em;
@@ -155,6 +157,8 @@
 }
 
 p {
+  color: var(--tertiary-color-key);
+
   margin-top: 0rem;
   margin-bottom: 0rem;
 }
@@ -215,11 +219,76 @@ p {
   position: relative;
   display: block;
 
-  background: radial-gradient(var(--primary-color-80) 60%, rgba(255, 255, 255, 1) 62%);
+  background: radial-gradient(var(--primary-color-40-80) 60%, rgba(255, 255, 255, 1) 62%);
   border-radius: 50%;
-  box-shadow: 0px 0px 25px 3px var(--primary-color-80);
+
+  box-shadow: var(--elevation-shadow-level0);
 
   opacity: 0;
+
+  transition: box-shadow, transform var(--motion-duration-extra4) cubic-bezier(var(--motion-easing-emphasized));
+}
+
+.next .button:hover {
+  cursor: pointer;
+
+  box-shadow: 0 9px 46px 8px hsla(var(--primary-color-40-compose), var(--elevation-shadow-key-penumbra-opacity)),
+    0 24px 38px 3px hsla(var(--primary-color-40-compose), var(--elevation-shadow-key-umbra-opacity)),
+    0 11px 15px -7px hsla(var(--primary-color-40-compose), var(--elevation-shadow-ambient-shadow-opacity));
+
+  transform: scale(var(--elevation-scale-level7));
+}
+
+.next .button::before {
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  left: 0;
+  top: 0;
+  background-color: var(--primary-color-40);
+  border-radius: 50%;
+  opacity: 0;
+  z-index: -1;
+}
+
+.next .button.anim-click::before {
+  animation-timing-function: cubic-bezier(var(--motion-easing-emphasized));
+  animation-duration: var(--motion-duration-extra4);
+  animation-name: anim-click;
+}
+
+@keyframes anim-click {
+  from {
+    opacity: 1;
+    transform: scale(0);
+  }
+  to {
+    opacity: 0;
+    transform: scale(3);
+  }
+}
+
+.state-layer {
+  width: inherit;
+  height: inherit;
+
+  position: absolute;
+  top: 0;
+  left: 0;
+
+  border: inherit;
+  border-radius: inherit;
+
+  z-index: 2;
+
+  background-color: transparent;
+
+  transition: background-color var(--motion-duration-extra4) cubic-bezier(var(--motion-easing-emphasized));
+}
+
+.next .button:hover .state-layer {
+  background-color: var(--primary-color-hover);
 }
 
 @keyframes fadein-next-button {
@@ -244,7 +313,7 @@ p {
   width: 100%;
   height: 100%;
 
-  fill: #fff;
+  fill: var(--on-primary-color-100);
 }
 
 .next .button .ring {
@@ -254,7 +323,7 @@ p {
   position: absolute;
 
   border-radius: 50%;
-  border: 5px solid rgba(255, 255, 255, 0.75);
+  border: 5px solid var(--on-primary-color-100-75);
   top: -5px;
   left: -5px;
 
