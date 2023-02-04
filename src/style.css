@@ -17,14 +17,44 @@
 
   /* colors */
 
-  --primary-color-key: hsl(166, 100%, 50%);
-  --primary-color-40: hsl(166, 100%, 40%);
+  /* green theme */
 
-  --on-primary-color-key: hsl(166, 10%, 50%);
-  --on-primary-color-10: hsl(166, 10%, 10%);
+  --green-primary-color-key: hsl(166, 100%, 50%);
+  --green-primary-color-40: hsl(166, 100%, 40%);
+  --green-primary-color-40-70: hsla(166, 100%, 40%, 0.7);
+  --green-primary-color-hover: rgba(0, 0, 0, 0.1);
+
+  --green-on-primary-color-100: hsl(166, 10%, 50%);
+  --green-on-primary-color-10: hsl(166, 10%, 10%);
+
+  /* valorant theme */
+  --valorant-primary-color-key: hsl(355, 100%, 50%);
+  --valorant-primary-color-40: hsl(355, 100%, 64%);
+  --valorant-primary-color-40-70: hsla(355, 100%, 64%, 0.7);
+  --valorant-primary-color-hover: rgba(0, 0, 0, 0.1);
+
+  --valorant-on-primary-color-100: hsl(0, 0%, 100%);
+  --valorant-on-primary-color-10: hsl(0, 0%, 10%);
+  --valorant-on-primary-color-10-70: hsla(0, 0%, 10%, 0.7);
+
+  /*#0d141e
+
+  #10151f
+
+  #0f1922
+  */
+
+  /* selected */
+
+  --primary-color-key: var(--valorant-primary-color-key);
+  --primary-color-40: var(--valorant-primary-color-40);
+  --primary-color-40-70: var(--valorant-primary-color-40-70);
+  --primary-color-hover: var(--valorant-primary-color-hover);
+
+  --on-primary-color-100: var(--valorant-on-primary-color-100);
+  --on-primary-color-10: var(--valorant-on-primary-color-10);
 
   --primary-color-alpha-80: hsla(166, 100%, 50%, 0.8);
-  --primary-color-hover: rgba(0, 0, 0, 0.1);
 
   --primary-text-color: #8892b0;
   --primary-text-color-white: #ccd6f6;

@@ -134,7 +134,7 @@
 
   position: relative;
 
-  fill: var(--on-primary-color-10);
+  fill: var(--on-primary-color-100);
 
   z-index: 2;
 }
