@@ -7,7 +7,6 @@
 
 :root {
   font-family: 'Monserrat', sans-serif;
-  line-height: 1.5em;
   font-weight: 300;
 
   color-scheme: light dark;
@@ -16,11 +15,93 @@
 
   --animation-function: ease-in-out;
 
-  --primary-color: rgb(100, 255, 218);
-  --primary-color-80: rgb(100, 255, 218, 0.8);
+  /* colors */
+
+  --primary-color-key: hsl(166, 100%, 50%);
+  --primary-color-40: hsl(166, 100%, 40%);
+
+  --on-primary-color-key: hsl(166, 10%, 50%);
+  --on-primary-color-10: hsl(166, 10%, 10%);
+
+  --primary-color-alpha-80: hsla(166, 100%, 50%, 0.8);
+  --primary-color-hover: rgba(0, 0, 0, 0.1);
 
   --primary-text-color: #8892b0;
-  --primary-text-color-light: #ccd6f6;
+  --primary-text-color-white: #ccd6f6;
+
+  /* shadow */
+
+  --elevation-shadow-color: 255, 255, 255;
+
+  --elevation-shadow-key-umbra-opacity: 0.2;
+  --elevation-shadow-key-penumbra-opacity: 0.14;
+  --elevation-shadow-ambient-shadow-opacity: 0.12;
+
+  --elevation-shadow-umbra: rgba(var(--elevation-shadow-color), var(--elevation-shadow-key-umbra-opacity));
+  --elevation-shadow-penumbra: rgba(var(--elevation-shadow-color), var(--elevation-shadow-key-penumbra-opacity));
+  --elevation-shadow-ambient: rgba(var(--elevation-shadow-color), var(--elevation-shadow-ambient-shadow-opacity));
+
+  --elevation-shadow-level0: none;
+
+  --elevation-shadow-level1: 0 2px 2px 0 var(--elevation-shadow-penumbra), 0 3px 1px -2px var(--elevation-shadow-umbra),
+    0 1px 5px 0 var(--elevation-shadow-ambient);
+
+  --elevation-shadow-level2: 0 3px 4px 0 var(--elevation-shadow-penumbra), 0 3px 3px -2px var(--elevation-shadow-umbra),
+    0 1px 8px 0 var(--elevation-shadow-ambient);
+
+  --elevation-shadow-level3: 0 4px 5px 0 var(--elevation-shadow-penumbra), 0 2px 4px -1px var(--elevation-shadow-umbra),
+    0 1px 10px 0 var(--elevation-shadow-ambient);
+
+  --elevation-shadow-level4: 0 6px 10px 0 var(--elevation-shadow-penumbra), 0 3px 5px -1px var(--elevation-shadow-umbra),
+    0 1px 18px 0 var(--elevation-shadow-ambient);
+
+  --elevation-shadow-level5: 0 8px 10px 1px var(--elevation-shadow-penumbra),
+    0 5px 5px -3px var(--elevation-shadow-umbra), 0 3px 14px 2px var(--elevation-shadow-ambient);
+
+  --elevation-shadow-level6: 0 16px 24px 2px var(--elevation-shadow-penumbra),
+    0 8px 10px -5px var(--elevation-shadow-umbra), 0 6px 30px 5px var(--elevation-shadow-ambient);
+
+  --elevation-shadow-level7: 0 9px 46px 8px var(--elevation-shadow-penumbra),
+    0 24px 38px 3px var(--elevation-shadow-umbra), 0 11px 15px -7px var(--elevation-shadow-ambient);
+
+  --elevation-scale-level0: 1;
+  --elevation-scale-level1: 1.05;
+  --elevation-scale-level2: 1.11;
+  --elevation-scale-level3: 1.13;
+  --elevation-scale-level4: 1.23;
+  --elevation-scale-level5: 1.31;
+  --elevation-scale-level6: 1.47;
+  --elevation-scale-level7: 1.61;
+
+  /* animations */
+
+  --motion-duration-short1: 0.05s;
+  --motion-duration-short2: 0.1s;
+  --motion-duration-short3: 0.15s;
+  --motion-duration-short4: 0.2s;
+  --motion-duration-medium1: 0.25s;
+  --motion-duration-medium2: 0.3s;
+  --motion-duration-medium3: 0.35s;
+  --motion-duration-medium4: 0.4s;
+  --motion-duration-long1: 0.45s;
+  --motion-duration-long2: 0.5s;
+  --motion-duration-long3: 0.55s;
+  --motion-duration-long4: 0.6s;
+  --motion-duration-extra1: 0.7s;
+  --motion-duration-extra2: 0.8s;
+  --motion-duration-extra3: 0.9s;
+  --motion-duration-extra4: 1s;
+
+  --motion-easing-linear: 0, 0, 1, 1;
+  --motion-easing-standard: 0.2, 0, 0, 1;
+  --motion-easing-standard-accelerate: 0.3, 0, 1, 1;
+  --motion-easing-standard-decelerate: 0, 0, 0, 1;
+  --motion-easing-emphasized: 0.2, 0, 0, 1;
+  --motion-easing-emphasized-decelerate: 0.05, 0.7, 0.1, 1;
+  --motion-easing-emphasized-accelerate: 0.3, 0, 0.8, 0.15;
+  --motion-easing-legacy: 0.4, 0, 0.2, 1;
+  --motion-easing-legacy-decelerate: 0, 0, 0.2, 1;
+  --motion-easing-legacy-accelerate: 0.4, 0, 1, 1;
 }
 
 /* #endregion */
@@ -36,16 +117,6 @@
 
 html {
   font-size: 12pt;
-}
-
-/* #endregion */
-/* #region app styles */
-
-#app {
-  margin: 0;
-  padding: 0;
-
-  display: flex;
 }
 
 /* #endregion */

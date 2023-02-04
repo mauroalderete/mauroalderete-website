@@ -15,35 +15,35 @@ export class AppSocialIcon extends LitElement {
   name: string;
 
   @property()
-  target: string;
+  url: string;
 
   @property()
-  src: string;
+  icon: string;
 
   constructor() {
     super();
 
     this.name = 'social';
-    this.target = '#';
-    this.src = '';
+    this.url = '#';
+    this.icon = '';
 
-    this.addEventListener('click', this._handleClick);
+    this.addEventListener('click', () => this._handleClick());
   }
 
   render() {
     return html`
       <div class="container">
-        <div class="background"></div>
-        <div class="icon">
-          <img src="${this.src}" alt="${this.name}" />
-        </div>
+        <div class="state-layer"></div>
+        <svg class="icon" viewBox="0 0 24 24">
+          <path d="${this.icon}" />
+        </svg>
       </div>
     `;
   }
 
   _handleClick() {
     this.emitClick();
-    window.open(this.target, '_blank');
+    window.open(this.url, '_blank');
   }
 
   emitClick() {
@@ -52,8 +52,8 @@ export class AppSocialIcon extends LitElement {
       composed: true,
       detail: {
         name: this.name,
-        target: this.target,
-        src: this.src,
+        target: this.url,
+        src: this.icon,
       },
     });
     this.dispatchEvent(event);

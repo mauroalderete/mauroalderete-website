@@ -1,6 +1,7 @@
 import { LitElement, html, unsafeCSS, css } from 'lit';
 import { customElement } from 'lit/decorators.js';
-import { mdiPlay } from '@mdi/js';
+import { mdiPlay, mdiDocker, mdiGithub, mdiLinkedin, mdiTwitter } from '@mdi/js';
+
 /*eslint-disable */
 import style from './home-page.css?inline' assert { type: 'css' };
 import { AnimationController } from './animation-controller';
@@ -32,26 +33,22 @@ export class HomePage extends LitElement {
           <div class="socialbar">
             <app-social-icon
               name="twitter"
-              target="https://twitter.com/_mauroalderete"
-              src="/twitter.svg"
+              url="https://twitter.com/_mauroalderete"
+              icon="${mdiTwitter}"
             ></app-social-icon>
             <div></div>
             <app-social-icon
               name="linkedin"
-              target="https://www.linkedin.com/in/mauroalderete/"
-              src="/linkedin.svg"
+              url="https://www.linkedin.com/in/mauroalderete/"
+              icon="${mdiLinkedin}"
             ></app-social-icon>
             <div></div>
-            <app-social-icon
-              name="github"
-              target="https://github.com/mauroalderete"
-              src="/github.svg"
-            ></app-social-icon>
+            <app-social-icon name="github" url="https://github.com/mauroalderete" icon="${mdiGithub}"></app-social-icon>
             <div></div>
             <app-social-icon
               name="docker"
-              target="https://hub.docker.com/u/mauroalderete"
-              src="/docker.svg"
+              url="https://hub.docker.com/u/mauroalderete"
+              icon="${mdiDocker}"
             ></app-social-icon>
           </div>
           <section class="content">
@@ -86,7 +83,7 @@ export class HomePage extends LitElement {
   }
 
   private _handleWindowLoaded() {
-    console.log('_handleWindowLoaded::begin');
+    console.log(mdiPlay);
 
     if (!this.shadowRoot) {
       return;
