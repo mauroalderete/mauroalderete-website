@@ -33,6 +33,29 @@
   transition: box-shadow, transform var(--motion-duration-medium1) cubic-bezier(var(--motion-easing-emphasized));
 }
 
+.container::before,
+.container::after {
+  content: '';
+  position: absolute;
+  top: 2%;
+  left: 2%;
+  width: 90%;
+  height: 90%;
+  border-radius: 50%;
+  border: 2px solid transparent;
+  filter: blur(0);
+  transform-origin: 50%;
+  z-index: -1;
+}
+
+.container::before {
+  animation-delay: 0s;
+}
+
+.container::after {
+  animation-delay: var(--motion-duration-short4);
+}
+
 .container:hover {
   cursor: pointer;
 
@@ -42,6 +65,43 @@
 
 .container:hover .state-layer {
   background-color: var(--primary-color-hover);
+}
+
+@keyframes anim-click-color {
+  0% {
+    border-color: rgba(var(--elevation-shadow-color), 0.7);
+  }
+  100% {
+    border-color: transparent;
+  }
+}
+
+@keyframes anim-click-blur {
+  0% {
+    filter: blur(0);
+  }
+  100% {
+    filter: blur(2px);
+  }
+}
+
+@keyframes anim-click-scale {
+  0% {
+    transform: scale(1);
+  }
+  100% {
+    transform: scale(2);
+  }
+}
+
+.container.anim-click::before,
+.container.anim-click::after {
+  animation-timing-function: cubic-bezier(var(--motion-easing-emphasized)),
+    cubic-bezier(var(--motion-easing-emphasized)), cubic-bezier(var(--motion-easing-emphasized));
+  animation-duration: var(--motion-duration-extra4), calc(var(--motion-duration-extra4) * 2),
+    var(--motion-duration-extra3);
+  animation-fill-mode: forwards, forwards, forwards;
+  animation-name: anim-click-scale, anim-click-blur, anim-click-color;
 }
 
 /* #endregion */

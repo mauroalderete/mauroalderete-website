@@ -20,6 +20,9 @@ export class AppSocialIcon extends LitElement {
   @property()
   icon: string;
 
+  container?: HTMLElement;
+  listenClick: boolean;
+
   constructor() {
     super();
 
@@ -27,7 +30,14 @@ export class AppSocialIcon extends LitElement {
     this.url = '#';
     this.icon = '';
 
+    this.listenClick = false;
+  }
+
+  public firstUpdated(): void {
+    this.container = <HTMLElement>this.shadowRoot?.querySelector('.container');
+
     this.addEventListener('click', () => this._handleClick());
+    this.listenClick = true;
   }
 
   render() {
@@ -42,20 +52,26 @@ export class AppSocialIcon extends LitElement {
   }
 
   _handleClick() {
-    this.emitClick();
-    window.open(this.url, '_blank');
-  }
+    if (!this.container) {
+      return;
+    }
 
-  emitClick() {
-    const event = new CustomEvent('click', {
-      bubbles: true,
-      composed: true,
-      detail: {
-        name: this.name,
-        target: this.url,
-        src: this.icon,
-      },
-    });
-    this.dispatchEvent(event);
+    if (!this.listenClick) {
+      return;
+    }
+
+    console.log('clicked!!!');
+    this.listenClick = false;
+
+    this.container?.classList.add('anim-click');
+
+    const timeout = setTimeout(() => {
+      this.container?.classList.remove('anim-click');
+      clearTimeout(timeout);
+
+      window.open(this.url, '_blank');
+
+      this.listenClick = true;
+    }, 500);
   }
 }
