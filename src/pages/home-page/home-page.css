@@ -132,12 +132,12 @@
 }
 
 .greeting {
-  color: var(--primary-color);
+  color: var(--primary-color-40);
   margin-bottom: 1rem;
 }
 
 .title {
-  color: var(--primary-text-color-light);
+  color: var(--on-primary-color-100);
 
   font-size: 3rem;
   font-weight: 600;
@@ -147,6 +147,8 @@
 }
 
 .subtitle {
+  color: var(--tertiary-color-key);
+
   font-size: 2.5rem;
   font-weight: 300;
   line-height: 1.1em;
@@ -155,6 +157,8 @@
 }
 
 p {
+  color: var(--tertiary-color-key);
+
   margin-top: 0rem;
   margin-bottom: 0rem;
 }
@@ -233,6 +237,36 @@ p {
     0 11px 15px -7px hsla(var(--primary-color-40-compose), var(--elevation-shadow-ambient-shadow-opacity));
 
   transform: scale(var(--elevation-scale-level7));
+}
+
+.next .button::before {
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  left: 0;
+  top: 0;
+  background-color: var(--primary-color-40);
+  border-radius: 50%;
+  opacity: 0;
+  z-index: -1;
+}
+
+.next .button.anim-click::before {
+  animation-timing-function: cubic-bezier(var(--motion-easing-emphasized));
+  animation-duration: var(--motion-duration-extra4);
+  animation-name: anim-click;
+}
+
+@keyframes anim-click {
+  from {
+    opacity: 1;
+    transform: scale(0);
+  }
+  to {
+    opacity: 0;
+    transform: scale(3);
+  }
 }
 
 .state-layer {
