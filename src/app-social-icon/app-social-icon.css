@@ -134,7 +134,7 @@
 
   position: relative;
 
-  fill: var(--on-primary-color-100);
+  fill: var(--primary-font-color-1);
 
   z-index: 2;
 }

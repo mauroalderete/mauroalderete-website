@@ -1,24 +1,24 @@
 /* #region import fonts */
 
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Alumni+Sans:ital,wght@0,700;1,700&family=Bai+Jamjuree:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;1,200;1,300;1,400;1,500;1,600;1,700&display=swap');
+
+@font-face {
+  font-family: 'Valorant';
+  font-style: normal;
+  font-weight: 300;
+  font-display: swap;
+  src: url(/fonts/valorant-font.ttf) format('truetype');
+}
 
 /* #endregion */
-/* #region default values */
 
 :root {
-  font-family: 'Monserrat', sans-serif;
-  font-weight: 300;
-
   color-scheme: light dark;
-  color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
 
   --animation-function: ease-in-out;
 
   /* colors */
-
-  /* green theme */
-
+  /* #region valorant theme */
   --green-primary-color-key: hsl(166, 100%, 50%);
   --green-primary-color-40: hsl(166, 100%, 40%);
   --green-primary-color-40-compose: 166, 100%, 40%;
@@ -29,18 +29,37 @@
   --green-on-primary-color-100: hsl(166, 10%, 50%);
   --green-on-primary-color-100-75: hsla(166, 10%, 50%, 0.75);
   --green-on-primary-color-10: hsl(166, 10%, 10%);
+  /* #enregion */
+  --coor: #0f1923;
+  /* #region valorant theme */
+  /* negro #0f1923 en subtitulo*/
+  /* negro en titulos de seccion #383e3a*/
+  /* font sobre boton blanco #0f1923 ---parece el negro de todo*/
+  /* font blanco en titulo #ece8e1 ---- parece el blanco de todo*/
 
-  /* valorant theme */
+  /*
+  otros negros para fondo
+  #292929
+  #111111
+
+  iconos no son redondos
+  */
+
+  --valorant-primary-font-color-1: hsl(38, 22%, 90%);
+  --valorant-secondary-font-color-1: hsl(210, 40%, 10%);
+  --valorant-secondary-font-color-2: hsl(140, 5%, 23%);
+
+  --valorant-primary-background-color-1: hsl(38, 22%, 90%);
+  --valorant-secondary-background-color-1: hsl(0, 0%, 0%);
+  --valorant-secondary-background-color-2: hsl(0, 0%, 7%);
+  --valorant-secondary-background-color-3: hsl(0, 0%, 16%);
+
   --valorant-primary-color-key: hsl(355, 100%, 50%);
   --valorant-primary-color-40: hsl(355, 100%, 64%);
   --valorant-primary-color-40-compose: 355, 100%, 64%;
   --valorant-primary-color-40-70: hsla(355, 100%, 64%, 0.7);
   --valorant-primary-color-40-80: hsla(355, 100%, 64%, 0.8);
   --valorant-primary-color-hover: rgba(0, 0, 0, 0.1);
-
-  --valorant-on-primary-color-100: hsl(0, 0%, 100%);
-  --valorant-on-primary-color-100-75: hsla(0, 0%, 100%, 0.75);
-  --valorant-on-primary-color-10: hsl(0, 0%, 10%);
 
   --valorant-secondary-color-key: hsl(208, 40%, 50%);
   --valorant-secondary-color-40: hsl(208, 40%, 40%);
@@ -56,9 +75,30 @@
   --valorant-on-tertiary-color-100: hsl(0, 0%, 0%);
   --valorant-on-tertiary-color-10: hsl(0, 0%, 90%);
 
-  /*7683a9*/
+  --valorant-primary-font: 'Valorant';
+  --valorant-secondary-font: 'Alumni Sans';
+  --valorant-tertiary-font: 'Bai Jamjuree';
+  /* #enregion */
 
-  /* selected */
+  /* #region theme selected */
+
+  --primary-font: var(--valorant-primary-font);
+  --secondary-font: var(--valorant-secondary-font);
+  --tertiary-font: var(--valorant-tertiary-font);
+
+  --primary-font-color-key: hsl(38, 22%, 100%);
+  --primary-font-color-1: hsl(38, 22%, 90%);
+  --primary-font-color-2: hsl(38, 0%, 75%);
+  --secondary-font-color-1: hsl(210, 40%, 10%);
+  --secondary-font-color-2: hsl(140, 5%, 23%);
+  --secondary-font-color-3: hsl(0, 0%, 49%);
+  --secondary-font-color-4: hsl(138, 4%, 48%);
+  --secondary-font-color-5: hsl(138, 4%, 58%);
+
+  --primary-background-color-1: hsl(38, 22%, 90%);
+  --secondary-background-color-1: hsl(0, 0%, 0%);
+  --secondary-background-color-2: hsl(0, 0%, 7%);
+  --secondary-background-color-3: hsl(0, 0%, 16%);
 
   --primary-color-key: var(--valorant-primary-color-key);
   --primary-color-40: var(--valorant-primary-color-40);
@@ -66,10 +106,6 @@
   --primary-color-40-70: var(--valorant-primary-color-40-70);
   --primary-color-40-80: var(--valorant-primary-color-40-80);
   --primary-color-hover: var(--valorant-primary-color-hover);
-
-  --on-primary-color-100: var(--valorant-on-primary-color-100);
-  --on-primary-color-100-75: var(--valorant-on-primary-color-100-75);
-  --on-primary-color-10: var(--valorant-on-primary-color-10);
 
   --secondary-color-key: var(--valorant-secondary-color-key);
   --secondary-color-40: var(--valorant-secondary-color-40);
@@ -84,6 +120,8 @@
 
   --on-tertiary-color-100: var(--valorant-on-tertiary-color-100);
   --on-tertiary-color-10: var(--valorant-on-tertiary-color-10);
+
+  /* #endregion */
 
   /* shadow */
 
@@ -168,7 +206,7 @@
   padding: 0;
   box-sizing: border-box;
 
-  color: var(--primary-text-color);
+  color: var(--primary-font-color);
 }
 
 html {
