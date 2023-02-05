@@ -1,0 +1,123 @@
+* {
+  box-sizing: border-box;
+}
+
+.container {
+  padding: 0.7rem;
+  text-align: center;
+  position: relative;
+  width: fit-content;
+}
+
+.container::after,
+.container::before {
+  content: '';
+  border-style: solid;
+  border-width: 1px;
+  border-color: hsla(var(--primary-background-color-1-compose), 0.5);
+  display: block;
+  height: calc(50% - 0.7rem);
+  width: 100%;
+  position: absolute;
+  left: 0;
+}
+
+.container::after {
+  top: 0;
+  border-bottom-width: 0;
+}
+
+.container::before {
+  bottom: 0;
+  border-top-width: 0;
+}
+
+.container:hover {
+  cursor: pointer;
+}
+
+.button {
+  background-color: var(--primary-color-40);
+  width: 100%;
+  height: 100%;
+  padding-left: 1rem;
+  padding-right: 1rem;
+  position: relative;
+  overflow: hidden;
+}
+
+.button::after {
+  content: '';
+  position: absolute;
+  background-color: var(--secondary-background-color-1);
+  width: 1.2rem;
+  height: 0.2rem;
+  top: 0;
+  left: 1.5rem;
+  z-index: 2;
+
+  transition-property: background-color;
+  transition-delay: calc(var(--motion-duration-extra4) / 7);
+  transition-duration: calc(var(--motion-duration-extra4) / 2);
+  transition-timing-function: cubic-bezier(var(--motion-easing-emphasized));
+}
+
+.button::before {
+  content: '';
+  position: absolute;
+  background-color: var(--secondary-background-color-1);
+  width: 0.3rem;
+  height: 0.3rem;
+  bottom: 0;
+  right: 0.3rem;
+  z-index: 2;
+
+  transition-property: background-color;
+  transition-delay: calc(var(--motion-duration-extra4) / 7);
+  transition-duration: calc(var(--motion-duration-short4));
+  transition-timing-function: cubic-bezier(var(--motion-easing-emphasized));
+}
+
+.container:hover .button::after {
+  background-color: var(--primary-background-color-1);
+
+  transition-property: background-color;
+  transition-delay: calc(var(--motion-duration-extra4) / 6);
+  transition-duration: calc(var(--motion-duration-extra4) / 1.5);
+  transition-timing-function: cubic-bezier(var(--motion-easing-emphasized));
+}
+
+.container:hover .button::before {
+  background-color: var(--primary-background-color-1);
+
+  transition-property: background-color;
+  transition-delay: calc(var(--motion-duration-extra4) / 4 * 3);
+  transition-duration: calc(var(--motion-duration-short4));
+  transition-timing-function: cubic-bezier(var(--motion-easing-emphasized));
+}
+
+.state-layer {
+  background-color: var(--secondary-background-color-1);
+  height: 100%;
+  width: 110%;
+  position: absolute;
+  right: 105%;
+  transform: skew(-10deg);
+
+  transition: right var(--motion-duration-extra1) cubic-bezier(var(--motion-easing-emphasized-decelerate));
+  z-index: 1;
+}
+
+.container:hover .state-layer {
+  transition: right var(--motion-duration-extra4) cubic-bezier(var(--motion-easing-emphasized));
+  right: -5%;
+}
+
+.text {
+  color: var(--primary-font-color-1);
+  font-family: var(--secondary-font);
+  font-size: 2rem;
+  text-transform: uppercase;
+  z-index: 3;
+  position: relative;
+}

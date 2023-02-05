@@ -84,6 +84,8 @@ export class HomePage extends LitElement {
             </div>
           </section>
           <div class="next">
+            <v-button text="Start"></v-button>
+            <!--
             <div class="button">
               <div class="state-layer"></div>
               <svg viewBox="0 0 24 24">
@@ -91,6 +93,7 @@ export class HomePage extends LitElement {
               </svg>
               <div class="ring"></div>
             </div>
+            -->
           </div>
         </div>
       </div>
