@@ -70,10 +70,10 @@ export class HomePage extends LitElement {
               <span>Hola, mi nombre es</span>
             </div>
             <div class="title">
-              <span>Mauro Alderete</span>
+              <span>MAURO ALDERETE</span>
             </div>
             <div class="subtitle">
-              <span> Desarrollo software y brindo mentorías </span>
+              <span>Desarrollador de software y mentor</span>
             </div>
             <div>
               <p>

@@ -1,11 +1,10 @@
 /* #region default values */
 :host {
-  --inner-home-page-primary-background-color: #383838;
-  --inner-home-page-secondary-background-color: #090909;
-
   --inner-home-page-fade-offset: 0.1s;
   --inner-home-page-fade-duration: 0.4s;
   --inner-home-page-fade-delay: 0.5s;
+
+  font-family: var(--tertiary-font);
 }
 /* #endregion */
 /* #region page */
@@ -19,22 +18,18 @@
   width: 100%;
   height: 100%;
 
-  background: rgb(56, 56, 56);
+  background: var(--secondary-background-color-2);
   background: -moz-radial-gradient(
     circle,
-    var(--inner-home-page-primary-background-color) 0%,
-    var(--inner-home-page-secondary-background-color) 100%
+    var(--secondary-background-color-3) 0%,
+    var(--secondary-background-color-1) 100%
   );
   background: -webkit-radial-gradient(
     circle,
-    var(--inner-home-page-primary-background-color) 0%,
-    var(--inner-home-page-secondary-background-color) 100%
+    var(--secondary-background-color-3) 0%,
+    var(--secondary-background-color-1) 100%
   );
-  background: radial-gradient(
-    circle,
-    var(--inner-home-page-primary-background-color) 0%,
-    var(--inner-home-page-secondary-background-color) 100%
-  );
+  background: radial-gradient(circle, var(--secondary-background-color-3) 0%, var(--secondary-background-color-1) 100%);
   z-index: 1;
 }
 /* #endregion */
@@ -137,27 +132,31 @@
 }
 
 .title {
-  color: var(--on-primary-color-100);
+  color: var(--primary-font-color-key);
 
-  font-size: 3rem;
-  font-weight: 600;
-  line-height: 1.1em;
+  text-shadow: 0px 0px 0.4rem var(--primary-font-color-key);
+
+  font-family: var(--primary-font);
+  font-size: 3.5rem;
+  font-weight: 300;
 
   margin-bottom: 0.5rem;
 }
 
 .subtitle {
-  color: var(--tertiary-color-key);
+  color: var(--primary-font-color-1);
 
-  font-size: 2.5rem;
-  font-weight: 300;
+  font-family: var(--secondary-font);
+  font-size: 2rem;
+  font-weight: 400;
+  text-transform: uppercase;
   line-height: 1.1em;
 
   margin-bottom: 1rem;
 }
 
 p {
-  color: var(--tertiary-color-key);
+  color: var(--primary-font-color-1);
 
   margin-top: 0rem;
   margin-bottom: 0rem;
@@ -313,7 +312,7 @@ p {
   width: 100%;
   height: 100%;
 
-  fill: var(--on-primary-color-100);
+  fill: var(--primary-font-color-1);
 }
 
 .next .button .ring {
@@ -323,7 +322,7 @@ p {
   position: absolute;
 
   border-radius: 50%;
-  border: 5px solid var(--on-primary-color-100-75);
+  border: 5px solid var(--primary-font-color-1);
   top: -5px;
   left: -5px;
 
