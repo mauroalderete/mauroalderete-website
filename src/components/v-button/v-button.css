@@ -13,7 +13,7 @@
 .container::before {
   content: '';
   border-style: solid;
-  border-width: 1px;
+  border-width: 0.01rem;
   border-color: hsla(var(--primary-background-color-1-compose), 0.5);
   display: block;
   height: calc(50% - 0.7rem);
@@ -44,6 +44,7 @@
   padding-right: 1rem;
   position: relative;
   overflow: hidden;
+  margin-left: 0.1rem;
 }
 
 .button::after {
