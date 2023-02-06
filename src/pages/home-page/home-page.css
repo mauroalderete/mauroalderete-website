@@ -220,10 +220,24 @@ p {
 
   height: 100%;
 
-  padding-left: 1rem;
-  padding-right: 1rem;
+  margin-left: 1rem;
+  margin-right: 3rem;
+
+  box-sizing: border-box;
 
   display: none;
+  overflow: hidden;
+  position: relative;
+}
+
+.game {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  box-sizing: border-box;
+
+  mask-image: radial-gradient(circle, black, transparent 60%);
+  -webkit-mask-image: radial-gradient(circle, #000, transparent 60%);
 }
 
 /* #endregion */
@@ -245,6 +259,28 @@ p {
       'content media'
       'next next';
     grid-template-columns: 50% 50%;
+    grid-template-rows: 1fr 4fr 1fr;
+    justify-items: stretch;
+  }
+
+  .content {
+    margin-left: 3rem;
+    margin-right: 1rem;
+  }
+
+  .media {
+    display: block;
+  }
+}
+
+@media (min-width: 1440px) {
+  .layout {
+    grid-template-areas:
+      'social media'
+      'content media'
+      'next media';
+    grid-template-columns: 50% 50%;
+    grid-template-rows: 1fr 4fr 1fr;
     justify-items: stretch;
   }
 

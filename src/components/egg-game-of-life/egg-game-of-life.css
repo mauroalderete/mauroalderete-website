@@ -1,35 +1,22 @@
-.container {
-  padding: 20px;
-  background-color: #444;
+:host {
+  --inner-egg-game-of-life-cell-width: 10px;
+  --inner-egg-game-of-life-cell-height: 10px;
 }
 
-#gridContainer {
-  padding-bottom: 10px;
+#world {
+  height: 100%;
 }
 
 table {
-  background-color: #c5d6c6;
   border-spacing: 0;
+  height: 100%;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 td {
-  border: 1px solid #f1f5da;
-  border-radius: 3px;
-  width: 10px;
-  height: 10px;
-}
-
-span {
-  color: #222;
-}
-
-#start,
-#clear,
-#random {
-  padding: 0.75em;
-  border-radius: 5px;
-  border: none;
-  background: linear-gradient(to bottom right, #c5dec6, #587559);
+  width: min(var(--inner-egg-game-of-life-cell-width), var(--inner-egg-game-of-life-cell-height));
+  height: min(var(--inner-egg-game-of-life-cell-width), var(--inner-egg-game-of-life-cell-height));
 }
 
 td.dead {
@@ -37,6 +24,7 @@ td.dead {
 }
 
 td.live {
-  background-color: #cc4774;
+  background-color: var(--primary-color-key);
+  box-shadow: 0 0 15px 2px var(--valorant-primary-color-40-70);
   border-radius: 10px;
 }

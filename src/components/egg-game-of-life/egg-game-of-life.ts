@@ -42,21 +42,24 @@ export class EggGameOfLife extends LitElement {
   }
 
   public firstUpdated(): void {
+    const world = this.shadowRoot?.querySelector('#world');
+    if (!world) {
+      throw new Error('World not found');
+    }
+    const cellWidth = world.clientWidth / this.cols;
+    const cellHeight = world.clientHeight / this.rows;
+    console.log(world.clientWidth, world.clientHeight);
+    console.log(this.cols, this.rows);
+    console.log(cellWidth, cellHeight);
+
+    this.style.setProperty('--inner-egg-game-of-life-cell-width', `${cellWidth}px`);
+    this.style.setProperty('--inner-egg-game-of-life-cell-height', `${cellHeight}px`);
+
     this.initialize();
   }
 
   render() {
-    return html`
-      <div class="container">
-        <div id="gridContainer"></div>
-
-        <div class="controls">
-          <button id="start"><span>Start</span></button>
-          <button id="clear"><span>Clear</span></button>
-          <button id="random"><span>Random</span></button>
-        </div>
-      </div>
-    `;
+    return html` <div id="world"></div> `;
   }
 
   private initialize() {
@@ -70,8 +73,8 @@ export class EggGameOfLife extends LitElement {
 
   // Lay out the board
   private createTable() {
-    const gridContainer = this.shadowRoot?.querySelector('#gridContainer');
-    if (!gridContainer) {
+    const world = this.shadowRoot?.querySelector('#world');
+    if (!world) {
       throw new Error('Problem: No div for the drid table!');
     }
     const table = document.createElement('table');
@@ -90,7 +93,7 @@ export class EggGameOfLife extends LitElement {
       }
       table.appendChild(tr);
     }
-    gridContainer?.appendChild(table);
+    world?.appendChild(table);
   }
 
   private initializeGrids() {
