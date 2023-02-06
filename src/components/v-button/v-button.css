@@ -1,6 +1,11 @@
+/* #region global*/
+
 * {
   box-sizing: border-box;
 }
+
+/* #endregion */
+/* #region container */
 
 .container {
   padding: 0.7rem;
@@ -54,6 +59,9 @@
 .container:hover::before {
   border-color: hsla(var(--primary-color-40-compose), 0.5);
 }
+
+/* #endregion */
+/* #region container shine*/
 
 .container .shine {
   position: absolute;
@@ -246,26 +254,8 @@
   }
 }
 
-@keyframes flicker {
-  0%,
-  19.999%,
-  22%,
-  62.999%,
-  64%,
-  64.999%,
-  70%,
-  100% {
-    opacity: 1;
-  }
-  20%,
-  21.999%,
-  63%,
-  63.999%,
-  65%,
-  69.999% {
-    opacity: 0;
-  }
-}
+/* #endregion */
+/* #region button */
 
 .button {
   background-color: var(--primary-color-40);
@@ -341,6 +331,9 @@
   z-index: 3;
 }
 
+/* #endregion */
+/* #region state layer */
+
 .state-layer {
   background-color: var(--secondary-background-color-1);
   height: 100%;
@@ -358,6 +351,9 @@
   right: -5%;
 }
 
+/* #endregion */
+/* #region text*/
+
 .text {
   color: var(--primary-font-color-1);
   font-family: var(--secondary-font);
@@ -367,7 +363,8 @@
   position: relative;
 }
 
-/************************/
+/* #endregion */
+/* #region glitch animation */
 
 .glitch {
   color: var(--primary-background-color-1);
@@ -616,3 +613,29 @@
     clip-path: inset(1% 0 62% 0);
   }
 }
+
+/* #endregion */
+/* #region flicker animation */
+
+@keyframes flicker {
+  0%,
+  19.999%,
+  22%,
+  62.999%,
+  64%,
+  64.999%,
+  70%,
+  100% {
+    opacity: 1;
+  }
+  20%,
+  21.999%,
+  63%,
+  63.999%,
+  65%,
+  69.999% {
+    opacity: 0;
+  }
+}
+
+/* #endregion */
