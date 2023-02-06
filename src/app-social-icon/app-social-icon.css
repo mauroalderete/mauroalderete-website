@@ -22,7 +22,7 @@
 
   position: absolute;
 
-  border-radius: 50%;
+  border-radius: 31%;
   border: none;
 
   background-color: var(--primary-color-40);
@@ -41,7 +41,7 @@
   left: 2%;
   width: 90%;
   height: 90%;
-  border-radius: 50%;
+  border-radius: 31%;
   border: 2px solid transparent;
   filter: blur(0);
   transform-origin: 50%;
