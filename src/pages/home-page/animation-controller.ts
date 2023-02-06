@@ -101,9 +101,7 @@ class StartButtonFadeinAnimationState extends State {
 
     button.classList.add('fadein-next-button');
 
-    Promise.all(button.getAnimations().map((a) => a.finished)).then(() =>
-      this.Exit(new NextButtonPulsateAnimationState())
-    );
+    Promise.all(button.getAnimations().map((a) => a.finished)).then(() => this.Exit(new MediaFadeinAnimationState()));
   }
 
   public override Exit(animation: State): void {
@@ -111,7 +109,7 @@ class StartButtonFadeinAnimationState extends State {
   }
 }
 
-class NextButtonPulsateAnimationState extends State {
+class MediaFadeinAnimationState extends State {
   constructor() {
     super();
   }
@@ -119,26 +117,11 @@ class NextButtonPulsateAnimationState extends State {
   public override Entry(context: ContextState): void {
     super.Entry(context);
 
-    const ring = (<AnimationContext>this.context).shadowRoot.querySelector('.next .button .ring');
-
-    if (!ring) {
+    const media = (<AnimationContext>this.context).shadowRoot.querySelector('.media egg-game-of-life');
+    if (!media) {
       return;
     }
 
-    ring?.classList.add('pulsate-next-button');
-
-    const button = (<AnimationContext>this.context).shadowRoot.querySelector('.next .button');
-
-    if (!button) {
-      return;
-    }
-
-    button.addEventListener('mouseover', () => {
-      ring?.classList.remove('pulsate-next-button');
-    });
-
-    button.addEventListener('mouseleave', () => {
-      ring?.classList.add('pulsate-next-button');
-    });
+    media?.classList.add('fadein-media');
   }
 }
