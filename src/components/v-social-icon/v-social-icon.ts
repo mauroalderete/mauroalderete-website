@@ -2,11 +2,11 @@ import { LitElement, html, css, unsafeCSS } from 'lit';
 import { customElement, property } from 'lit/decorators.js';
 
 /*eslint-disable */
-import style from './app-social-icon.css?inline' assert { type: 'css' };
+import style from './v-social-icon.css?inline' assert { type: 'css' };
 /*eslint-enable */
 
-@customElement('app-social-icon')
-export class AppSocialIcon extends LitElement {
+@customElement('v-social-icon')
+export class VSocialIcon extends LitElement {
   static styles = css`
     ${unsafeCSS(style)}
   `;

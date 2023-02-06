@@ -66,7 +66,7 @@ class SocialAnimationState extends State {
     super.Entry(context);
 
     const elements = (<AnimationContext>this.context).shadowRoot.querySelectorAll(
-      '.socialbar app-social-icon'
+      '.socialbar v-social-icon'
     ) as NodeListOf<HTMLElement>;
 
     elements.forEach((e) => {
