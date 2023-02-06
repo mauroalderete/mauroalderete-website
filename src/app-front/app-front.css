@@ -332,7 +332,7 @@
   margin-bottom: 3rem;
 }
 
-.social-icons app-social-icon {
+.social-icons v-social-icon {
   width: 4rem;
   height: 4rem;
 

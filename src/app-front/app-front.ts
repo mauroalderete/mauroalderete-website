@@ -54,60 +54,10 @@ export class AppFront extends LitElement {
 }
 
 /*
-
-
-<div class="social-icons hide">
-            <app-social-icon
-              name="twitter"
-              target="https://twitter.com/_mauroalderete"
-              src="/twitter.svg"
-            ></app-social-icon>
-            <app-social-icon
-              name="linkedin"
-              target="https://www.linkedin.com/in/mauroalderete/"
-              src="/linkedin.svg"
-            ></app-social-icon>
-            <app-social-icon
-              name="github"
-              target="https://github.com/mauroalderete"
-              src="/github.svg"
-            ></app-social-icon>
-            <app-social-icon
-              name="docker"
-              target="https://hub.docker.com/u/mauroalderete"
-              src="/docker.svg"
-            ></app-social-icon>
-          </div>
-
-          
+         
 
 <div class="side">
-          <div class="social-icons">
-            <app-social-icon
-              class="fadeDown-social-icon fadeDown-social-icon-4"
-              name="twitter"
-              target="https://twitter.com/_mauroalderete"
-              src="/twitter.svg"
-            ></app-social-icon>
-            <app-social-icon
-              class="fadeDown-social-icon fadeDown-social-icon-3"
-              name="linkedin"
-              target="https://www.linkedin.com/in/mauroalderete/"
-              src="/linkedin.svg"
-            ></app-social-icon>
-            <app-social-icon
-              class="fadeDown-social-icon fadeDown-social-icon-2"
-              name="github"
-              target="https://github.com/mauroalderete"
-              src="/github.svg"
-            ></app-social-icon>
-            <app-social-icon
-              class="fadeDown-social-icon fadeDown-social-icon-1"
-              name="docker"
-              target="https://hub.docker.com/u/mauroalderete"
-              src="/docker.svg"
-            ></app-social-icon>
-          </div>
+
           <div class="picture"></div>
         </div>
       </div>

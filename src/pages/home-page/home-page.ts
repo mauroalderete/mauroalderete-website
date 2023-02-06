@@ -45,25 +45,21 @@ export class HomePage extends LitElement {
         <div class="background"></div>
         <div class="layout">
           <div class="socialbar">
-            <app-social-icon
-              name="twitter"
-              url="https://twitter.com/_mauroalderete"
-              icon="${mdiTwitter}"
-            ></app-social-icon>
+            <v-social-icon name="twitter" url="https://twitter.com/_mauroalderete" icon="${mdiTwitter}"></v-social-icon>
             <div></div>
-            <app-social-icon
+            <v-social-icon
               name="linkedin"
               url="https://www.linkedin.com/in/mauroalderete/"
               icon="${mdiLinkedin}"
-            ></app-social-icon>
+            ></v-social-icon>
             <div></div>
-            <app-social-icon name="github" url="https://github.com/mauroalderete" icon="${mdiGithub}"></app-social-icon>
+            <v-social-icon name="github" url="https://github.com/mauroalderete" icon="${mdiGithub}"></v-social-icon>
             <div></div>
-            <app-social-icon
+            <v-social-icon
               name="docker"
               url="https://hub.docker.com/u/mauroalderete"
               icon="${mdiDocker}"
-            ></app-social-icon>
+            ></v-social-icon>
           </div>
           <section class="content">
             <div class="greeting">
