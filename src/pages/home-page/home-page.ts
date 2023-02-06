@@ -79,6 +79,7 @@ export class HomePage extends LitElement {
               </p>
             </div>
           </section>
+          <egg-game-of-life class="media"></egg-game-of-life>
           <div class="next">
             <v-button text="Start" @press="${this._handleStartTouched}"></v-button>
           </div>

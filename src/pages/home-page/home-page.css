@@ -212,6 +212,21 @@ p {
 }
 
 /* #endregion */
+/* #region Game of Life */
+
+.media {
+  z-index: 2;
+  grid-area: media;
+
+  height: 100%;
+
+  padding-left: 1rem;
+  padding-right: 1rem;
+
+  display: none;
+}
+
+/* #endregion */
 /* #region media query */
 
 @media (min-width: 768px) {
@@ -225,24 +240,21 @@ p {
 
 @media (min-width: 1024px) {
   .layout {
-    width: 100%;
-    height: calc(var(--vh) * 100);
-
-    display: grid;
-
     grid-template-areas:
       'social social'
       'content media'
       'next next';
-    grid-template-columns: 50%;
-    grid-template-rows: 1fr min-content 1fr;
+    grid-template-columns: 50% 50%;
     justify-items: stretch;
-    align-items: stretch;
   }
 
   .content {
     margin-left: 3rem;
     margin-right: 1rem;
+  }
+
+  .media {
+    display: block;
   }
 }
 
