@@ -23,6 +23,7 @@ export class VButton extends LitElement {
   render() {
     return html`
       <div class="container">
+        <div class="shine"></div>
         <div class="button">
           <div class="state-layer"></div>
           <div class="text">${this.text}</div>

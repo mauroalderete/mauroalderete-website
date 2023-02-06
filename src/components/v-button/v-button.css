@@ -20,6 +20,11 @@
   width: 100%;
   position: absolute;
   left: 0;
+
+  transition-property: border-color;
+  transition-delay: calc(var(--motion-duration-extra4) / 7);
+  transition-duration: calc(var(--motion-duration-extra4) / 2);
+  transition-timing-function: cubic-bezier(var(--motion-easing-emphasized));
 }
 
 .container::after {
@@ -34,6 +39,196 @@
 
 .container:hover {
   cursor: pointer;
+}
+
+.container:hover::after,
+.container:hover::before {
+  border-color: hsla(var(--primary-color-40-compose), 0.5);
+}
+
+.container .shine {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+
+  top: 0;
+  left: 0;
+}
+
+.container .shine::after,
+.container .shine::before {
+  content: '';
+  width: 0.1rem;
+  height: 0.1rem;
+
+  position: absolute;
+
+  background-color: var(--primary-background-color-1);
+  box-shadow: 0px 0px 0.5rem 0.2rem var(--primary-background-color-1);
+
+  opacity: 0;
+
+  animation-duration: 8s;
+  animation-timing-function: cubic-bezier(var(--motion-easing-emphasized-accelerate));
+  animation-fill-mode: forwards;
+  animation-iteration-count: infinite;
+
+  transition: box-shadow var(--motion-duration-short4) cubic-bezier(var(--motion-easing-emphasized-accelerate)),
+    background-color var(--motion-duration-short4) cubic-bezier(var(--motion-easing-emphasized-accelerate));
+}
+
+.container .shine::after {
+  top: calc(50% - 0.7rem);
+  left: 0;
+
+  animation-name: top-shine;
+  animation-delay: -4s;
+}
+
+.container .shine::before {
+  bottom: calc(50% - 0.7rem);
+  left: 100%;
+
+  animation-name: bottom-shine;
+  animation-delay: 0s;
+}
+
+.container:hover .shine::after,
+.container:hover .shine::before {
+  background-color: var(--primary-color-40);
+  box-shadow: 0px 0px 0.5rem 0.4rem var(--primary-color-40);
+
+  animation-duration: 3s;
+}
+
+.container:hover .shine::after {
+  animation-delay: -1.5s;
+}
+
+.container:hover .shine::before {
+  animation-delay: 0s;
+}
+
+@keyframes top-shine {
+  0% {
+    opacity: 0;
+  }
+  70% {
+    opacity: 0;
+    left: 0;
+    top: calc(50% - 0.7rem);
+  }
+  74% {
+    opacity: 1;
+    left: 0;
+    top: 0;
+  }
+  89% {
+    opacity: 1;
+    left: 100%;
+    top: 0;
+  }
+  93% {
+    opacity: 1;
+    left: 100%;
+    top: calc(50% - 0.7rem);
+  }
+  94% {
+    opacity: 0;
+    left: 100%;
+    top: calc(50% - 0.7rem);
+  }
+  95% {
+    opacity: 1;
+    left: 100%;
+    top: calc(50% - 0.7rem);
+  }
+  96% {
+    opacity: 0;
+    left: 100%;
+    top: calc(50% - 0.7rem);
+  }
+  97% {
+    opacity: 1;
+    left: 100%;
+    top: calc(50% - 0.7rem);
+  }
+  98% {
+    opacity: 0;
+    left: 100%;
+    top: calc(50% - 0.7rem);
+  }
+  99% {
+    opacity: 1;
+    left: 100%;
+    top: calc(50% - 0.7rem);
+  }
+  100% {
+    opacity: 0;
+    left: 100%;
+    top: calc(50% - 0.7rem);
+  }
+}
+
+@keyframes bottom-shine {
+  0% {
+    opacity: 0;
+  }
+  70% {
+    opacity: 0;
+    left: 100%;
+    bottom: calc(50% - 0.7rem);
+  }
+  74% {
+    opacity: 1;
+    left: 100%;
+    bottom: 0;
+  }
+  89% {
+    opacity: 1;
+    left: 0%;
+    bottom: 0;
+  }
+  93% {
+    opacity: 1;
+    left: 0%;
+    bottom: calc(50% - 0.7rem);
+  }
+  94% {
+    opacity: 0;
+    left: 0%;
+    bottom: calc(50% - 0.7rem);
+  }
+  95% {
+    opacity: 1;
+    left: 0%;
+    bottom: calc(50% - 0.7rem);
+  }
+  96% {
+    opacity: 0;
+    left: 0%;
+    bottom: calc(50% - 0.7rem);
+  }
+  97% {
+    opacity: 1;
+    left: 0%;
+    bottom: calc(50% - 0.7rem);
+  }
+  98% {
+    opacity: 0;
+    left: 0%;
+    bottom: calc(50% - 0.7rem);
+  }
+  99% {
+    opacity: 1;
+    left: 0%;
+    bottom: calc(50% - 0.7rem);
+  }
+  100% {
+    opacity: 0;
+    left: 0%;
+    bottom: calc(50% - 0.7rem);
+  }
 }
 
 .button {
