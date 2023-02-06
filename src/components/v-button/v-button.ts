@@ -18,6 +18,8 @@ export class VButton extends LitElement {
     super();
 
     this.text = '';
+
+    this.addEventListener('click', () => this._handleClick());
   }
 
   render() {
@@ -30,5 +32,18 @@ export class VButton extends LitElement {
         </div>
       </div>
     `;
+  }
+
+  private _handleClick() {
+    console.log('click');
+    const container = this.shadowRoot?.querySelector('.container');
+    if (!container) {
+      console.log('wtf');
+      return;
+    }
+
+    console.log('oookey');
+    container.classList.add('clicked');
+    this.requestUpdate();
   }
 }

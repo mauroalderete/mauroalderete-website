@@ -7,6 +7,21 @@
   text-align: center;
   position: relative;
   width: fit-content;
+  height: auto;
+}
+
+.container.clicked {
+  animation-name: clicked;
+  animation-duration: 2s;
+}
+
+@keyframes clicked {
+  from {
+    height: auto;
+  }
+  to {
+    height: 0px;
+  }
 }
 
 .container::after,
@@ -53,6 +68,12 @@
 
   top: 0;
   left: 0;
+
+  animation-name: flicker;
+  animation-duration: 3s;
+  animation-timing-function: linear;
+  animation-fill-mode: forwards;
+  animation-iteration-count: infinite;
 }
 
 .container .shine::after,
@@ -228,6 +249,27 @@
     opacity: 0;
     left: 0%;
     bottom: calc(50% - 0.7rem);
+  }
+}
+
+@keyframes flicker {
+  0%,
+  19.999%,
+  22%,
+  62.999%,
+  64%,
+  64.999%,
+  70%,
+  100% {
+    opacity: 0.99;
+  }
+  20%,
+  21.999%,
+  63%,
+  63.999%,
+  65%,
+  69.999% {
+    opacity: 0.4;
   }
 }
 
