@@ -88,6 +88,7 @@
 
   --primary-font-color-key: hsl(38, 22%, 100%);
   --primary-font-color-1: hsl(38, 22%, 90%);
+  --primary-font-color-1-compose: 38, 22%, 90%;
   --primary-font-color-2: hsl(38, 0%, 75%);
   --secondary-font-color-1: hsl(210, 40%, 10%);
   --secondary-font-color-2: hsl(140, 5%, 23%);
@@ -96,6 +97,7 @@
   --secondary-font-color-5: hsl(138, 4%, 58%);
 
   --primary-background-color-1: hsl(38, 22%, 90%);
+  --primary-background-color-1-compose: 38, 22%, 90%;
   --secondary-background-color-1: hsl(0, 0%, 0%);
   --secondary-background-color-2: hsl(0, 0%, 7%);
   --secondary-background-color-3: hsl(0, 0%, 16%);
