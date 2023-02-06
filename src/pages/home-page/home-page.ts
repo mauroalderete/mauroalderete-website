@@ -1,10 +1,10 @@
 import { LitElement, html, unsafeCSS, css } from 'lit';
 import { customElement } from 'lit/decorators.js';
 import { mdiDocker, mdiGithub, mdiLinkedin, mdiTwitter } from '@mdi/js';
+import { AnimationController } from './animation-controller';
 
 /*eslint-disable */
 import style from './home-page.css?inline' assert { type: 'css' };
-import { AnimationController } from './animation-controller';
 /*eslint-enable */
 
 @customElement('home-page')
@@ -86,5 +86,6 @@ export class HomePage extends LitElement {
 
   private _handleStartTouched() {
     console.log('To the 🚀 🌙!!!');
+    location.href = '/profiles';
   }
 }

@@ -1,0 +1,49 @@
+/* #region default values */
+:host {
+  font-family: var(--tertiary-font);
+}
+/* #endregion */
+/* #region page */
+.page {
+  min-width: 100vw;
+}
+
+.background {
+  position: absolute;
+  width: 100%;
+  min-height: calc(var(--vh) * 100);
+
+  background: var(--secondary-background-color-2);
+  background: -moz-radial-gradient(
+    circle,
+    var(--secondary-background-color-3) 0%,
+    var(--secondary-background-color-1) 100%
+  );
+  background: -webkit-radial-gradient(
+    circle,
+    var(--secondary-background-color-3) 0%,
+    var(--secondary-background-color-1) 100%
+  );
+  background: radial-gradient(circle, var(--secondary-background-color-3) 0%, var(--secondary-background-color-1) 100%);
+  z-index: 1;
+}
+/* #endregion */
+/* #region layout */
+
+.layout {
+  width: 100%;
+  height: calc(var(--vh) * 100);
+
+  display: grid;
+
+  grid-template-areas:
+    'social'
+    'content'
+    'next';
+  grid-template-columns: 100%;
+  grid-template-rows: 1fr min-content 1fr;
+  justify-items: stretch;
+  align-items: stretch;
+}
+
+/* #endregion */
