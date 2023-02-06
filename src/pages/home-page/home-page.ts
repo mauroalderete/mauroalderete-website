@@ -84,7 +84,7 @@ export class HomePage extends LitElement {
             </div>
           </section>
           <div class="next">
-            <v-button text="Start"></v-button>
+            <v-button text="Start" @press="${this._handleStartTouched}"></v-button>
             <!--
             <div class="button">
               <div class="state-layer"></div>
@@ -105,6 +105,10 @@ export class HomePage extends LitElement {
       return;
     }
     this.animationController.Start(this.shadowRoot);
+  }
+
+  private _handleStartTouched() {
+    console.log('To the 🚀 🌙!!!');
   }
 
   // private _handleProfileCardClick(event: CustomEvent) {

@@ -28,22 +28,33 @@ export class VButton extends LitElement {
         <div class="shine"></div>
         <div class="button">
           <div class="state-layer"></div>
-          <div class="text">${this.text}</div>
+          <div class="top"></div>
+          <div class="text" data-text="${this.text}">${this.text}</div>
+          <div class="lines"></div>
         </div>
       </div>
     `;
   }
 
   private _handleClick() {
-    console.log('click');
     const container = this.shadowRoot?.querySelector('.container');
-    if (!container) {
-      console.log('wtf');
-      return;
-    }
+    const text = this.shadowRoot?.querySelector('.text');
 
-    console.log('oookey');
-    container.classList.add('clicked');
+    container?.classList.add('clicked');
+    text?.classList.add('glitch');
+
+    setTimeout(() => {
+      const event = new CustomEvent('press', { bubbles: true, composed: true, cancelable: true });
+
+      this.dispatchEvent(event);
+      if (event.defaultPrevented) {
+        return;
+      }
+
+      container?.classList.remove('clicked');
+      text?.classList.remove('glitch');
+    }, 600);
+
     this.requestUpdate();
   }
 }
