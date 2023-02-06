@@ -1,3 +1,4 @@
+import { EggGameOfLife } from '../../components/egg-game-of-life/egg-game-of-life';
 import { ContextState, State } from '../../state/state';
 
 export class AnimationController {
@@ -121,7 +122,8 @@ class MediaFadeinAnimationState extends State {
     if (!media) {
       return;
     }
-
     media?.classList.add('fadein-media');
+
+    (media as EggGameOfLife).Play();
   }
 }

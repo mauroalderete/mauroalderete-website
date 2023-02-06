@@ -17,8 +17,7 @@ export class EggGameOfLife extends LitElement {
   @property()
   cols: number;
 
-  @property()
-  playing: boolean;
+  play: boolean;
 
   grid: Array<Array<number>>;
   nextGrid: Array<Array<number>>;
@@ -38,7 +37,7 @@ export class EggGameOfLife extends LitElement {
 
     this.reproductionTime = 100;
 
-    this.playing = false;
+    this.play = false;
   }
 
   public firstUpdated(): void {
@@ -55,20 +54,22 @@ export class EggGameOfLife extends LitElement {
     this.style.setProperty('--inner-egg-game-of-life-cell-width', `${cellWidth}px`);
     this.style.setProperty('--inner-egg-game-of-life-cell-height', `${cellHeight}px`);
 
-    this.initialize();
+    this.Initialize();
   }
 
   render() {
     return html` <div id="world"></div> `;
   }
 
-  private initialize() {
+  public Initialize() {
+    if (this.play) {
+      this.Stop();
+    }
+
     this.createTable();
     this.initializeGrids();
     this.resetGrids();
-    // setupControlButtons();
     this.randomHandler();
-    this.play();
   }
 
   // Lay out the board
@@ -113,8 +114,8 @@ export class EggGameOfLife extends LitElement {
   }
 
   private randomHandler() {
-    if (this.playing) return;
-    this.clearHandler();
+    if (this.play) return;
+    this.Stop();
     for (let i = 0; i < this.rows; i++) {
       for (let j = 0; j < this.cols; j++) {
         const isLive = Math.round(Math.random());
@@ -128,12 +129,10 @@ export class EggGameOfLife extends LitElement {
   }
 
   // clear the grid
-  private clearHandler() {
+  public Stop() {
     console.log('Clear the game: stop playing, clear the grid');
 
-    this.playing = false;
-    // const startButton = document.getElementById('start');
-    // startButton.innerHTML = "Start";    ************************************************
+    this.play = false;
     clearTimeout(this.timer);
 
     const cellsList = this.shadowRoot?.querySelectorAll('live');
@@ -146,12 +145,12 @@ export class EggGameOfLife extends LitElement {
     this.resetGrids();
   }
 
-  private play() {
-    this.playing = true;
+  public Play() {
+    this.play = true;
     this.computeNextGen();
 
-    if (this.playing) {
-      this.timer = setTimeout(() => this.play(), this.reproductionTime);
+    if (this.play) {
+      this.timer = setTimeout(() => this.Play(), this.reproductionTime);
     }
   }
 
