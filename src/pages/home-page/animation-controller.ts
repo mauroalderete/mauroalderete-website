@@ -76,7 +76,7 @@ class SocialAnimationState extends State {
     const last = elements[elements.length - 1];
 
     Promise.all(last.getAnimations().map((a) => a.finished)).then(() =>
-      this.Exit(new NextButtonFadeinAnimationState())
+      this.Exit(new StartButtonFadeinAnimationState())
     );
   }
 
@@ -85,7 +85,7 @@ class SocialAnimationState extends State {
   }
 }
 
-class NextButtonFadeinAnimationState extends State {
+class StartButtonFadeinAnimationState extends State {
   constructor() {
     super();
   }
@@ -93,7 +93,7 @@ class NextButtonFadeinAnimationState extends State {
   public override Entry(context: ContextState): void {
     super.Entry(context);
 
-    const button = (<AnimationContext>this.context).shadowRoot.querySelector('.next .button');
+    const button = (<AnimationContext>this.context).shadowRoot.querySelector('.next v-button');
 
     if (!button) {
       return;

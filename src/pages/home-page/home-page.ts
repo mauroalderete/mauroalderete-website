@@ -23,20 +23,6 @@ export class HomePage extends LitElement {
 
   firstUpdated(): void {
     this._handleWindowLoaded();
-
-    const button = this.shadowRoot?.querySelector('.next .button');
-    if (!button) {
-      return;
-    }
-    button.addEventListener('click', () => {
-      button.classList.add('anim-click');
-
-      const timeout = setTimeout(() => {
-        button.classList.remove('anim-click');
-
-        clearTimeout(timeout);
-      }, 850);
-    });
   }
 
   render() {

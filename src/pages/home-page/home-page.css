@@ -211,6 +211,27 @@ p {
   align-items: center;
 }
 
+.next v-button {
+  opacity: 0;
+}
+
+@keyframes fadein-next-button {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.fadein-next-button {
+  animation-duration: var(--motion-duration-extra4);
+  animation-delay: 0s;
+  animation-timing-function: var(--motion-easing-emphasized);
+  animation-fill-mode: forwards;
+  animation-name: fadein-next-button;
+}
+
 /* #endregion */
 /* #region Game of Life */
 
