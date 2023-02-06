@@ -264,11 +264,12 @@ p {
 }
 
 .fadein-media {
-  animation-duration: calc(var(--motion-duration-extra4) * 3);
-  animation-delay: 0s;
-  animation-timing-function: cubic-bezier(0.5, 0.5, 0.2, 1.5);
-  animation-fill-mode: forwards;
-  animation-name: fadein-media;
+  animation-duration: calc(var(--motion-duration-extra4) * 3), 420s;
+  animation-delay: 0s, 3s;
+  animation-timing-function: cubic-bezier(0.5, 0.5, 0.2, 1.5), linear;
+  animation-fill-mode: forwards, forwards;
+  animation-iteration-count: 1, infinite;
+  animation-name: fadein-media, idle-media;
 }
 
 @keyframes fadein-media {
@@ -279,6 +280,18 @@ p {
   to {
     opacity: 1;
     transform: scale(1);
+  }
+}
+
+@keyframes idle-media {
+  0% {
+    rotate: 0deg;
+  }
+  50% {
+    rotate: 180deg;
+  }
+  100% {
+    rotate: 360deg;
   }
 }
 
