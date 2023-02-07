@@ -1,17 +1,42 @@
 /* #region default values */
 :host {
+}
+
+:host * {
   font-family: var(--tertiary-font);
+  color: var(--secondary-font-color-1);
 }
 /* #endregion */
 /* #region page */
 .page {
   min-width: 100vw;
+
+  background-color: var(--primary-background-color-1);
+}
+/* #endregion */
+/* #region layout */
+
+.layout {
+  width: 100%;
+
+  display: grid;
+
+  grid-template-areas:
+    'header'
+    'content'
+    'footer';
+  grid-template-columns: 100%;
+  grid-template-rows: min-content min-content min-content;
+  justify-items: stretch;
+  align-items: stretch;
 }
 
-.background {
-  position: absolute;
+/* #endregion */
+/* #region header*/
+
+.header {
   width: 100%;
-  min-height: calc(var(--vh) * 100);
+  height: 20rem;
 
   background: var(--secondary-background-color-2);
   background: -moz-radial-gradient(
@@ -27,23 +52,54 @@
   background: radial-gradient(circle, var(--secondary-background-color-3) 0%, var(--secondary-background-color-1) 100%);
   z-index: 1;
 }
+
 /* #endregion */
-/* #region layout */
+/* #region carousel menu*/
 
-.layout {
-  width: 100%;
-  height: calc(var(--vh) * 100);
+.carousel {
+  display: flex;
 
-  display: grid;
+  flex-direction: row;
+  overflow: hidden;
+}
 
-  grid-template-areas:
-    'social'
-    'content'
-    'next';
-  grid-template-columns: 100%;
-  grid-template-rows: 1fr min-content 1fr;
-  justify-items: stretch;
-  align-items: stretch;
+.gallery {
+  background: #eee;
+}
+
+.gallery-cell {
+  width: 66%;
+  height: 200px;
+  margin-right: 10px;
+  background: #8c8;
+  counter-increment: gallery-cell;
+}
+
+/* cell number */
+.gallery-cell:before {
+  display: block;
+  text-align: center;
+  content: counter(gallery-cell);
+  line-height: 200px;
+  font-size: 80px;
+  color: white;
+}
+
+.carousel * {
+  color: white;
+  margin-left: 0.5rem;
+  margin-right: 0.5rem;
+  white-space: nowrap;
+}
+
+.menu {
+  font-family: var(--secondary-font);
+  font-weight: 600;
+  font-size: 3.7rem;
+  text-transform: uppercase;
+  color: var(--primary-font-color-1);
+
+  overflow: hidden;
 }
 
 /* #endregion */
