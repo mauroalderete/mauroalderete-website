@@ -53,6 +53,7 @@
   --valorant-secondary-background-color-1: hsl(0, 0%, 0%);
   --valorant-secondary-background-color-2: hsl(0, 0%, 7%);
   --valorant-secondary-background-color-3: hsl(0, 0%, 16%);
+  --valorant-tertiary-background-color-1: hsl(213, 40%, 10%);
 
   --valorant-primary-color-key: hsl(355, 100%, 50%);
   --valorant-primary-color-40: hsl(355, 100%, 64%);
@@ -101,6 +102,7 @@
   --secondary-background-color-1: hsl(0, 0%, 0%);
   --secondary-background-color-2: hsl(0, 0%, 7%);
   --secondary-background-color-3: hsl(0, 0%, 16%);
+  --tertiary-background-color-1: var(--valorant-tertiary-background-color-1);
 
   --primary-color-key: var(--valorant-primary-color-key);
   --primary-color-40: var(--valorant-primary-color-40);

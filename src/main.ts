@@ -21,6 +21,7 @@ const routes = [
     path: '/profiles/:profile',
     component: 'profiles-page',
     action: async () => {
+      await import('./components/profile-card/profile-card');
       await import('./pages/profiles-page/profiles-page');
     },
   },
