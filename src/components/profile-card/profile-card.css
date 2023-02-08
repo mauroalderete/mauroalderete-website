@@ -126,9 +126,9 @@
   opacity: 0;
   transform: scale(0.9) translateY(-30px);
 
-  transition: opacity var(--motion-duration-medium4) var(--motion-duration-short4)
+  transition: opacity var(--motion-duration-long2) var(--motion-duration-extra4)
       cubic-bezier(var(--motion-easing-standard-decelerate)),
-    transform var(--motion-duration-long1) var(--motion-duration-short4)
+    transform var(--motion-duration-long1) var(--motion-duration-extra4)
       cubic-bezier(var(--motion-easing-standard-decelerate));
 }
 
@@ -195,7 +195,11 @@
   z-index: 2;
   color: var(--primary-font-color-1);
   text-shadow: 0px 0px 0.3rem black;
-  transform: translateY(0px);
+  opacity: 0;
+  transform: translateY(10px);
+
+  transition: opacity var(--motion-duration-medium4) cubic-bezier(var(--motion-easing-standard-decelerate)),
+    transform var(--motion-duration-long1) cubic-bezier(var(--motion-easing-standard-decelerate));
 }
 
 .container.active .headline {
