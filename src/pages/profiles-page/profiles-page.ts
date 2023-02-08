@@ -9,6 +9,7 @@ import { IProfile } from '../../models/profile.model';
 /*eslint-disable */
 import style from './profiles-page.css?inline' assert { type: 'css' };
 import { ProfileCard } from '../../components/profile-card/profile-card';
+import { router } from '../../main';
 /*eslint-enable */
 
 @customElement('profiles-page')
@@ -68,7 +69,17 @@ export class ProfilesPage extends LitElement {
             throw new Error('splide element not found, it is required to setup profile cards');
           }
 
+          // get profile selected by url
+          // get the profile index that match with profileRouted
+          const profileRoutedIndex = this.profileDataList.findIndex(
+            (profile) => profile.type == router.location.params.profile.toString().toUpperCase()
+          );
+          if (profileRoutedIndex < 0) {
+            throw new Error(`profile selected "${router.location.params.profile}" no exist`);
+          }
+
           this.splide = new Splide(splideElement as HTMLElement, {
+            start: profileRoutedIndex,
             lazyLoad: true,
             focus: 'center',
           });
@@ -81,12 +92,6 @@ export class ProfilesPage extends LitElement {
             this.currentProfileData = this.profileDataList.find(
               (profile) => profile.type == this.currentProfileCard?.type
             );
-
-            // get profile selected by url
-            // const profileSelected = this.profileDataList.find((p) => p.type == router.location.params.profile);
-            // if (!profileSelected) {
-            //   throw new Error(`profile selected "${router.location.params.profile}" no exist`);
-            // }
           });
 
           this.splide.mount();

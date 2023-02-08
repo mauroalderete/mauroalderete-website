@@ -27,7 +27,7 @@ export class ProfileCard extends LitElement {
   video?: HTMLVideoElement;
   poster?: HTMLDivElement;
 
-  readyToPlay: boolean;
+  isReadyToPlay: boolean;
   isActived: boolean;
 
   wasFirstUpdated: boolean;
@@ -42,7 +42,7 @@ export class ProfileCard extends LitElement {
     this.image = '';
     this.headline = '';
 
-    this.readyToPlay = false;
+    this.isReadyToPlay = false;
     this.isActived = false;
 
     this.wasFirstUpdated = false;
@@ -51,10 +51,7 @@ export class ProfileCard extends LitElement {
   }
 
   protected firstUpdated(): void {
-    console.log('firstUpdated');
-
     this.container = this.shadowRoot?.querySelector('.container') as HTMLDivElement;
-    console.log('aaa', this.container);
 
     this.video = this.shadowRoot?.querySelector('.background video') as HTMLVideoElement;
     this.video.addEventListener('canplay', () => this._handleCanPlay());
@@ -66,7 +63,6 @@ export class ProfileCard extends LitElement {
   }
 
   protected updated(): void {
-    console.log('updated', this.wasFirstUpdated);
     this._processPendingTaskQueue();
   }
 
@@ -100,48 +96,30 @@ export class ProfileCard extends LitElement {
   }
 
   private _handleCanPlay() {
-    console.log('_handlePlay');
     if (!this.video) {
-      console.log('video not found');
       return;
     }
 
     if (this.video.readyState < this.video.HAVE_ENOUGH_DATA) {
-      console.log('video not ready');
       return;
     }
 
-    console.log('video redy: removing');
-    this.video.removeEventListener('canplay', () => this._handleCanPlay());
+    this.isReadyToPlay = true;
 
-    this.readyToPlay = true;
-    if (this.isActived) {
-      this.playVideo();
-    }
-  }
-
-  private playVideo() {
-    this.poster?.classList.add('hide');
-    this.video?.play();
+    this._tryApplyActive();
   }
 
   public Active() {
     this.isActived = true;
 
-    if (!this.wasFirstUpdated) {
-      this.pendingTaskQueue.push(() => {
-        this._applyActive();
-      });
-    } else {
-      this._applyActive();
-    }
+    this._tryApplyActive();
   }
 
-  private _applyActive() {
-    this.container?.classList.add('active');
-
-    if (this.readyToPlay) {
-      this.playVideo();
+  private _tryApplyActive() {
+    if (this.isActived && this.isReadyToPlay) {
+      this.poster?.classList.add('hide');
+      this.video?.play();
+      this.container?.classList.add('active');
     }
   }
 
@@ -150,12 +128,11 @@ export class ProfileCard extends LitElement {
 
     this.container?.classList.remove('active');
 
-    if (this.readyToPlay) {
-      this.video?.pause();
-      if (this.video) {
-        this.video.currentTime = 0;
-      }
+    this.video?.pause();
+    if (this.video) {
+      this.video.currentTime = 0;
     }
+
     this.poster?.classList.remove('hide');
   }
 }
