@@ -20,8 +20,9 @@ export class FrontendProfileMock implements IProfile {
     this.title = 'Frontend';
     this.icon = frontendIcon;
     this.resume = '/profiles/frontend/resumes/mauro-alderete-frontend.pdf';
+    this.resume = '/profiles/gamedev/resumes/mauro-alderete-gamedev.pdf';
 
-    this.headline = 'Interfaces dinámicas, fluidaz y atrapantes';
+    this.headline = 'Experiencias fluidaz, dinámicas y atrapantes';
 
     this.rol = new Array<string>();
     this.rol.push(
@@ -52,16 +53,18 @@ export class FrontendProfileMock implements IProfile {
       title: 'Creatividad',
       letter: 'C',
       paragraph: [
-        'Cada proyecto es único y merece la pena resolverlos con creatividad. Estoy preparado para abordarlos con ideas fuera de la caja',
+        'Objetivos, recursos, contextos y estrategias hacen que cada proyecto planteé desafios únicos. Gracias a mi experiencia puedo explorar los problemas con creatividad y promover ideas fuera de la caja.',
       ],
     });
 
     this.softSkills.push({
       guid: 3,
-      title: 'Feedback',
-      letter: 'F',
+      title: 'Planificación',
+      letter: 'P',
       paragraph: [
-        'Me encanta recibir feedback de los clientes y usuarios. Es uno de los recursos más importantes con el que contamos para lograr grandiosos proyectos.',
+        'El desarrollo en front puede ser un gran desafio, sin una planificación consensuada puede terminar en un gran caos rápidamente.',
+        'Para evitar esto suelo planear todas mis soluciones. Busco concensos en los equipos de trabajo y escucho las propuestas y puntos de vistas de mis compañeros de equipo.',
+        'Con todo la información brindada puedo proponer rutas de desarrollo y metodologías para cada etapa de los proyectos.',
       ],
     });
 
@@ -102,9 +105,9 @@ export class FrontendProfileMock implements IProfile {
         title: 'Website Personal',
         media: '/profiles/frontend/media/mauroalderete.png',
         paragraph: [
-          'Diseñe este inspirado en el mundo de los videojuegos.',
+          'Diseñe éste sitio web inspirado en el mundo de los videojuegos.',
           'Nació como una propuesta para organizar mis proyectos personales y darlos a conocer a la comunidad tech.',
-          'Utilizo Typescript, WebComponents y LitElement. Node y NPM forman parte del entorno de desarrollo. Al utilizar Github como el repositorio principal puedo implementar los Github Actions que diseñe para mantener el versionado del proyecto.',
+          'Utilizo Typescript, WebComponents y LitElement. Node y NPM forman parte del entorno de desarrollo. Al utilizar Github  para versionar el portafolio puedo implementar los Github Actions que construí y compartí con la comunidad.',
         ],
       },
       {
@@ -112,9 +115,9 @@ export class FrontendProfileMock implements IProfile {
         media: '/profiles/frontend/media/rayquen.png',
         paragraph: [
           'Rayquen es una iniciativa educativa que surgió hace algunos años para brindar un espacio de aprendizaje y desarrollo personal en el marco de las nuevas tecnologías.',
-          'Diseñe el sitio web como una Landing Page que permite a los visitantes conocer los cursos, explorar las propuestas y registrarse en las clases.',
-          'Fue diseñado sin framework, unicamente con JavaScript y practicamente sin librerias internas. Una serie de scripts en php gestionan algunas operaciones de backend.',
-          'Te invito a dar una vuelta por Rayquen, seguro que encontrarás algo interesante.',
+          'Diseñé el sitio web como una Landing Page que permite a los visitantes conocer los cursos ofrecidos con gran cantidad de detalles. Explorar las propuestas y registrarse en las clases.',
+          'Fue diseñado sin frameworks, únicamente con JavaScript, CSS y HTML. Una serie de scripts en php gestionan algunas operaciones de backend.',
+          'Te invito a dar una vuelta por rayquen.com, estoy seguro que encontrarás algo que te llame la atención.',
         ],
         target: 'https://rayquen.com',
       }

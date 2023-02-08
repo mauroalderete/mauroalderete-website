@@ -153,7 +153,7 @@ export class ProfilesPage extends LitElement {
                   <v-button
                     style="white-space: nowrap"
                     text="DESCARGA MI CURRICULUM DE FRONTEND"
-                    @press="${() => window.open('', '_blank')}"
+                    @press="${() => window.open('/profiles/gamedev/resumes/mauro-alderete-gamedev.pdf', '_blank')}"
                   ></v-button>
                 </div>
               </section>
@@ -170,7 +170,7 @@ export class ProfilesPage extends LitElement {
                     )}
                   </div>
                   <div class="skill-description">
-                    <h3>${this.currentSoftSkill?.title}</h3>
+                    <h3>// ${this.currentSoftSkill?.title}</h3>
                     ${this.currentSoftSkill?.paragraph.map((paragraph) => html`<p>${paragraph}</p>`)}
                   </div>
                 </div>
