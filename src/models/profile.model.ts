@@ -18,7 +18,7 @@ export interface IProfile {
   features: string;
   softSkills: Array<ISoftSkill>;
   hardSkills: Array<IHardSkill>;
-  projects: string;
+  projects: Array<IProject>;
   blog: string;
 }
 
@@ -33,4 +33,12 @@ export interface IHardSkill {
   guid?: number;
   label: string;
   color?: string;
+}
+
+export interface IProject {
+  guid?: number;
+  title: string;
+  paragraph: Array<string>;
+  media?: string;
+  target?: string;
 }

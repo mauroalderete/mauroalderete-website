@@ -1,4 +1,4 @@
-import { IHardSkill, IProfile, ISoftSkill, ProfileType } from '../../models/profile.model';
+import { IHardSkill, IProfile, IProject, ISoftSkill, ProfileType } from '../../models/profile.model';
 import { frontendIcon } from '../../assets/icons';
 
 export class FrontendProfileMock implements IProfile {
@@ -12,7 +12,7 @@ export class FrontendProfileMock implements IProfile {
   features: string;
   softSkills: Array<ISoftSkill>;
   hardSkills: Array<IHardSkill>;
-  projects: string;
+  projects: Array<IProject>;
   blog: string;
 
   constructor() {
@@ -35,7 +35,8 @@ export class FrontendProfileMock implements IProfile {
       title: 'Colaboración',
       letter: 'C',
       paragraph: [
-        'Siempre estoy dispuesto a colaborar con clientes, product manager y el equipo de diseño para alcanzar los objetivos que nos planteamos. Suelo aportar muchas opciones en las mesas de debate, junto con las fortalezas y debilidades técnicas.',
+        'Siempre estoy dispuesto a colaborar con clientes, product manager y el equipo de diseño para alcanzar los objetivos que nos planteamos.',
+        'Suelo aportar muchas opciones en las mesas de debate junto con un análisis de sus fortalezas y debilidades técnicas.',
       ],
     });
 
@@ -88,7 +89,29 @@ export class FrontendProfileMock implements IProfile {
     this.hardSkills.push({ label: 'Apps Android' });
     this.hardSkills.push({ label: 'Apps Handheld' });
 
-    this.projects = 'Snake en pascal';
+    this.projects = new Array<IProject>();
+    this.projects.push(
+      {
+        title: 'Website Personal',
+        media: '/profiles/frontend/media/mauroalderete.png',
+        paragraph: [
+          'Diseñe este inspirado en el mundo de los videojuegos.',
+          'Nació como una propuesta para organizar mis proyectos personales y darlos a conocer a la comunidad tech.',
+          'Utilizo Typescript, WebComponents y LitElement. Node y NPM forman parte del entorno de desarrollo. Al utilizar Github como el repositorio principal puedo implementar los Github Actions que diseñe para mantener el versionado del proyecto.',
+        ],
+      },
+      {
+        title: 'Website Rayquen',
+        media: '/profiles/frontend/media/rayquen.png',
+        paragraph: [
+          'Rayquen es una iniciativa educativa que surgió hace algunos años para brindar un espacio de aprendizaje y desarrollo personal en el marco de las nuevas tecnologías.',
+          'Diseñe el sitio web como una Landing Page que permite a los visitantes conocer los cursos, explorar las propuestas y registrarse en las clases.',
+          'Fue diseñado sin framework, unicamente con JavaScript y practicamente sin librerias internas. Una serie de scripts en php gestionan algunas operaciones de backend.',
+          'Te invito a dar una vuelta por Rayquen, seguro que encontrarás algo interesante.',
+        ],
+        target: 'https://rayquen.com',
+      }
+    );
     this.blog = 'Minimax en el tateti';
   }
 }

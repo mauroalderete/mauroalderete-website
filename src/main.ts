@@ -23,6 +23,7 @@ const routes = [
     action: async () => {
       await import('./components/profile-card/profile-card');
       await import('./components/v-social-icon/v-social-icon');
+      await import('./components/v-button/v-button');
       await import('./pages/profiles-page/profiles-page');
     },
   },

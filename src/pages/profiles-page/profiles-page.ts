@@ -143,6 +143,10 @@ export class ProfilesPage extends LitElement {
             <section class="section-basic">
               <h3>// ROL</h3>
               <p>${this.currentProfileData?.rol}</p>
+              <v-button
+                text="DESCARGA MI CURRICULUM DE FRONTEND"
+                @press="${() => window.open('', '_blank')}"
+              ></v-button>
             </section>
             <section class="section-basic">
               <h2>SOFT SKILLS</h2>
@@ -175,9 +179,31 @@ export class ProfilesPage extends LitElement {
               </div>
             </section>
 
-            <section class="section-basic">
+            <section class="section-basic section-projects">
               <h2>PROYECTOS</h2>
-              ${this.currentProfileData?.projects}
+              <div class="projects">
+                ${this.currentProfileData?.projects.map((project) => {
+                  return html`
+                    <div class="project">
+                      ${project.media ? html`<div class="media"><img src="${project.media}" /></div>` : html``}
+
+                      <div class="project-content">
+                        <h2>// ${project.title}</h2>
+                        ${project.paragraph.map((paragraph) => html`<p>${paragraph}</p>`)}
+                        ${project.target
+                          ? html`
+                              <v-button
+                                class="more"
+                                text="VER MAS"
+                                @press="${() => window.open(project.target, '_blank')}"
+                              ></v-button>
+                            `
+                          : html`<div class="more"></div>`}
+                      </div>
+                    </div>
+                  `;
+                })}
+              </div>
             </section>
           </section>
           <section class="footer">
