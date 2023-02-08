@@ -143,7 +143,7 @@ export class ProfilesPage extends LitElement {
             <section class="content">
               <section class="section-basic">
                 <h3>// ROL</h3>
-                <p>${this.currentProfileData?.rol}</p>
+                ${this.currentProfileData?.rol.map((paragraph) => html`<p>${paragraph}</p>`)}
                 <div
                   style="width: 100%;
                 display: flex;

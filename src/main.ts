@@ -15,7 +15,7 @@ const routes = [
   },
   {
     path: '/profiles',
-    redirect: '/profiles/gamedev',
+    redirect: '/profiles/frontend',
   },
   {
     path: '/profiles/:profile',

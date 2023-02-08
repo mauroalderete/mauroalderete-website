@@ -14,7 +14,7 @@ export interface IProfile {
   icon: string;
   resume: string;
 
-  rol: string;
+  rol: Array<string>;
   features: string;
   softSkills: Array<ISoftSkill>;
   hardSkills: Array<IHardSkill>;
