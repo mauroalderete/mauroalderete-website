@@ -53,15 +53,6 @@ export class ProfilesPage extends LitElement {
       .then((profiles) => {
         this.profileDataList = profiles;
 
-        // prepare a callback to get collection profiles card elements
-        // to handle activation state later
-        this.updatedTasks.push(() => {
-          const nodes = this.shadowRoot?.querySelectorAll('profile-card');
-          nodes?.forEach((node) => {
-            this.profileCardList.push(node as ProfileCard);
-          });
-        });
-
         // prepare a callback to setup splide and add listeners
         this.updatedTasks.push(() => {
           const splideElement = this.shadowRoot?.querySelector('.splide');
@@ -92,9 +83,20 @@ export class ProfilesPage extends LitElement {
             this.currentProfileData = this.profileDataList.find(
               (profile) => profile.type == this.currentProfileCard?.type
             );
+
+            this.requestUpdate();
           });
 
           this.splide.mount();
+        });
+
+        // prepare a callback to get collection profiles card elements
+        // to handle activation state later
+        this.updatedTasks.push(() => {
+          const nodes = this.shadowRoot?.querySelectorAll('profile-card');
+          nodes?.forEach((node) => {
+            this.profileCardList.push(node as ProfileCard);
+          });
         });
 
         this.requestUpdate();
@@ -105,9 +107,12 @@ export class ProfilesPage extends LitElement {
   }
 
   protected updated(): void {
-    this.updatedTasks.forEach((task) => {
+    while (this.updatedTasks.length > 0) {
+      const task = this.updatedTasks.pop();
+      if (task) {
       task();
-    });
+      }
+    }
   }
 
   render() {
