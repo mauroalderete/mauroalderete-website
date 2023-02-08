@@ -1,10 +1,9 @@
 export interface IProfile {
-  name: string;
+  type: ProfileType;
 
   title: string;
   headline: string;
   icon: string;
-  colorCompose: string;
   resume: string;
 
   rol: string;
@@ -13,4 +12,12 @@ export interface IProfile {
   hardSkills: string;
   projects: string;
   blog: string;
+}
+
+export enum ProfileType {
+  Frontend = 'FRONTEND',
+  Backend = 'BACKEND',
+  Gamedev = 'GAMEDEV',
+  SRE = 'SRE',
+  Mentorship = 'MENTORSHIP',
 }
