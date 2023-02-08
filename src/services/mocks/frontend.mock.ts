@@ -1,4 +1,4 @@
-import { IProfile, ISoftSkill, ProfileType } from '../../models/profile.model';
+import { IHardSkill, IProfile, ISoftSkill, ProfileType } from '../../models/profile.model';
 import { frontendIcon } from '../../assets/icons';
 
 export class FrontendProfileMock implements IProfile {
@@ -11,7 +11,7 @@ export class FrontendProfileMock implements IProfile {
   rol: string;
   features: string;
   softSkills: Array<ISoftSkill>;
-  hardSkills: string;
+  hardSkills: Array<IHardSkill>;
   projects: string;
   blog: string;
 
@@ -57,7 +57,37 @@ export class FrontendProfileMock implements IProfile {
       ],
     });
 
-    this.hardSkills = 'Unity C# C++';
+    this.hardSkills = new Array<IHardSkill>();
+    this.hardSkills.push({ label: 'Javascript' });
+    this.hardSkills.push({ label: 'HTML5' });
+    this.hardSkills.push({ label: 'CSS3' });
+    this.hardSkills.push({ label: 'LitElement' });
+    this.hardSkills.push({ label: 'Typescript' });
+    this.hardSkills.push({ label: 'Angular' });
+    this.hardSkills.push({ label: 'NodeJS' });
+    this.hardSkills.push({ label: 'Winforms' });
+    this.hardSkills.push({ label: 'Xamarin' });
+    this.hardSkills.push({ label: 'Git' });
+    this.hardSkills.push({ label: 'Github' });
+    this.hardSkills.push({ label: 'Gitlab' });
+    this.hardSkills.push({ label: 'NPM' });
+    this.hardSkills.push({ label: 'Docker' });
+    this.hardSkills.push({ label: 'Responsive Design' });
+    this.hardSkills.push({ label: 'PWA' });
+    this.hardSkills.push({ label: 'Web Apps' });
+    this.hardSkills.push({ label: 'Apps Híbridas' });
+    this.hardSkills.push({ label: 'ElectronJS' });
+    this.hardSkills.push({ label: 'Ionic' });
+    this.hardSkills.push({ label: 'Bootstrap' });
+    this.hardSkills.push({ label: 'JQuery' });
+    this.hardSkills.push({ label: 'Ajax' });
+    this.hardSkills.push({ label: 'Material Design' });
+    this.hardSkills.push({ label: 'Aprendiendo ReactJS' });
+    this.hardSkills.push({ label: 'Aprendiendo VueJS' });
+    this.hardSkills.push({ label: 'WebComponents' });
+    this.hardSkills.push({ label: 'Apps Android' });
+    this.hardSkills.push({ label: 'Apps Handheld' });
+
     this.projects = 'Snake en pascal';
     this.blog = 'Minimax en el tateti';
   }

@@ -1,5 +1,5 @@
 import { gamedevIcon } from '../../assets/icons';
-import { IProfile, ISoftSkill, ProfileType } from '../../models/profile.model';
+import { IHardSkill, IProfile, ISoftSkill, ProfileType } from '../../models/profile.model';
 
 export class GamedevProfileMock implements IProfile {
   type: ProfileType;
@@ -11,7 +11,7 @@ export class GamedevProfileMock implements IProfile {
   rol: string;
   features: string;
   softSkills: Array<ISoftSkill>;
-  hardSkills: string;
+  hardSkills: Array<IHardSkill>;
   projects: string;
   blog: string;
 
@@ -36,7 +36,7 @@ export class GamedevProfileMock implements IProfile {
       letter: '',
       paragraph: [''],
     });
-    this.hardSkills = 'Unity C# C++';
+    this.hardSkills = new Array<IHardSkill>();
     this.projects = 'Snake en pascal';
     this.blog = 'Minimax en el tateti';
   }

@@ -145,7 +145,7 @@ export class ProfilesPage extends LitElement {
               <p>${this.currentProfileData?.rol}</p>
             </section>
             <section class="section-basic">
-              <h2>HABILIDADES</h2>
+              <h2>SOFT SKILLS</h2>
 
               <div class="skill-bar">
                 <div class="skills">
@@ -162,9 +162,23 @@ export class ProfilesPage extends LitElement {
                 </div>
               </div>
             </section>
-            <section class="hard-skills">${this.currentProfileData?.hardSkills}</section>
-            <section class="projects">${this.currentProfileData?.projects}</section>
-            <section class="blog">${this.currentProfileData?.blog}</section>
+
+            <section class="section-basic">
+              <h2>TECHNICAL SKILLS</h2>
+              <div class="hard-skills">
+                ${this.currentProfileData?.hardSkills.map((skill) => {
+                  const color = this._randomColor();
+                  return html`<div class="hard-skill" style="background-color: ${color.bg}; color: ${color.fg};">
+                    ${skill.label}
+                  </div>`;
+                })}
+              </div>
+            </section>
+
+            <section class="section-basic">
+              <h2>PROYECTOS</h2>
+              ${this.currentProfileData?.projects}
+            </section>
           </section>
           <section class="footer">
             <div class="footer-links ">
@@ -229,6 +243,24 @@ export class ProfilesPage extends LitElement {
     this.currentSoftSkill = skill;
 
     this.requestUpdate();
+  }
+
+  private _randomColor(): { bg: string; fg: string } {
+    const h = Math.floor(Math.random() * 360);
+    const s = Math.floor(Math.random() * 100);
+    const l = Math.floor(Math.random() * 100);
+
+    if (l >= 50) {
+      return {
+        bg: `hsl(${h}deg, ${s}%, ${l}%)`,
+        fg: '#000',
+      };
+    } else {
+      return {
+        bg: `hsl(${h}deg, ${s}%, ${l}%)`,
+        fg: '#fff',
+      };
+    }
   }
 
   private _handleWindowLoaded() {

@@ -17,7 +17,7 @@ export interface IProfile {
   rol: string;
   features: string;
   softSkills: Array<ISoftSkill>;
-  hardSkills: string;
+  hardSkills: Array<IHardSkill>;
   projects: string;
   blog: string;
 }
@@ -27,4 +27,10 @@ export interface ISoftSkill {
   title: string;
   letter: string;
   paragraph: Array<string>;
+}
+
+export interface IHardSkill {
+  guid?: number;
+  label: string;
+  color?: string;
 }
