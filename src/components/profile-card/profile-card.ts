@@ -118,8 +118,11 @@ export class ProfileCard extends LitElement {
   private _tryApplyActive() {
     if (this.isActived && this.isReadyToPlay) {
       this.poster?.classList.add('hide');
-      this.video?.play();
       this.container?.classList.add('active');
+      if (this.video) {
+        this.video.muted = true;
+        this.video.play();
+      }
     }
   }
 
