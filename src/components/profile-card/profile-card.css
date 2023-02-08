@@ -7,6 +7,12 @@
   --inner-height-footer: 3rem;
   --inner-height-background: calc(var(--inner-height) - var(--inner-height-footer));
   --inner-height-image: 100%;
+
+  --inner-frontend-color: #ffd482;
+  --inner-backend-color: #ae00ff;
+  --inner-gamedev-color: #00ffc3;
+  --inner-sre-color: #f839ff;
+  --inner-mentorship-color: #00e2ff;
 }
 
 /* #endregion */
@@ -109,11 +115,21 @@
   grid-area: 'image';
   align-self: stretch;
   justify-self: stretch;
+  position: relative;
+  z-index: 2;
 
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: flex-start;
+
+  opacity: 0;
+  transform: scale(0.9) translateY(-30px);
+
+  transition: opacity var(--motion-duration-medium4) var(--motion-duration-short4)
+      cubic-bezier(var(--motion-easing-standard-decelerate)),
+    transform var(--motion-duration-long1) var(--motion-duration-short4)
+      cubic-bezier(var(--motion-easing-standard-decelerate));
 }
 
 .image::after {
@@ -140,13 +156,36 @@
   height: calc(
     var(--inner-height) - var(--inner-height-title) - var(--inner-height-headline) - var(--inner-height-footer) / 2
   );
-
-  filter: drop-shadow(0px 0px 5px black);
 }
 
 .image .icon.FRONTEND {
-  fill: var(--primary-font-color-1);
-  filter: invert(60%) sepia(130%) saturate(100%) hue-rotate(187deg) brightness(86%) contrast(120%);
+  fill: var(--inner-frontend-color);
+  filter: drop-shadow(0px 0px 5px black) drop-shadow(0px 0px 5px var(--inner-frontend-color));
+}
+
+.image .icon.BACKEND {
+  fill: var(--inner-backend-color);
+  filter: drop-shadow(0px 0px 5px black) drop-shadow(0px 0px 5px var(--inner-backend-color));
+}
+
+.image .icon.GAMEDEV {
+  fill: var(--inner-gamedev-color);
+  filter: drop-shadow(0px 0px 5px black) drop-shadow(0px 0px 5px var(--inner-gamedev-color));
+}
+
+.image .icon.SRE {
+  fill: var(--inner-sre-color);
+  filter: drop-shadow(0px 0px 5px black) drop-shadow(0px 0px 5px var(--inner-sre-color));
+}
+
+.image .icon.MENTORSHIP {
+  fill: var(--inner-mentorship-color);
+  filter: drop-shadow(0px 0px 5px black) drop-shadow(0px 0px 5px var(--inner-mentorship-color));
+}
+
+.container.active .image {
+  opacity: 1;
+  transform: scale(1);
 }
 
 /* #endregion */

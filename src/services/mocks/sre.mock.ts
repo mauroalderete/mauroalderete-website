@@ -1,3 +1,4 @@
+import { sreIcon } from '../../assets/icons';
 import { IProfile, ProfileType } from '../../models/profile.model';
 
 export class SREProfileMock implements IProfile {
@@ -17,7 +18,7 @@ export class SREProfileMock implements IProfile {
   constructor() {
     this.type = ProfileType.SRE;
     this.title = 'SRE/DEVOPS';
-    this.icon = '/profiles/sre/icons/sre.svg';
+    this.icon = sreIcon;
     this.resume = '/profiles/sre/resumes/mauro-alderete-sre.pdf';
 
     this.headline = 'Apasionado del desarrollo de videojuegos y sus desafíos.';

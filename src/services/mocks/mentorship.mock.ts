@@ -1,3 +1,4 @@
+import { mentorshipIcon } from '../../assets/icons';
 import { IProfile, ProfileType } from '../../models/profile.model';
 
 export class MentorshipProfileMock implements IProfile {
@@ -17,7 +18,7 @@ export class MentorshipProfileMock implements IProfile {
   constructor() {
     this.type = ProfileType.Mentorship;
     this.title = 'Mentorship';
-    this.icon = '/profiles/mentorship/icons/mentorship.svg';
+    this.icon = mentorshipIcon;
     this.resume = '/profiles/mentorship/resumes/mauro-alderete-mentorship.pdf';
 
     this.headline = 'Apasionado del desarrollo de videojuegos y sus desafíos.';

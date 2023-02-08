@@ -1,3 +1,4 @@
+import { backendIcon } from '../../assets/icons';
 import { IProfile, ProfileType } from '../../models/profile.model';
 
 export class BackendProfileMock implements IProfile {
@@ -17,7 +18,7 @@ export class BackendProfileMock implements IProfile {
   constructor() {
     this.type = ProfileType.Backend;
     this.title = 'Backend';
-    this.icon = '/profiles/backend/icons/backend.svg';
+    this.icon = backendIcon;
     this.resume = '/profiles/backend/resumes/mauro-alderete-backend.pdf';
 
     this.headline = 'Apasionado del desarrollo de videojuegos y sus desafíos.';

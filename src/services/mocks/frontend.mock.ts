@@ -1,5 +1,5 @@
 import { IProfile, ProfileType } from '../../models/profile.model';
-import { frontendIcon } from '../../assets/frontend.icon';
+import { frontendIcon } from '../../assets/icons';
 
 export class FrontendProfileMock implements IProfile {
   type: ProfileType;

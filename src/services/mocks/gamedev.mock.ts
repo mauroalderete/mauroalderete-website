@@ -1,3 +1,4 @@
+import { gamedevIcon } from '../../assets/icons';
 import { IProfile, ProfileType } from '../../models/profile.model';
 
 export class GamedevProfileMock implements IProfile {
@@ -17,7 +18,7 @@ export class GamedevProfileMock implements IProfile {
   constructor() {
     this.type = ProfileType.Gamedev;
     this.title = 'GameDev';
-    this.icon = '/profiles/gamedev/icons/gamedev.svg';
+    this.icon = gamedevIcon;
     this.resume = '/profiles/gamedev/resumes/mauro-alderete-gamedev.pdf';
 
     this.headline = 'Apasionado del desarrollo de videojuegos y sus desafíos.';
