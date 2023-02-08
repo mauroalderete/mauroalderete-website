@@ -1,4 +1,4 @@
-import { IProfile, ProfileType } from '../../models/profile.model';
+import { IProfile, ISoftSkill, ProfileType } from '../../models/profile.model';
 import { frontendIcon } from '../../assets/icons';
 
 export class FrontendProfileMock implements IProfile {
@@ -10,7 +10,7 @@ export class FrontendProfileMock implements IProfile {
   headline: string;
   rol: string;
   features: string;
-  softSkills: string;
+  softSkills: Array<ISoftSkill>;
   hardSkills: string;
   projects: string;
   blog: string;
@@ -28,7 +28,35 @@ export class FrontendProfileMock implements IProfile {
       
       Apasionado del desarrollo de videojuegos y sus desafíos. Mis primeros pasos en la programación fueron construyendo videojuegos. Espero continuar haciéndolo formando parte de un grandioso equipo.`;
     this.features = 'alguna feature';
-    this.softSkills = 'Experiencia...';
+    this.softSkills = new Array<ISoftSkill>();
+
+    this.softSkills.push({
+      guid: 1,
+      title: 'Colaboración',
+      letter: 'C',
+      paragraph: [
+        'Siempre estoy dispuesto a colaborar con clientes, product manager y el equipo de diseño para alcanzar los objetivos que nos planteamos. Suelo aportar muchas opciones en las mesas de debate, junto con las fortalezas y debilidades técnicas.',
+      ],
+    });
+
+    this.softSkills.push({
+      guid: 2,
+      title: 'Creatividad',
+      letter: 'C',
+      paragraph: [
+        'Cada proyecto es único y merece la pena resolverlos con creatividad. Estoy preparado para abordarlos con ideas fuera de la caja',
+      ],
+    });
+
+    this.softSkills.push({
+      guid: 3,
+      title: 'Feedback',
+      letter: 'F',
+      paragraph: [
+        'Me encanta recibir feedback de los clientes y usuarios. Es uno de los recursos más importantes con el que contamos para lograr grandiosos proyectos.',
+      ],
+    });
+
     this.hardSkills = 'Unity C# C++';
     this.projects = 'Snake en pascal';
     this.blog = 'Minimax en el tateti';

@@ -4,7 +4,7 @@ import { Splide } from '@splidejs/splide';
 
 import { AnimationController } from './animation-controller';
 import { ProfileService } from '../../services/profile.service';
-import { IProfile } from '../../models/profile.model';
+import { IProfile, ISoftSkill } from '../../models/profile.model';
 
 /*eslint-disable */
 import style from './profiles-page.css?inline' assert { type: 'css' };
@@ -27,6 +27,8 @@ export class ProfilesPage extends LitElement {
 
   profileCardList: Array<ProfileCard>;
   currentProfileCard?: ProfileCard;
+
+  currentSoftSkill?: ISoftSkill;
 
   updatedTasks: Array<() => void>;
 
@@ -138,9 +140,28 @@ export class ProfilesPage extends LitElement {
             </section>
           </section>
           <section class="content">
-            <section class="rol">${this.currentProfileData?.rol}</section>
-            <section class="featuers">${this.currentProfileData?.features}</section>
-            <section class="soft-skills">${this.currentProfileData?.softSkills}</section>
+            <section class="section-basic">
+              <h3>// ROL</h3>
+              <p>${this.currentProfileData?.rol}</p>
+            </section>
+            <section class="section-basic">
+              <h2>HABILIDADES</h2>
+
+              <div class="skill-bar">
+                <div class="skills">
+                  ${this.currentProfileData?.softSkills.map(
+                    (skill) =>
+                      html`<div @click="${(e: Event) => this._handleSoftSkillClicked(e, skill.guid)}" class="skill">
+                        ${skill.letter}
+                      </div>`
+                  )}
+                </div>
+                <div class="skill-description">
+                  <h3>${this.currentSoftSkill?.title}</h3>
+                  ${this.currentSoftSkill?.paragraph.map((paragraph) => html`<p>${paragraph}</p>`)}
+                </div>
+              </div>
+            </section>
             <section class="hard-skills">${this.currentProfileData?.hardSkills}</section>
             <section class="projects">${this.currentProfileData?.projects}</section>
             <section class="blog">${this.currentProfileData?.blog}</section>
@@ -191,6 +212,23 @@ export class ProfilesPage extends LitElement {
         </div>
       </div>
     `;
+  }
+
+  private _handleSoftSkillClicked(event: Event, guid: number) {
+    const skill = this.currentProfileData?.softSkills.find((ss) => ss.guid == guid);
+    if (!skill) {
+      return;
+    }
+
+    const previous = this.shadowRoot?.querySelector('.skill.active');
+    if (previous) {
+      previous.classList.remove('active');
+    }
+    (event.target as HTMLDivElement).classList.add('active');
+
+    this.currentSoftSkill = skill;
+
+    this.requestUpdate();
   }
 
   private _handleWindowLoaded() {

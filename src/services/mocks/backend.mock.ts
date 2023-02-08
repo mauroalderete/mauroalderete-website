@@ -1,5 +1,5 @@
 import { backendIcon } from '../../assets/icons';
-import { IProfile, ProfileType } from '../../models/profile.model';
+import { IProfile, ISoftSkill, ProfileType } from '../../models/profile.model';
 
 export class BackendProfileMock implements IProfile {
   type: ProfileType;
@@ -10,7 +10,7 @@ export class BackendProfileMock implements IProfile {
   headline: string;
   rol: string;
   features: string;
-  softSkills: string;
+  softSkills: Array<ISoftSkill>;
   hardSkills: string;
   projects: string;
   blog: string;
@@ -28,7 +28,14 @@ export class BackendProfileMock implements IProfile {
       
       Apasionado del desarrollo de videojuegos y sus desafíos. Mis primeros pasos en la programación fueron construyendo videojuegos. Espero continuar haciéndolo formando parte de un grandioso equipo.`;
     this.features = 'alguna feature';
-    this.softSkills = 'Experiencia...';
+    this.softSkills = new Array<ISoftSkill>();
+
+    this.softSkills.push({
+      guid: 1,
+      title: '',
+      letter: '',
+      paragraph: [''],
+    });
     this.hardSkills = 'Unity C# C++';
     this.projects = 'Snake en pascal';
     this.blog = 'Minimax en el tateti';
