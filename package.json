@@ -24,6 +24,7 @@
   },
   "dependencies": {
     "@mdi/js": "^7.1.96",
+    "@splidejs/splide": "^4.1.4",
     "@typescript-eslint/eslint-plugin": "^5.49.0",
     "@typescript-eslint/parser": "^5.49.0",
     "@vaadin/router": "^1.7.4",
