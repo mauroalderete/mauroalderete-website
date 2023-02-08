@@ -139,71 +139,122 @@ export class ProfilesPage extends LitElement {
               </div>
             </section>
           </section>
-          <section class="content">
-            <section class="section-basic">
-              <h3>// ROL</h3>
-              <p>${this.currentProfileData?.rol}</p>
-              <v-button
-                text="DESCARGA MI CURRICULUM DE FRONTEND"
-                @press="${() => window.open('', '_blank')}"
-              ></v-button>
-            </section>
-            <section class="section-basic">
-              <h2>SOFT SKILLS</h2>
-
-              <div class="skill-bar">
-                <div class="skills">
-                  ${this.currentProfileData?.softSkills.map(
-                    (skill) =>
-                      html`<div @click="${(e: Event) => this._handleSoftSkillClicked(e, skill.guid)}" class="skill">
-                        ${skill.letter}
-                      </div>`
-                  )}
+          <section class="megacontent">
+            <section class="content">
+              <section class="section-basic">
+                <h3>// ROL</h3>
+                <p>${this.currentProfileData?.rol}</p>
+                <div
+                  style="width: 100%;
+                display: flex;
+                flex-direction: row;
+                justify-content: center;"
+                >
+                  <v-button
+                    style="white-space: nowrap"
+                    text="DESCARGA MI CURRICULUM DE FRONTEND"
+                    @press="${() => window.open('', '_blank')}"
+                  ></v-button>
                 </div>
-                <div class="skill-description">
-                  <h3>${this.currentSoftSkill?.title}</h3>
-                  ${this.currentSoftSkill?.paragraph.map((paragraph) => html`<p>${paragraph}</p>`)}
+              </section>
+              <section class="section-basic">
+                <h2>SOFT SKILLS</h2>
+
+                <div class="skill-bar">
+                  <div class="skills">
+                    ${this.currentProfileData?.softSkills.map(
+                      (skill) =>
+                        html`<div @click="${(e: Event) => this._handleSoftSkillClicked(e, skill.guid)}" class="skill">
+                          ${skill.letter}
+                        </div>`
+                    )}
+                  </div>
+                  <div class="skill-description">
+                    <h3>${this.currentSoftSkill?.title}</h3>
+                    ${this.currentSoftSkill?.paragraph.map((paragraph) => html`<p>${paragraph}</p>`)}
+                  </div>
+                </div>
+              </section>
+
+              <section class="section-basic">
+                <h2>TECHNICAL SKILLS</h2>
+                <div class="hard-skills">
+                  ${this.currentProfileData?.hardSkills.map((skill) => {
+                    const color = this._randomColor();
+                    return html`<div class="hard-skill" style="background-color: ${color.bg}; color: ${color.fg};">
+                      ${skill.label}
+                    </div>`;
+                  })}
+                </div>
+              </section>
+            </section>
+
+            <section class="section-alert">
+              <div class="alert-content">
+                <p>Estas skills son las que más utilizo mientras trabajo en proyectos frontend. Pero eso no es todo.</p>
+                <p>
+                  Te invito a que visites mis otros perfiles profesionales y conozcas más sobre los proyectos en los
+                  participe.
+                </p>
+                <p>Si tenes alguna duda contactame por mis redes, siempre estoy abierto para una charlar</p>
+                <div class="alert-socialbar">
+                  <v-social-icon
+                    class="anim-social-icon"
+                    name="twitter"
+                    url="https://twitter.com/_mauroalderete"
+                    icon="${mdiTwitter}"
+                  ></v-social-icon>
+                  <div></div>
+                  <v-social-icon
+                    class="anim-social-icon"
+                    name="linkedin"
+                    url="https://www.linkedin.com/in/mauroalderete/"
+                    icon="${mdiLinkedin}"
+                  ></v-social-icon>
+                  <div></div>
+                  <v-social-icon
+                    class="anim-social-icon"
+                    name="github"
+                    url="https://github.com/mauroalderete"
+                    icon="${mdiGithub}"
+                  ></v-social-icon>
+                  <div></div>
+                  <v-social-icon
+                    class="anim-social-icon"
+                    name="docker"
+                    url="https://hub.docker.com/u/mauroalderete"
+                    icon="${mdiDocker}"
+                  ></v-social-icon>
                 </div>
               </div>
             </section>
+            <section class="content">
+              <section class="section-basic section-projects">
+                <h2>PROYECTOS</h2>
+                <div class="projects">
+                  ${this.currentProfileData?.projects.map((project) => {
+                    return html`
+                      <div class="project">
+                        ${project.media ? html`<div class="media"><img src="${project.media}" /></div>` : html``}
 
-            <section class="section-basic">
-              <h2>TECHNICAL SKILLS</h2>
-              <div class="hard-skills">
-                ${this.currentProfileData?.hardSkills.map((skill) => {
-                  const color = this._randomColor();
-                  return html`<div class="hard-skill" style="background-color: ${color.bg}; color: ${color.fg};">
-                    ${skill.label}
-                  </div>`;
-                })}
-              </div>
-            </section>
-
-            <section class="section-basic section-projects">
-              <h2>PROYECTOS</h2>
-              <div class="projects">
-                ${this.currentProfileData?.projects.map((project) => {
-                  return html`
-                    <div class="project">
-                      ${project.media ? html`<div class="media"><img src="${project.media}" /></div>` : html``}
-
-                      <div class="project-content">
-                        <h2>// ${project.title}</h2>
-                        ${project.paragraph.map((paragraph) => html`<p>${paragraph}</p>`)}
-                        ${project.target
-                          ? html`
-                              <v-button
-                                class="more"
-                                text="VER MAS"
-                                @press="${() => window.open(project.target, '_blank')}"
-                              ></v-button>
-                            `
-                          : html`<div class="more"></div>`}
+                        <div class="project-content">
+                          <h2>// ${project.title}</h2>
+                          ${project.paragraph.map((paragraph) => html`<p>${paragraph}</p>`)}
+                          ${project.target
+                            ? html`
+                                <v-button
+                                  class="more"
+                                  text="VER MAS"
+                                  @press="${() => window.open(project.target, '_blank')}"
+                                ></v-button>
+                              `
+                            : html`<div class="more"></div>`}
+                        </div>
                       </div>
-                    </div>
-                  `;
-                })}
-              </div>
+                    `;
+                  })}
+                </div>
+              </section>
             </section>
           </section>
           <section class="footer">
