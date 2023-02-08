@@ -10,6 +10,7 @@ import { IProfile } from '../../models/profile.model';
 import style from './profiles-page.css?inline' assert { type: 'css' };
 import { ProfileCard } from '../../components/profile-card/profile-card';
 import { router } from '../../main';
+import { mdiDocker, mdiGithub, mdiLinkedin, mdiTwitter } from '@mdi/js';
 /*eslint-enable */
 
 @customElement('profiles-page')
@@ -110,14 +111,14 @@ export class ProfilesPage extends LitElement {
     while (this.updatedTasks.length > 0) {
       const task = this.updatedTasks.pop();
       if (task) {
-      task();
+        task();
       }
     }
   }
 
   render() {
     return html`
-      <div class="page">
+      <div class="container">
         <div class="layout">
           <section class="header">
             <section class="splide" aria-labelledby="carousel-heading">
@@ -135,8 +136,6 @@ export class ProfilesPage extends LitElement {
                 </div>
               </div>
             </section>
-            <div class="headline">${this.currentProfileData?.headline}</div>
-            <div class="visual">${this.currentProfileData?.icon}</div>
           </section>
           <section class="content">
             <section class="rol">${this.currentProfileData?.rol}</section>
@@ -146,7 +145,49 @@ export class ProfilesPage extends LitElement {
             <section class="projects">${this.currentProfileData?.projects}</section>
             <section class="blog">${this.currentProfileData?.blog}</section>
           </section>
-          <section class="footer">........<br />Este es un footer</section>
+          <section class="footer">
+            <div class="footer-links ">
+              <ul>
+                <li class="link">
+                  <a href="https://www.linkedin.com/in/mauroalderete/" target="_blank">CONTÁCTAME</a>
+                </li>
+                <li class="link">
+                  <a href="/profiles/gamedev/resumes/mauro-alderete-gamedev.pdf" target="_blank"
+                    >DESCARGA MI CURRICULUM DE FRONTEND</a
+                  >
+                </li>
+              </ul>
+            </div>
+            <div class="socialbar">
+              <v-social-icon
+                class="anim-social-icon"
+                name="twitter"
+                url="https://twitter.com/_mauroalderete"
+                icon="${mdiTwitter}"
+              ></v-social-icon>
+              <div></div>
+              <v-social-icon
+                class="anim-social-icon"
+                name="linkedin"
+                url="https://www.linkedin.com/in/mauroalderete/"
+                icon="${mdiLinkedin}"
+              ></v-social-icon>
+              <div></div>
+              <v-social-icon
+                class="anim-social-icon"
+                name="github"
+                url="https://github.com/mauroalderete"
+                icon="${mdiGithub}"
+              ></v-social-icon>
+              <div></div>
+              <v-social-icon
+                class="anim-social-icon"
+                name="docker"
+                url="https://hub.docker.com/u/mauroalderete"
+                icon="${mdiDocker}"
+              ></v-social-icon>
+            </div>
+          </section>
         </div>
       </div>
     `;
@@ -159,14 +200,3 @@ export class ProfilesPage extends LitElement {
     // this.animationController.Start(this.shadowRoot);
   }
 }
-
-/*
-${this.profiles.map(
-                    (profile) => html` <profile-card
-                      class="splide__slide"
-                      title=${profile.title}
-                      headline=${profile.headline}
-                      image=${profile.icon}
-                    ></profile-card>`
-                  )}
-*/

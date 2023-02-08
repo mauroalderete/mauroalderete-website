@@ -22,6 +22,7 @@ const routes = [
     component: 'profiles-page',
     action: async () => {
       await import('./components/profile-card/profile-card');
+      await import('./components/v-social-icon/v-social-icon');
       await import('./pages/profiles-page/profiles-page');
     },
   },
