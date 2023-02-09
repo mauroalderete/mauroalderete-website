@@ -85,6 +85,10 @@ export class ProfilesPage extends LitElement {
               (profile) => profile.type == this.currentProfileCard?.type
             );
 
+            if (this.currentProfileData) {
+              this.currentSoftSkill = this.currentProfileData.softSkills[0];
+            }
+
             this.requestUpdate();
           });
 
@@ -140,7 +144,7 @@ export class ProfilesPage extends LitElement {
           <section class="megacontent">
             <section class="content">
               <section class="section-basic">
-                <h3>// ROL</h3>
+                <h3>// PERFIL</h3>
                 ${this.currentProfileData?.rol.map((paragraph) => html`<p>${paragraph}</p>`)}
                 <div
                   style="width: 100%;
@@ -156,16 +160,18 @@ export class ProfilesPage extends LitElement {
                 </div>
               </section>
               <section class="section-basic">
-                <h2>SOFT SKILLS</h2>
+                <h2>HABILIDADES INTERPERSONALES</h2>
 
                 <div class="skill-bar">
                   <div class="skills">
-                    ${this.currentProfileData?.softSkills.map(
-                      (skill) =>
-                        html`<div @click="${(e: Event) => this._handleSoftSkillClicked(e, skill.guid)}" class="skill">
-                          ${skill.letter}
-                        </div>`
-                    )}
+                    ${this.currentProfileData?.softSkills.map((skill, index) => {
+                      return html`<div
+                        @click="${(e: Event) => this._handleSoftSkillClicked(e, skill.guid)}"
+                        class="skill ${index == 0 ? 'active' : ''}"
+                      >
+                        ${skill.letter}
+                      </div>`;
+                    })}
                   </div>
                   <div class="skill-description">
                     <h3>// ${this.currentSoftSkill?.title}</h3>
@@ -175,7 +181,7 @@ export class ProfilesPage extends LitElement {
               </section>
 
               <section class="section-basic">
-                <h2>TECHNICAL SKILLS</h2>
+                <h2>HABILIDADES TÉCNICAS</h2>
                 <div class="hard-skills">
                   ${this.currentProfileData?.hardSkills.map((skill) => {
                     const color = this._randomColor();
@@ -192,7 +198,7 @@ export class ProfilesPage extends LitElement {
                 <p>Estas skills son las que más utilizo mientras trabajo en proyectos frontend. Pero eso no es todo.</p>
                 <p>
                   Te invito a que visites mis otros perfiles profesionales y conozcas más sobre los proyectos en los
-                  participe.
+                  participé.
                 </p>
                 <p>Si tenes alguna duda contactame por mis redes, siempre estoy abierto para una charlar</p>
                 <div class="alert-socialbar">
