@@ -153,7 +153,7 @@ export class ProfilesPage extends LitElement {
                   <v-button
                     style="white-space: nowrap"
                     text="DESCARGA MI CURRICULUM DE FRONTEND"
-                    @press="${() => window.open('/profiles/gamedev/resumes/mauro-alderete-gamedev.pdf', '_blank')}"
+                    @press="${() => window.open('/profile/gamedev/resumes/mauro-alderete-gamedev.pdf', '_blank')}"
                   ></v-button>
                 </div>
               </section>
@@ -264,7 +264,7 @@ export class ProfilesPage extends LitElement {
                   <a href="https://www.linkedin.com/in/mauroalderete/" target="_blank">CONTÁCTAME</a>
                 </li>
                 <li class="link">
-                  <a href="/profiles/gamedev/resumes/mauro-alderete-gamedev.pdf" target="_blank"
+                  <a href="/profile/gamedev/resumes/mauro-alderete-gamedev.pdf" target="_blank"
                     >DESCARGA MI CURRICULUM DE FRONTEND</a
                   >
                 </li>

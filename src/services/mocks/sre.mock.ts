@@ -19,7 +19,7 @@ export class SREProfileMock implements IProfile {
     this.type = ProfileType.SRE;
     this.title = 'SRE/DEVOPS';
     this.icon = sreIcon;
-    this.resume = '/profiles/sre/resumes/mauro-alderete-sre.pdf';
+    this.resume = '/profile/sre/resumes/mauro-alderete-sre.pdf';
 
     this.headline = 'Apasionado del desarrollo de videojuegos y sus desafíos.';
     this.rol = new Array<string>();
