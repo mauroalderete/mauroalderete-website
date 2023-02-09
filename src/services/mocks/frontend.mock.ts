@@ -1,5 +1,6 @@
 import { IHardSkill, IProfile, IProject, ISoftSkill, ProfileType } from '../../models/profile.model';
 import { frontendIcon } from '../../assets/icons';
+import { mdiArmFlexOutline, mdiCalendarCheckOutline, mdiPaletteOutline } from '@mdi/js';
 
 export class FrontendProfileMock implements IProfile {
   type: ProfileType;
@@ -41,7 +42,7 @@ export class FrontendProfileMock implements IProfile {
     this.softSkills.push({
       guid: 1,
       title: 'Colaboración',
-      letter: 'C',
+      icon: mdiArmFlexOutline,
       paragraph: [
         'Siempre estoy dispuesto a colaborar con clientes, product manager y el equipo de diseño para alcanzar los objetivos que nos planteamos.',
         'Suelo aportar muchas opciones en las mesas de debate junto con un análisis de sus fortalezas y debilidades técnicas.',
@@ -51,7 +52,7 @@ export class FrontendProfileMock implements IProfile {
     this.softSkills.push({
       guid: 2,
       title: 'Creatividad',
-      letter: 'C',
+      icon: mdiPaletteOutline,
       paragraph: [
         'Objetivos, recursos, contextos y estrategias hacen que cada proyecto planteé desafios únicos. Gracias a mi experiencia puedo explorar los problemas con creatividad y promover ideas fuera de la caja.',
       ],
@@ -60,7 +61,7 @@ export class FrontendProfileMock implements IProfile {
     this.softSkills.push({
       guid: 3,
       title: 'Planificación',
-      letter: 'P',
+      icon: mdiCalendarCheckOutline,
       paragraph: [
         'El desarrollo en front puede ser un gran desafio, sin una planificación consensuada puede terminar en un gran caos rápidamente.',
         'Para evitar esto suelo planear todas mis soluciones. Busco concensos en los equipos de trabajo y escucho las propuestas y puntos de vistas de mis compañeros de equipo.',

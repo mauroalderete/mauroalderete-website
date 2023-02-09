@@ -29,7 +29,7 @@ export class BackendProfileMock implements IProfile {
     this.softSkills.push({
       guid: 1,
       title: '',
-      letter: '',
+      icon: '',
       paragraph: [''],
     });
     this.hardSkills = new Array<IHardSkill>();

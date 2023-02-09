@@ -169,7 +169,9 @@ export class ProfilesPage extends LitElement {
                         @click="${(e: Event) => this._handleSoftSkillClicked(e, skill.guid)}"
                         class="skill ${index == 0 ? 'active' : ''}"
                       >
-                        ${skill.letter}
+                        <svg class="icon" viewBox="0 0 24 24">
+                          <path d="${skill.icon}" />
+                        </svg>
                       </div>`;
                     })}
                   </div>
