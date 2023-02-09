@@ -2,6 +2,7 @@
 /* #region default values */
 :host {
   --inner-splide-height: 25rem;
+  --inner-hard-skill-delay: var(--motion-duration-short4);
 }
 
 :host * {
@@ -193,6 +194,19 @@
   color: var(--primary-color-40);
 }
 
+.skill .icon {
+  pointer-events: none;
+  fill: #8b978f;
+}
+
+.skill:hover .icon {
+  fill: var(--secondary-font-color-1);
+}
+
+.skill.active .icon {
+  fill: var(--primary-color-40);
+}
+
 .hard-skills {
   display: flex;
   flex-direction: row;
@@ -214,6 +228,69 @@
   margin-top: 0.5rem;
 
   box-shadow: 0px 0px 5px 2px rgba(0, 0, 0, 0.3);
+}
+
+@keyframes anim-hard-skills {
+  from {
+    transform: translateX(100vw);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+.hard-skills * {
+  transform: translateX(100vw);
+  opacity: 0;
+  animation-duration: var(--motion-duration-long2);
+  animation-name: anim-hard-skills;
+  animation-fill-mode: forwards;
+  animation-timing-function: var(--motion-easing-standard-decelerate);
+}
+
+.hard-skill:nth-child(1) {
+  animation-delay: calc(var(--inner-hard-skill-delay) * 1);
+}
+.hard-skill:nth-child(2) {
+  animation-delay: calc(var(--inner-hard-skill-delay) * 2);
+}
+.hard-skill:nth-child(3n) {
+  animation-delay: calc(var(--inner-hard-skill-delay) * 3);
+}
+.hard-skill:nth-child(4) {
+  animation-delay: calc(var(--inner-hard-skill-delay) * 4);
+}
+.hard-skill:nth-child(5n) {
+  animation-delay: calc(var(--inner-hard-skill-delay) * 5);
+}
+.hard-skill:nth-child(6) {
+  animation-delay: calc(var(--inner-hard-skill-delay) * 6);
+}
+.hard-skill:nth-child(7n) {
+  animation-delay: calc(var(--inner-hard-skill-delay) * 7);
+}
+.hard-skill:nth-child(8n) {
+  animation-delay: calc(var(--inner-hard-skill-delay) * 8);
+}
+.hard-skill:nth-child(9n) {
+  animation-delay: calc(var(--inner-hard-skill-delay) * 9);
+}
+.hard-skill:nth-child(11n) {
+  animation-delay: calc(var(--inner-hard-skill-delay) * 10);
+}
+.hard-skill:nth-child(12) {
+  animation-delay: calc(var(--inner-hard-skill-delay) * 11);
+}
+.hard-skill:nth-child(13) {
+  animation-delay: calc(var(--inner-hard-skill-delay) * 12);
+}
+.hard-skill:nth-child(17) {
+  animation-delay: calc(var(--inner-hard-skill-delay) * 13);
+}
+.hard-skill:nth-child(n + 18) {
+  animation-delay: calc(var(--inner-hard-skill-delay) * 14);
 }
 
 /* #endregion */
