@@ -4,7 +4,7 @@ import { Splide } from '@splidejs/splide';
 
 import { AnimationController } from './animation-controller';
 import { ProfileService } from '../../services/profile.service';
-import { IProfile, ISoftSkill } from '../../models/profile.model';
+import { IProfile, ISoftSkill, ProfileType } from '../../models/profile.model';
 
 /*eslint-disable */
 import style from './profiles-page.css?inline' assert { type: 'css' };
@@ -65,9 +65,7 @@ export class ProfilesPage extends LitElement {
 
           // get profile selected by url
           // get the profile index that match with profileRouted
-          const profileRoutedIndex = this.profileDataList.findIndex(
-            (profile) => profile.type == router.location.params.profile.toString().toUpperCase()
-          );
+          const profileRoutedIndex = this.profileDataList.findIndex((profile) => profile.type == ProfileType.Gamedev);
           if (profileRoutedIndex < 0) {
             throw new Error(`profile selected "${router.location.params.profile}" no exist`);
           }

@@ -15,10 +15,6 @@ const routes = [
   },
   {
     path: '/profiles',
-    redirect: '/profiles/frontend',
-  },
-  {
-    path: '/profiles/:profile',
     component: 'profiles-page',
     action: async () => {
       await import('./components/profile-card/profile-card');
