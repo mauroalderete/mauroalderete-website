@@ -4,3 +4,5 @@
 **/node_modules/
 **/dist/
 .prettierrc.js
+public/*.httpaccess
+public/*.htaccess
