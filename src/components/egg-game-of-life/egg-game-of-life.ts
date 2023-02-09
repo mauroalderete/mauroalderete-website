@@ -47,9 +47,6 @@ export class EggGameOfLife extends LitElement {
     }
     const cellWidth = world.clientWidth / this.cols;
     const cellHeight = world.clientHeight / this.rows;
-    console.log(world.clientWidth, world.clientHeight);
-    console.log(this.cols, this.rows);
-    console.log(cellWidth, cellHeight);
 
     this.style.setProperty('--inner-egg-game-of-life-cell-width', `${cellWidth}px`);
     this.style.setProperty('--inner-egg-game-of-life-cell-height', `${cellHeight}px`);
@@ -130,8 +127,6 @@ export class EggGameOfLife extends LitElement {
 
   // clear the grid
   public Stop() {
-    console.log('Clear the game: stop playing, clear the grid');
-
     this.play = false;
     clearTimeout(this.timer);
 

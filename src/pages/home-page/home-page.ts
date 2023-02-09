@@ -85,7 +85,6 @@ export class HomePage extends LitElement {
   }
 
   private _handleStartTouched() {
-    console.log('To the 🚀 🌙!!!');
     location.href = '/profiles';
   }
 }

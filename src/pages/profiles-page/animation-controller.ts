@@ -11,7 +11,6 @@ export class AnimationController {
   }
 
   public Start(shadowRoot: ShadowRoot) {
-    console.log('AnimationController::Start::begin');
     this.context = new AnimationContext(shadowRoot);
     this.state = new MainTextAnimationState();
     this.state.Entry(this.context);
