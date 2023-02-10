@@ -58,7 +58,7 @@ jobs:
         run: npm ci
 
       - name: Build
-        run: npm run build
+        run: npm run build:prod
 
       - name: Compress build
         run: tar -zcvf mauroalderete-website.tar.gz dist/
