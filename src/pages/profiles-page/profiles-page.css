@@ -31,6 +31,10 @@
     transform var(--motion-duration-medium3) cubic-bezier(0.5, 0.5, 0.2, 1.5);
 }
 
+.upper:hover {
+  cursor: pointer;
+}
+
 .upper.reveal-active {
   opacity: 1;
   transform: scale(1);
