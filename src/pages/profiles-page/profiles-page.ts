@@ -169,8 +169,16 @@ export class ProfilesPage extends LitElement {
                 >
                   <v-button
                     style="white-space: nowrap"
-                    text="DESCARGA MI CURRICULUM DE FRONTEND"
-                    @press="${() => window.open('/profile/gamedev/resumes/mauro-alderete-gamedev.pdf', '_blank')}"
+                    text="DESCARGA MI CURRICULUM DE ${this.currentProfileData?.type.toString().toUpperCase()}"
+                    @press="${() =>
+                      window.open(
+                        `/profile/${this.currentProfileData?.type
+                          .toString()
+                          .toLowerCase()}/resumes/mauro-alderete-${this.currentProfileData?.type
+                          .toString()
+                          .toLowerCase()}.pdf`,
+                        '_blank'
+                      )}"
                   ></v-button>
                 </div>
               </section>
@@ -215,7 +223,10 @@ export class ProfilesPage extends LitElement {
 
             <section class="section-alert revealable reveal-by-right">
               <div class="alert-content">
-                <p>Estas skills son las que más utilizo mientras trabajo en proyectos frontend. Pero eso no es todo.</p>
+                <p>
+                  Estas skills son las que más utilizo mientras trabajo en proyectos
+                  ${this.currentProfileData?.type.toString().toLowerCase()}. Pero eso no es todo.
+                </p>
                 <p>
                   Te invito a que visites mis otros perfiles profesionales y conozcas más sobre los proyectos en los
                   participé.
@@ -288,8 +299,14 @@ export class ProfilesPage extends LitElement {
                   <a href="https://www.linkedin.com/in/mauroalderete/" target="_blank">CONTÁCTAME</a>
                 </li>
                 <li class="link">
-                  <a href="/profile/gamedev/resumes/mauro-alderete-gamedev.pdf" target="_blank"
-                    >DESCARGA MI CURRICULUM DE FRONTEND</a
+                  <a
+                    href="/profile/${this.currentProfileData?.type
+                      .toString()
+                      .toLowerCase()}/resumes/mauro-alderete-${this.currentProfileData?.type
+                      .toString()
+                      .toLowerCase()}.pdf"
+                    target="_blank"
+                    >DESCARGA MI CURRICULUM DE ${this.currentProfileData?.type.toString().toUpperCase()}</a
                   >
                 </li>
               </ul>
