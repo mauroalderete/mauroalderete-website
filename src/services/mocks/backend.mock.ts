@@ -19,7 +19,7 @@ export class BackendProfileMock implements IProfile {
     this.type = ProfileType.Backend;
     this.title = 'Backend';
     this.icon = backendIcon;
-    this.resume = '/profiles/backend/resumes/mauro-alderete-backend.pdf';
+    this.resume = '/profile/backend/resumes/mauro-alderete-backend.pdf';
 
     this.headline = 'Apasionado del desarrollo de videojuegos y sus desafíos.';
     this.rol = new Array<string>();
@@ -29,7 +29,7 @@ export class BackendProfileMock implements IProfile {
     this.softSkills.push({
       guid: 1,
       title: '',
-      letter: '',
+      icon: '',
       paragraph: [''],
     });
     this.hardSkills = new Array<IHardSkill>();

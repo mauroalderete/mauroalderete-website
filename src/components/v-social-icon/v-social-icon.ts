@@ -60,7 +60,6 @@ export class VSocialIcon extends LitElement {
       return;
     }
 
-    console.log('clicked!!!');
     this.listenClick = false;
 
     this.container?.classList.add('anim-click');

@@ -70,8 +70,8 @@ export class ProfileCard extends LitElement {
     return html`
       <div class="container">
         <div class="background">
-          <video preload="auto" loop="" playsinline="" poster="/profiles/background-generic.jpg">
-            <source src="/profiles/background-generic.mp4" type="video/mp4" />
+          <video preload="auto" loop="" playsinline="" poster="/profile/background-generic.jpg">
+            <source src="/profile/background-generic.mp4" type="video/mp4" />
           </video>
           <div class="poster"></div>
         </div>

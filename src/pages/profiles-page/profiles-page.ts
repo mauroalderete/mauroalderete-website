@@ -4,13 +4,13 @@ import { Splide } from '@splidejs/splide';
 
 import { AnimationController } from './animation-controller';
 import { ProfileService } from '../../services/profile.service';
-import { IProfile, ISoftSkill } from '../../models/profile.model';
+import { IProfile, ISoftSkill, ProfileType } from '../../models/profile.model';
 
 /*eslint-disable */
 import style from './profiles-page.css?inline' assert { type: 'css' };
 import { ProfileCard } from '../../components/profile-card/profile-card';
 import { router } from '../../main';
-import { mdiDocker, mdiGithub, mdiLinkedin, mdiTwitter } from '@mdi/js';
+import { mdiChevronUpCircle, mdiDocker, mdiGithub, mdiLinkedin, mdiTwitter } from '@mdi/js';
 /*eslint-enable */
 
 @customElement('profiles-page')
@@ -48,8 +48,6 @@ export class ProfilesPage extends LitElement {
   }
 
   firstUpdated(): void {
-    this._handleWindowLoaded();
-
     // recovery last all profiles data available
     this.profileService
       .GetProfilesAsync()
@@ -65,9 +63,7 @@ export class ProfilesPage extends LitElement {
 
           // get profile selected by url
           // get the profile index that match with profileRouted
-          const profileRoutedIndex = this.profileDataList.findIndex(
-            (profile) => profile.type == router.location.params.profile.toString().toUpperCase()
-          );
+          const profileRoutedIndex = this.profileDataList.findIndex((profile) => profile.type == ProfileType.Gamedev);
           if (profileRoutedIndex < 0) {
             throw new Error(`profile selected "${router.location.params.profile}" no exist`);
           }
@@ -86,6 +82,21 @@ export class ProfilesPage extends LitElement {
             this.currentProfileData = this.profileDataList.find(
               (profile) => profile.type == this.currentProfileCard?.type
             );
+
+            if (this.currentProfileData) {
+              this.currentSoftSkill = this.currentProfileData.softSkills[0];
+            }
+
+            const elements = this.shadowRoot?.querySelectorAll('.revealable') as Array<HTMLElement> | undefined;
+            if (elements) {
+              elements.forEach((element) => {
+                element.classList.remove('reveal-active');
+              });
+            }
+
+            this.updatedTasks.push(() => {
+              this._revealProfile();
+            });
 
             this.requestUpdate();
           });
@@ -107,6 +118,10 @@ export class ProfilesPage extends LitElement {
       .catch((error) => {
         throw new Error(error);
       });
+
+    window.addEventListener('scroll', () => this._reveal());
+
+    window.addEventListener('scroll', () => this._handleUpperButtonReveal());
   }
 
   protected updated(): void {
@@ -141,9 +156,11 @@ export class ProfilesPage extends LitElement {
           </section>
           <section class="megacontent">
             <section class="content">
-              <section class="section-basic">
-                <h3>// ROL</h3>
-                ${this.currentProfileData?.rol.map((paragraph) => html`<p>${paragraph}</p>`)}
+              <section class="section-basic perfil-section">
+                <h3>// PERFIL</h3>
+                <div class="revealable reveal-by-down">
+                  ${this.currentProfileData?.rol.map((paragraph) => html`<p>${paragraph}</p>`)}
+                </div>
                 <div
                   style="width: 100%;
                 display: flex;
@@ -153,21 +170,25 @@ export class ProfilesPage extends LitElement {
                   <v-button
                     style="white-space: nowrap"
                     text="DESCARGA MI CURRICULUM DE FRONTEND"
-                    @press="${() => window.open('/profiles/gamedev/resumes/mauro-alderete-gamedev.pdf', '_blank')}"
+                    @press="${() => window.open('/profile/gamedev/resumes/mauro-alderete-gamedev.pdf', '_blank')}"
                   ></v-button>
                 </div>
               </section>
               <section class="section-basic">
-                <h2>SOFT SKILLS</h2>
+                <h2>HABILIDADES INTERPERSONALES</h2>
 
-                <div class="skill-bar">
+                <div class="skill-bar revealable reveal-by-left">
                   <div class="skills">
-                    ${this.currentProfileData?.softSkills.map(
-                      (skill) =>
-                        html`<div @click="${(e: Event) => this._handleSoftSkillClicked(e, skill.guid)}" class="skill">
-                          ${skill.letter}
-                        </div>`
-                    )}
+                    ${this.currentProfileData?.softSkills.map((skill, index) => {
+                      return html`<div
+                        @click="${(e: Event) => this._handleSoftSkillClicked(e, skill.guid)}"
+                        class="skill ${index == 0 ? 'active' : ''}"
+                      >
+                        <svg class="icon" viewBox="0 0 24 24">
+                          <path d="${skill.icon}" />
+                        </svg>
+                      </div>`;
+                    })}
                   </div>
                   <div class="skill-description">
                     <h3>// ${this.currentSoftSkill?.title}</h3>
@@ -177,11 +198,14 @@ export class ProfilesPage extends LitElement {
               </section>
 
               <section class="section-basic">
-                <h2>TECHNICAL SKILLS</h2>
+                <h2>HABILIDADES TÉCNICAS</h2>
                 <div class="hard-skills">
                   ${this.currentProfileData?.hardSkills.map((skill) => {
                     const color = this._randomColor();
-                    return html`<div class="hard-skill" style="background-color: ${color.bg}; color: ${color.fg};">
+                    return html`<div
+                      class="hard-skill revealable"
+                      style="background-color: ${color.bg}; color: ${color.fg};"
+                    >
                       ${skill.label}
                     </div>`;
                   })}
@@ -189,38 +213,38 @@ export class ProfilesPage extends LitElement {
               </section>
             </section>
 
-            <section class="section-alert">
+            <section class="section-alert revealable reveal-by-right">
               <div class="alert-content">
                 <p>Estas skills son las que más utilizo mientras trabajo en proyectos frontend. Pero eso no es todo.</p>
                 <p>
                   Te invito a que visites mis otros perfiles profesionales y conozcas más sobre los proyectos en los
-                  participe.
+                  participé.
                 </p>
                 <p>Si tenes alguna duda contactame por mis redes, siempre estoy abierto para una charlar</p>
                 <div class="alert-socialbar">
                   <v-social-icon
-                    class="anim-social-icon"
+                    class="anim-social-icon revealable"
                     name="twitter"
                     url="https://twitter.com/_mauroalderete"
                     icon="${mdiTwitter}"
                   ></v-social-icon>
                   <div></div>
                   <v-social-icon
-                    class="anim-social-icon"
+                    class="anim-social-icon revealable"
                     name="linkedin"
                     url="https://www.linkedin.com/in/mauroalderete/"
                     icon="${mdiLinkedin}"
                   ></v-social-icon>
                   <div></div>
                   <v-social-icon
-                    class="anim-social-icon"
+                    class="anim-social-icon revealable"
                     name="github"
                     url="https://github.com/mauroalderete"
                     icon="${mdiGithub}"
                   ></v-social-icon>
                   <div></div>
                   <v-social-icon
-                    class="anim-social-icon"
+                    class="anim-social-icon revealable"
                     name="docker"
                     url="https://hub.docker.com/u/mauroalderete"
                     icon="${mdiDocker}"
@@ -234,7 +258,7 @@ export class ProfilesPage extends LitElement {
                 <div class="projects">
                   ${this.currentProfileData?.projects.map((project) => {
                     return html`
-                      <div class="project">
+                      <div class="project revealable reveal-by-down">
                         ${project.media ? html`<div class="media"><img src="${project.media}" /></div>` : html``}
 
                         <div class="project-content">
@@ -264,7 +288,7 @@ export class ProfilesPage extends LitElement {
                   <a href="https://www.linkedin.com/in/mauroalderete/" target="_blank">CONTÁCTAME</a>
                 </li>
                 <li class="link">
-                  <a href="/profiles/gamedev/resumes/mauro-alderete-gamedev.pdf" target="_blank"
+                  <a href="/profile/gamedev/resumes/mauro-alderete-gamedev.pdf" target="_blank"
                     >DESCARGA MI CURRICULUM DE FRONTEND</a
                   >
                 </li>
@@ -272,28 +296,28 @@ export class ProfilesPage extends LitElement {
             </div>
             <div class="socialbar">
               <v-social-icon
-                class="anim-social-icon"
+                class="anim-social-icon revealable"
                 name="twitter"
                 url="https://twitter.com/_mauroalderete"
                 icon="${mdiTwitter}"
               ></v-social-icon>
               <div></div>
               <v-social-icon
-                class="anim-social-icon"
+                class="anim-social-icon revealable"
                 name="linkedin"
                 url="https://www.linkedin.com/in/mauroalderete/"
                 icon="${mdiLinkedin}"
               ></v-social-icon>
               <div></div>
               <v-social-icon
-                class="anim-social-icon"
+                class="anim-social-icon revealable"
                 name="github"
                 url="https://github.com/mauroalderete"
                 icon="${mdiGithub}"
               ></v-social-icon>
               <div></div>
               <v-social-icon
-                class="anim-social-icon"
+                class="anim-social-icon revealable"
                 name="docker"
                 url="https://hub.docker.com/u/mauroalderete"
                 icon="${mdiDocker}"
@@ -301,6 +325,11 @@ export class ProfilesPage extends LitElement {
             </div>
           </section>
         </div>
+      </div>
+      <div class="upper" @click="${() => window.scrollTo({ top: 0, behavior: 'smooth' })}">
+        <svg class="icon" viewBox="0 0 24 24">
+          <path d="${mdiChevronUpCircle}" />
+        </svg>
       </div>
     `;
   }
@@ -340,10 +369,63 @@ export class ProfilesPage extends LitElement {
     }
   }
 
-  private _handleWindowLoaded() {
+  private _reveal() {
     if (!this.shadowRoot) {
       return;
     }
-    // this.animationController.Start(this.shadowRoot);
+
+    const elements = this.shadowRoot.querySelectorAll('.revealable') as unknown as Array<HTMLElement>;
+
+    if (!elements) {
+      return;
+    }
+
+    const windowHeight = window.innerHeight;
+    const html = document.querySelector('html');
+    if (!html) {
+      return;
+    }
+
+    const heightVisible = parseFloat(getComputedStyle(html).fontSize) * 5;
+
+    elements.forEach((el) => {
+      const elementTop = el.getBoundingClientRect().top;
+      if (elementTop < windowHeight - heightVisible) {
+        el.classList.add('reveal-active');
+      }
+    });
+  }
+
+  private _revealProfile() {
+    if (!this.shadowRoot) {
+      return;
+    }
+
+    const profileRevealable = this.shadowRoot.querySelector('.revealable');
+    profileRevealable?.classList.add('reveal-active');
+  }
+
+  private _handleUpperButtonReveal() {
+    const header = this.shadowRoot?.querySelector('.header');
+    if (!header) {
+      return;
+    }
+    const upper = this.shadowRoot?.querySelector('.upper');
+    if (!upper) {
+      return;
+    }
+    const html = document.querySelector('html');
+    if (!html) {
+      return;
+    }
+
+    const heightVisible = parseFloat(getComputedStyle(html).fontSize) * 5;
+
+    const elementTop = header.getBoundingClientRect().bottom;
+    if (elementTop < heightVisible) {
+      upper.classList.add('reveal-active');
+    } else {
+      upper.classList.remove('reveal-active');
+    }
   }
 }

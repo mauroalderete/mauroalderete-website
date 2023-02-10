@@ -19,7 +19,7 @@ export class MentorshipProfileMock implements IProfile {
     this.type = ProfileType.Mentorship;
     this.title = 'Mentorship';
     this.icon = mentorshipIcon;
-    this.resume = '/profiles/mentorship/resumes/mauro-alderete-mentorship.pdf';
+    this.resume = '/profile/mentorship/resumes/mauro-alderete-mentorship.pdf';
 
     this.headline = 'Apasionado del desarrollo de videojuegos y sus desafíos.';
     this.rol = new Array<string>();
@@ -29,7 +29,7 @@ export class MentorshipProfileMock implements IProfile {
     this.softSkills.push({
       guid: 1,
       title: '',
-      letter: '',
+      icon: '',
       paragraph: [''],
     });
     this.hardSkills = new Array<IHardSkill>();

@@ -25,7 +25,7 @@ export interface IProfile {
 export interface ISoftSkill {
   guid: number;
   title: string;
-  letter: string;
+  icon: string;
   paragraph: Array<string>;
 }
 

@@ -19,7 +19,7 @@ export class GamedevProfileMock implements IProfile {
     this.type = ProfileType.Gamedev;
     this.title = 'GameDev';
     this.icon = gamedevIcon;
-    this.resume = '/profiles/gamedev/resumes/mauro-alderete-gamedev.pdf';
+    this.resume = '/profile/gamedev/resumes/mauro-alderete-gamedev.pdf';
 
     this.headline = 'Apasionado del desarrollo de videojuegos y sus desafíos.';
     this.rol = new Array<string>();
@@ -29,7 +29,7 @@ export class GamedevProfileMock implements IProfile {
     this.softSkills.push({
       guid: 1,
       title: '',
-      letter: '',
+      icon: '',
       paragraph: [''],
     });
     this.hardSkills = new Array<IHardSkill>();

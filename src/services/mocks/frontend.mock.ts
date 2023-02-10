@@ -1,5 +1,6 @@
 import { IHardSkill, IProfile, IProject, ISoftSkill, ProfileType } from '../../models/profile.model';
 import { frontendIcon } from '../../assets/icons';
+import { mdiArmFlexOutline, mdiCalendarCheckOutline, mdiPaletteOutline } from '@mdi/js';
 
 export class FrontendProfileMock implements IProfile {
   type: ProfileType;
@@ -19,8 +20,8 @@ export class FrontendProfileMock implements IProfile {
     this.type = ProfileType.Frontend;
     this.title = 'Frontend';
     this.icon = frontendIcon;
-    this.resume = '/profiles/frontend/resumes/mauro-alderete-frontend.pdf';
-    this.resume = '/profiles/gamedev/resumes/mauro-alderete-gamedev.pdf';
+    this.resume = '/profile/frontend/resumes/mauro-alderete-frontend.pdf';
+    this.resume = '/profile/gamedev/resumes/mauro-alderete-gamedev.pdf';
 
     this.headline = 'Experiencias fluidaz, dinámicas y atrapantes';
 
@@ -41,7 +42,7 @@ export class FrontendProfileMock implements IProfile {
     this.softSkills.push({
       guid: 1,
       title: 'Colaboración',
-      letter: 'C',
+      icon: mdiArmFlexOutline,
       paragraph: [
         'Siempre estoy dispuesto a colaborar con clientes, product manager y el equipo de diseño para alcanzar los objetivos que nos planteamos.',
         'Suelo aportar muchas opciones en las mesas de debate junto con un análisis de sus fortalezas y debilidades técnicas.',
@@ -51,7 +52,7 @@ export class FrontendProfileMock implements IProfile {
     this.softSkills.push({
       guid: 2,
       title: 'Creatividad',
-      letter: 'C',
+      icon: mdiPaletteOutline,
       paragraph: [
         'Objetivos, recursos, contextos y estrategias hacen que cada proyecto planteé desafios únicos. Gracias a mi experiencia puedo explorar los problemas con creatividad y promover ideas fuera de la caja.',
       ],
@@ -60,7 +61,7 @@ export class FrontendProfileMock implements IProfile {
     this.softSkills.push({
       guid: 3,
       title: 'Planificación',
-      letter: 'P',
+      icon: mdiCalendarCheckOutline,
       paragraph: [
         'El desarrollo en front puede ser un gran desafio, sin una planificación consensuada puede terminar en un gran caos rápidamente.',
         'Para evitar esto suelo planear todas mis soluciones. Busco concensos en los equipos de trabajo y escucho las propuestas y puntos de vistas de mis compañeros de equipo.',
@@ -103,7 +104,7 @@ export class FrontendProfileMock implements IProfile {
     this.projects.push(
       {
         title: 'Website Personal',
-        media: '/profiles/frontend/media/mauroalderete.png',
+        media: '/profile/frontend/media/mauroalderete.png',
         paragraph: [
           'Diseñe éste sitio web inspirado en el mundo de los videojuegos.',
           'Nació como una propuesta para organizar mis proyectos personales y darlos a conocer a la comunidad tech.',
@@ -112,7 +113,7 @@ export class FrontendProfileMock implements IProfile {
       },
       {
         title: 'Website Rayquen',
-        media: '/profiles/frontend/media/rayquen.png',
+        media: '/profile/frontend/media/rayquen.png',
         paragraph: [
           'Rayquen es una iniciativa educativa que surgió hace algunos años para brindar un espacio de aprendizaje y desarrollo personal en el marco de las nuevas tecnologías.',
           'Diseñé el sitio web como una Landing Page que permite a los visitantes conocer los cursos ofrecidos con gran cantidad de detalles. Explorar las propuestas y registrarse en las clases.',
