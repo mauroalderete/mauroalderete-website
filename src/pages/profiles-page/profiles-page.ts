@@ -10,7 +10,7 @@ import { IProfile, ISoftSkill, ProfileType } from '../../models/profile.model';
 import style from './profiles-page.css?inline' assert { type: 'css' };
 import { ProfileCard } from '../../components/profile-card/profile-card';
 import { router } from '../../main';
-import { mdiDocker, mdiGithub, mdiLinkedin, mdiTwitter } from '@mdi/js';
+import { mdiChevronUpCircle, mdiDocker, mdiGithub, mdiLinkedin, mdiTwitter } from '@mdi/js';
 /*eslint-enable */
 
 @customElement('profiles-page')
@@ -120,6 +120,8 @@ export class ProfilesPage extends LitElement {
       });
 
     window.addEventListener('scroll', () => this._reveal());
+
+    window.addEventListener('scroll', () => this._handleUpperButtonReveal());
   }
 
   protected updated(): void {
@@ -154,7 +156,7 @@ export class ProfilesPage extends LitElement {
           </section>
           <section class="megacontent">
             <section class="content">
-              <section class="section-basic">
+              <section class="section-basic perfil-section">
                 <h3>// PERFIL</h3>
                 <div class="revealable reveal-by-down">
                   ${this.currentProfileData?.rol.map((paragraph) => html`<p>${paragraph}</p>`)}
@@ -324,6 +326,11 @@ export class ProfilesPage extends LitElement {
           </section>
         </div>
       </div>
+      <div class="upper" @click="${() => window.scrollTo({ top: 0, behavior: 'smooth' })}">
+        <svg class="icon" viewBox="0 0 24 24">
+          <path d="${mdiChevronUpCircle}" />
+        </svg>
+      </div>
     `;
   }
 
@@ -396,5 +403,29 @@ export class ProfilesPage extends LitElement {
 
     const profileRevealable = this.shadowRoot.querySelector('.revealable');
     profileRevealable?.classList.add('reveal-active');
+  }
+
+  private _handleUpperButtonReveal() {
+    const header = this.shadowRoot?.querySelector('.header');
+    if (!header) {
+      return;
+    }
+    const upper = this.shadowRoot?.querySelector('.upper');
+    if (!upper) {
+      return;
+    }
+    const html = document.querySelector('html');
+    if (!html) {
+      return;
+    }
+
+    const heightVisible = parseFloat(getComputedStyle(html).fontSize) * 5;
+
+    const elementTop = header.getBoundingClientRect().bottom;
+    if (elementTop < heightVisible) {
+      upper.classList.add('reveal-active');
+    } else {
+      upper.classList.remove('reveal-active');
+    }
   }
 }
