@@ -48,8 +48,6 @@ export class ProfilesPage extends LitElement {
   }
 
   firstUpdated(): void {
-    this._handleWindowLoaded();
-
     // recovery last all profiles data available
     this.profileService
       .GetProfilesAsync()
@@ -89,6 +87,17 @@ export class ProfilesPage extends LitElement {
               this.currentSoftSkill = this.currentProfileData.softSkills[0];
             }
 
+            const elements = this.shadowRoot?.querySelectorAll('.revealable') as Array<HTMLElement> | undefined;
+            if (elements) {
+              elements.forEach((element) => {
+                element.classList.remove('reveal-active');
+              });
+            }
+
+            this.updatedTasks.push(() => {
+              this._revealProfile();
+            });
+
             this.requestUpdate();
           });
 
@@ -109,6 +118,8 @@ export class ProfilesPage extends LitElement {
       .catch((error) => {
         throw new Error(error);
       });
+
+    window.addEventListener('scroll', () => this._reveal());
   }
 
   protected updated(): void {
@@ -145,7 +156,9 @@ export class ProfilesPage extends LitElement {
             <section class="content">
               <section class="section-basic">
                 <h3>// PERFIL</h3>
-                ${this.currentProfileData?.rol.map((paragraph) => html`<p>${paragraph}</p>`)}
+                <div class="revealable reveal-by-down">
+                  ${this.currentProfileData?.rol.map((paragraph) => html`<p>${paragraph}</p>`)}
+                </div>
                 <div
                   style="width: 100%;
                 display: flex;
@@ -162,7 +175,7 @@ export class ProfilesPage extends LitElement {
               <section class="section-basic">
                 <h2>HABILIDADES INTERPERSONALES</h2>
 
-                <div class="skill-bar">
+                <div class="skill-bar revealable reveal-by-left">
                   <div class="skills">
                     ${this.currentProfileData?.softSkills.map((skill, index) => {
                       return html`<div
@@ -187,7 +200,10 @@ export class ProfilesPage extends LitElement {
                 <div class="hard-skills">
                   ${this.currentProfileData?.hardSkills.map((skill) => {
                     const color = this._randomColor();
-                    return html`<div class="hard-skill" style="background-color: ${color.bg}; color: ${color.fg};">
+                    return html`<div
+                      class="hard-skill revealable"
+                      style="background-color: ${color.bg}; color: ${color.fg};"
+                    >
                       ${skill.label}
                     </div>`;
                   })}
@@ -195,7 +211,7 @@ export class ProfilesPage extends LitElement {
               </section>
             </section>
 
-            <section class="section-alert">
+            <section class="section-alert revealable reveal-by-right">
               <div class="alert-content">
                 <p>Estas skills son las que más utilizo mientras trabajo en proyectos frontend. Pero eso no es todo.</p>
                 <p>
@@ -205,28 +221,28 @@ export class ProfilesPage extends LitElement {
                 <p>Si tenes alguna duda contactame por mis redes, siempre estoy abierto para una charlar</p>
                 <div class="alert-socialbar">
                   <v-social-icon
-                    class="anim-social-icon"
+                    class="anim-social-icon revealable"
                     name="twitter"
                     url="https://twitter.com/_mauroalderete"
                     icon="${mdiTwitter}"
                   ></v-social-icon>
                   <div></div>
                   <v-social-icon
-                    class="anim-social-icon"
+                    class="anim-social-icon revealable"
                     name="linkedin"
                     url="https://www.linkedin.com/in/mauroalderete/"
                     icon="${mdiLinkedin}"
                   ></v-social-icon>
                   <div></div>
                   <v-social-icon
-                    class="anim-social-icon"
+                    class="anim-social-icon revealable"
                     name="github"
                     url="https://github.com/mauroalderete"
                     icon="${mdiGithub}"
                   ></v-social-icon>
                   <div></div>
                   <v-social-icon
-                    class="anim-social-icon"
+                    class="anim-social-icon revealable"
                     name="docker"
                     url="https://hub.docker.com/u/mauroalderete"
                     icon="${mdiDocker}"
@@ -240,7 +256,7 @@ export class ProfilesPage extends LitElement {
                 <div class="projects">
                   ${this.currentProfileData?.projects.map((project) => {
                     return html`
-                      <div class="project">
+                      <div class="project revealable reveal-by-down">
                         ${project.media ? html`<div class="media"><img src="${project.media}" /></div>` : html``}
 
                         <div class="project-content">
@@ -278,28 +294,28 @@ export class ProfilesPage extends LitElement {
             </div>
             <div class="socialbar">
               <v-social-icon
-                class="anim-social-icon"
+                class="anim-social-icon revealable"
                 name="twitter"
                 url="https://twitter.com/_mauroalderete"
                 icon="${mdiTwitter}"
               ></v-social-icon>
               <div></div>
               <v-social-icon
-                class="anim-social-icon"
+                class="anim-social-icon revealable"
                 name="linkedin"
                 url="https://www.linkedin.com/in/mauroalderete/"
                 icon="${mdiLinkedin}"
               ></v-social-icon>
               <div></div>
               <v-social-icon
-                class="anim-social-icon"
+                class="anim-social-icon revealable"
                 name="github"
                 url="https://github.com/mauroalderete"
                 icon="${mdiGithub}"
               ></v-social-icon>
               <div></div>
               <v-social-icon
-                class="anim-social-icon"
+                class="anim-social-icon revealable"
                 name="docker"
                 url="https://hub.docker.com/u/mauroalderete"
                 icon="${mdiDocker}"
@@ -346,10 +362,39 @@ export class ProfilesPage extends LitElement {
     }
   }
 
-  private _handleWindowLoaded() {
+  private _reveal() {
     if (!this.shadowRoot) {
       return;
     }
-    // this.animationController.Start(this.shadowRoot);
+
+    const elements = this.shadowRoot.querySelectorAll('.revealable') as unknown as Array<HTMLElement>;
+
+    if (!elements) {
+      return;
+    }
+
+    const windowHeight = window.innerHeight;
+    const html = document.querySelector('html');
+    if (!html) {
+      return;
+    }
+
+    const heightVisible = parseFloat(getComputedStyle(html).fontSize) * 5;
+
+    elements.forEach((el) => {
+      const elementTop = el.getBoundingClientRect().top;
+      if (elementTop < windowHeight - heightVisible) {
+        el.classList.add('reveal-active');
+      }
+    });
+  }
+
+  private _revealProfile() {
+    if (!this.shadowRoot) {
+      return;
+    }
+
+    const profileRevealable = this.shadowRoot.querySelector('.revealable');
+    profileRevealable?.classList.add('reveal-active');
   }
 }
