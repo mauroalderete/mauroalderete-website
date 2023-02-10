@@ -344,6 +344,8 @@
   flex-wrap: wrap;
   justify-content: space-around;
   align-items: center;
+  padding-left: 1rem;
+  padding-right: 1rem;
 }
 
 .section-basic.section-projects {
