@@ -168,7 +168,7 @@ export class ProfilesPage extends LitElement {
                 justify-content: center;"
                 >
                   <v-button
-                    style="white-space: nowrap"
+                    style="white-space: wrap"
                     text="DESCARGA MI CURRICULUM DE ${this.currentProfileData?.type.toString().toUpperCase()}"
                     @press="${() =>
                       window.open(
