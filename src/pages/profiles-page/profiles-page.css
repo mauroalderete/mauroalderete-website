@@ -137,6 +137,7 @@
   padding-left: 5%;
   padding-right: 5%;
   position: relative;
+  margin: 0 auto;
 }
 
 .content::after {
@@ -361,7 +362,7 @@
   background-color: #0f1923;
   position: relative;
 
-  width: 20rem;
+  width: 75vw;
 
   margin: 1rem;
 
@@ -387,7 +388,7 @@
 }
 
 .project .media {
-  height: 20rem;
+  height: 25vh;
 }
 
 .project .media img {
@@ -487,6 +488,10 @@
   opacity: 0;
   width: 2rem;
   height: 2rem;
+}
+
+.alert-content {
+  margin: 0 auto;
 }
 
 /* #endregion */
@@ -671,4 +676,76 @@
   animation-name: fade-social-icon;
 }
 
+/* #endregion */
+
+/* #region media queries*/
+
+@media (max-width: 320px) {
+}
+
+@media (min-width: 375px) {
+}
+
+@media (min-width: 425px) {
+  .project {
+    width: 500px;
+  }
+}
+
+@media (min-width: 768px) {
+}
+
+@media (min-width: 1024px) {
+  html {
+    font-size: 14pt;
+  }
+
+  .project {
+    width: 340px;
+  }
+}
+
+@media (min-width: 1280px) {
+  html {
+    font-size: 14pt;
+  }
+}
+
+@media (min-width: 1366px) {
+  html {
+    font-size: 14pt;
+  }
+
+  .content {
+    width: 1230px;
+    padding-left: auto;
+    padding-right: auto;
+  }
+
+  .alert-content {
+    width: 1230px;
+  }
+
+  .project {
+    width: 350px;
+  }
+}
+
+@media (min-width: 1440px) {
+  :host {
+    font-size: 14pt;
+  }
+}
+
+@media (min-width: 1680px) {
+  :host {
+    font-size: 14pt;
+  }
+}
+
+@media (min-width: 2560px) {
+  :host {
+    font-size: 14pt;
+  }
+}
 /* #endregion */

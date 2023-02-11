@@ -136,8 +136,21 @@ export class ProfilesPage extends LitElement {
       });
 
     window.addEventListener('scroll', () => this._reveal());
-
     window.addEventListener('scroll', () => this._handleUpperButtonReveal());
+    window.addEventListener('resize', () => {
+      console.log('initializing masonry');
+      const projects = this.shadowRoot?.querySelector('.projects');
+
+      if (projects) {
+        this.masonry = new Masonry(projects, {
+          itemSelector: '.project',
+          fitWidth: true,
+        });
+      }
+
+      this._reveal();
+      this._handleUpperButtonReveal();
+    });
   }
 
   protected updated(): void {
