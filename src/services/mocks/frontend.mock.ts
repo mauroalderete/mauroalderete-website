@@ -121,6 +121,106 @@ export class FrontendProfileMock implements IProfile {
           'Te invito a dar una vuelta por rayquen.com, estoy seguro que encontrarás algo que te llame la atención.',
         ],
         target: 'https://rayquen.com',
+      },
+      {
+        title: 'Hirameki',
+        media: '/profile/frontend/media/hirameki.png',
+        paragraph: [
+          'Es muy común encontrar entre las comunidades de escritores a muchos autores enfrentandose al página en blanco.',
+          'Hirameki es una aplicación que surgió para resolver ese problema.',
+          'Permite escribir y crear pequeñas sinopsis de historias que combinan elementos aleatorios.',
+        ],
+        target: 'https://rayquen.com',
+      },
+      {
+        title: 'Website Personal',
+        media: '/profile/frontend/media/mauroalderete.png',
+        paragraph: [
+          'Diseñe éste sitio web inspirado en el mundo de los videojuegos.',
+          'Nació como una propuesta para organizar mis proyectos personales y darlos a conocer a la comunidad tech.',
+          'Utilizo Typescript, WebComponents y LitElement. Node y NPM forman parte del entorno de desarrollo. Al utilizar Github  para versionar el portafolio puedo implementar los Github Actions que construí y compartí con la comunidad.',
+        ],
+      },
+      {
+        title: 'Website Rayquen',
+        media: '/profile/frontend/media/rayquen.png',
+        paragraph: [
+          'Rayquen es una iniciativa educativa que surgió hace algunos años para brindar un espacio de aprendizaje y desarrollo personal en el marco de las nuevas tecnologías.',
+          'Diseñé el sitio web como una Landing Page que permite a los visitantes conocer los cursos ofrecidos con gran cantidad de detalles. Explorar las propuestas y registrarse en las clases.',
+          'Fue diseñado sin frameworks, únicamente con JavaScript, CSS y HTML. Una serie de scripts en php gestionan algunas operaciones de backend.',
+          'Te invito a dar una vuelta por rayquen.com, estoy seguro que encontrarás algo que te llame la atención.',
+        ],
+        target: 'https://rayquen.com',
+      },
+      {
+        title: 'Hirameki',
+        media: '/profile/frontend/media/hirameki.png',
+        paragraph: [
+          'Es muy común encontrar entre las comunidades de escritores a muchos autores enfrentandose al página en blanco.',
+          'Hirameki es una aplicación que surgió para resolver ese problema.',
+          'Permite escribir y crear pequeñas sinopsis de historias que combinan elementos aleatorios.',
+        ],
+        target: 'https://rayquen.com',
+      },
+      {
+        title: 'Website Personal',
+        media: '/profile/frontend/media/mauroalderete.png',
+        paragraph: [
+          'Diseñe éste sitio web inspirado en el mundo de los videojuegos.',
+          'Nació como una propuesta para organizar mis proyectos personales y darlos a conocer a la comunidad tech.',
+          'Utilizo Typescript, WebComponents y LitElement. Node y NPM forman parte del entorno de desarrollo. Al utilizar Github  para versionar el portafolio puedo implementar los Github Actions que construí y compartí con la comunidad.',
+        ],
+      },
+      {
+        title: 'Website Rayquen',
+        media: '/profile/frontend/media/rayquen.png',
+        paragraph: [
+          'Rayquen es una iniciativa educativa que surgió hace algunos años para brindar un espacio de aprendizaje y desarrollo personal en el marco de las nuevas tecnologías.',
+          'Diseñé el sitio web como una Landing Page que permite a los visitantes conocer los cursos ofrecidos con gran cantidad de detalles. Explorar las propuestas y registrarse en las clases.',
+          'Fue diseñado sin frameworks, únicamente con JavaScript, CSS y HTML. Una serie de scripts en php gestionan algunas operaciones de backend.',
+          'Te invito a dar una vuelta por rayquen.com, estoy seguro que encontrarás algo que te llame la atención.',
+        ],
+        target: 'https://rayquen.com',
+      },
+      {
+        title: 'Hirameki',
+        media: '/profile/frontend/media/hirameki.png',
+        paragraph: [
+          'Es muy común encontrar entre las comunidades de escritores a muchos autores enfrentandose al página en blanco.',
+          'Hirameki es una aplicación que surgió para resolver ese problema.',
+          'Permite escribir y crear pequeñas sinopsis de historias que combinan elementos aleatorios.',
+        ],
+        target: 'https://rayquen.com',
+      },
+      {
+        title: 'Website Personal',
+        media: '/profile/frontend/media/mauroalderete.png',
+        paragraph: [
+          'Diseñe éste sitio web inspirado en el mundo de los videojuegos.',
+          'Nació como una propuesta para organizar mis proyectos personales y darlos a conocer a la comunidad tech.',
+          'Utilizo Typescript, WebComponents y LitElement. Node y NPM forman parte del entorno de desarrollo. Al utilizar Github  para versionar el portafolio puedo implementar los Github Actions que construí y compartí con la comunidad.',
+        ],
+      },
+      {
+        title: 'Website Rayquen',
+        media: '/profile/frontend/media/rayquen.png',
+        paragraph: [
+          'Rayquen es una iniciativa educativa que surgió hace algunos años para brindar un espacio de aprendizaje y desarrollo personal en el marco de las nuevas tecnologías.',
+          'Diseñé el sitio web como una Landing Page que permite a los visitantes conocer los cursos ofrecidos con gran cantidad de detalles. Explorar las propuestas y registrarse en las clases.',
+          'Fue diseñado sin frameworks, únicamente con JavaScript, CSS y HTML. Una serie de scripts en php gestionan algunas operaciones de backend.',
+          'Te invito a dar una vuelta por rayquen.com, estoy seguro que encontrarás algo que te llame la atención.',
+        ],
+        target: 'https://rayquen.com',
+      },
+      {
+        title: 'Hirameki',
+        media: '/profile/frontend/media/hirameki.png',
+        paragraph: [
+          'Es muy común encontrar entre las comunidades de escritores a muchos autores enfrentandose al página en blanco.',
+          'Hirameki es una aplicación que surgió para resolver ese problema.',
+          'Permite escribir y crear pequeñas sinopsis de historias que combinan elementos aleatorios.',
+        ],
+        target: 'https://rayquen.com',
       }
     );
     this.blog = 'Minimax en el tateti';

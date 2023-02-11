@@ -2,6 +2,8 @@ import { LitElement, html, unsafeCSS, css } from 'lit';
 import { customElement } from 'lit/decorators.js';
 import { Splide } from '@splidejs/splide';
 
+import Masonry from 'masonry-layout';
+
 import { AnimationController } from './animation-controller';
 import { ProfileService } from '../../services/profile.service';
 import { IProfile, ISoftSkill, ProfileType } from '../../models/profile.model';
@@ -11,6 +13,7 @@ import style from './profiles-page.css?inline' assert { type: 'css' };
 import { ProfileCard } from '../../components/profile-card/profile-card';
 import { router } from '../../main';
 import { mdiChevronUpCircle, mdiDocker, mdiGithub, mdiLinkedin, mdiTwitter } from '@mdi/js';
+import { Cronjob } from '../../cronjob/cronjob';
 /*eslint-enable */
 
 @customElement('profiles-page')
@@ -34,6 +37,12 @@ export class ProfilesPage extends LitElement {
 
   splide!: Splide;
 
+  masonry?: Masonry;
+
+  video?: HTMLVideoElement;
+  poster?: HTMLDivElement;
+  isReadyToPlay: boolean;
+
   constructor() {
     super();
 
@@ -45,6 +54,8 @@ export class ProfilesPage extends LitElement {
     this.updatedTasks = new Array<() => void>();
 
     this.profileCardList = new Array<ProfileCard>();
+
+    this.isReadyToPlay = false;
   }
 
   firstUpdated(): void {
@@ -67,6 +78,18 @@ export class ProfilesPage extends LitElement {
           if (profileRoutedIndex < 0) {
             throw new Error(`profile selected "${router.location.params.profile}" no exist`);
           }
+
+          // handle first updated to header-landscape
+          const titles = this.shadowRoot?.querySelectorAll(
+            '.header-landscape-titles h2'
+          ) as unknown as Array<HTMLHeadingElement>;
+          titles.forEach((title) => {
+            if (title.id == `title-${ProfileType.Gamedev}`) {
+              this.updatedTasks.push(() => {
+                title.dispatchEvent(new Event('click'));
+              });
+            }
+          });
 
           this.splide = new Splide(splideElement as HTMLElement, {
             start: profileRoutedIndex,
@@ -98,6 +121,18 @@ export class ProfilesPage extends LitElement {
               this._revealProfile();
             });
 
+            this.updatedTasks.push(() => {
+              console.log('initializing masonry');
+              const projects = this.shadowRoot?.querySelector('.projects');
+
+              if (projects) {
+                this.masonry = new Masonry(projects, {
+                  itemSelector: '.project',
+                  fitWidth: true,
+                });
+              }
+            });
+
             this.requestUpdate();
           });
 
@@ -113,6 +148,48 @@ export class ProfilesPage extends LitElement {
           });
         });
 
+        this.video = this.shadowRoot?.querySelector('.header-landscape-background video') as HTMLVideoElement;
+        this.video.addEventListener('canplay', () => this._handleCanPlay());
+
+        const videoplayCron = new Cronjob(
+          (cancel) =>
+            new Promise((resolve, reject) => {
+              if (!this.video) {
+                this.video = this.shadowRoot?.querySelector('.header-landscape-background video') as HTMLVideoElement;
+                if (!this.video) {
+                  reject();
+                  return;
+                }
+              }
+
+              if (!this.poster) {
+                this.poster = this.shadowRoot?.querySelector('.header-landscape-poster') as HTMLDivElement;
+                if (!this.poster) {
+                  reject();
+                  return;
+                }
+              }
+
+              if (!this.isReadyToPlay) {
+                reject();
+                return;
+              }
+
+              if (cancel()) {
+                reject();
+                return;
+              }
+
+              this.poster.classList.add('hide');
+              this.video.muted = true;
+              this.video.play();
+              resolve();
+            }),
+          { interval: 50, intents: 0 }
+        );
+
+        setTimeout(() => videoplayCron.Start({}, false), 1000);
+
         this.requestUpdate();
       })
       .catch((error) => {
@@ -120,8 +197,21 @@ export class ProfilesPage extends LitElement {
       });
 
     window.addEventListener('scroll', () => this._reveal());
-
     window.addEventListener('scroll', () => this._handleUpperButtonReveal());
+    window.addEventListener('resize', () => {
+      console.log('initializing masonry');
+      const projects = this.shadowRoot?.querySelector('.projects');
+
+      if (projects) {
+        this.masonry = new Masonry(projects, {
+          itemSelector: '.project',
+          fitWidth: true,
+        });
+      }
+
+      this._reveal();
+      this._handleUpperButtonReveal();
+    });
   }
 
   protected updated(): void {
@@ -138,7 +228,7 @@ export class ProfilesPage extends LitElement {
       <div class="container">
         <div class="layout">
           <section class="header">
-            <section class="splide" aria-labelledby="carousel-heading">
+            <section class="header-portrait splide" aria-labelledby="carousel-heading">
               <div class="splide__track">
                 <div class="splide__list">
                   ${this.profileDataList.map(
@@ -149,6 +239,38 @@ export class ProfilesPage extends LitElement {
                       headline=${profile.headline}
                       image=${profile.icon}
                     ></profile-card>`
+                  )}
+                </div>
+              </div>
+            </section>
+            <section class="header-landscape">
+              <div class="header-landscape-background">
+                <video preload="auto" loop="" playsinline="" poster="/profile/background-generic.jpg">
+                  <source src="/profile/background-generic.mp4" type="video/mp4" />
+                </video>
+                <div class="header-landscape-poster"></div>
+              </div>
+              <div class="header-landscape-content">
+                <div class="header-landscape-titles">
+                  ${this.profileDataList.map(
+                    (profile) =>
+                      html`<h2 @click="${(e: Event) => this._handleTitleClick(profile, e)}" id="title-${profile.type}">
+                        ${profile.title}
+                      </h2>`
+                  )}
+                </div>
+                <div class="header-landscape-cards">
+                  ${this.profileDataList.map(
+                    (profile) => html`
+                      <div id="card-${profile.type}" class="header-landscape-card">
+                        <div class="header-landscape-headline">${profile.headline}</div>
+                        <div class="header-landscape-image">
+                          <svg class="header-landscape-icon header-landscape-icon-${profile.type}" viewBox="0 0 24 24">
+                            <path d="${profile.icon}" />
+                          </svg>
+                        </div>
+                      </div>
+                    `
                   )}
                 </div>
               </div>
@@ -168,7 +290,7 @@ export class ProfilesPage extends LitElement {
                 justify-content: center;"
                 >
                   <v-button
-                    style="white-space: nowrap"
+                    style="white-space: wrap"
                     text="DESCARGA MI CURRICULUM DE ${this.currentProfileData?.type.toString().toUpperCase()}"
                     @press="${() =>
                       window.open(
@@ -283,7 +405,7 @@ export class ProfilesPage extends LitElement {
                                   @press="${() => window.open(project.target, '_blank')}"
                                 ></v-button>
                               `
-                            : html`<div class="more"></div>`}
+                            : html``}
                         </div>
                       </div>
                     `;
@@ -444,5 +566,65 @@ export class ProfilesPage extends LitElement {
     } else {
       upper.classList.remove('reveal-active');
     }
+  }
+
+  private _handleTitleClick(profile: IProfile, e: Event) {
+    const previousTitle = this.shadowRoot?.querySelector('.header-landscape-titles h2.active');
+    if (previousTitle) {
+      previousTitle.classList.remove('active');
+    }
+
+    console.log('title clicked');
+
+    const title = e.target as HTMLHeadingElement;
+    title.classList.add('active');
+
+    const previousCard = this.shadowRoot?.querySelector('.header-landscape-card.active');
+    previousCard?.classList.remove('active');
+
+    const currentCard = this.shadowRoot?.querySelector(`#card-${profile.type}`);
+    currentCard?.classList.add('active');
+
+    this.currentProfileData = profile;
+    if (this.currentProfileData) {
+      this.currentSoftSkill = this.currentProfileData.softSkills[0];
+    }
+
+    const elements = this.shadowRoot?.querySelectorAll('.revealable') as Array<HTMLElement> | undefined;
+    if (elements) {
+      elements.forEach((element) => {
+        element.classList.remove('reveal-active');
+      });
+    }
+
+    this.updatedTasks.push(() => {
+      this._revealProfile();
+    });
+
+    this.updatedTasks.push(() => {
+      console.log('initializing masonry');
+      const projects = this.shadowRoot?.querySelector('.projects');
+
+      if (projects) {
+        this.masonry = new Masonry(projects, {
+          itemSelector: '.project',
+          fitWidth: true,
+        });
+      }
+    });
+
+    this.requestUpdate();
+  }
+
+  private _handleCanPlay() {
+    if (!this.video) {
+      return;
+    }
+
+    if (this.video.readyState < this.video.HAVE_ENOUGH_DATA) {
+      return;
+    }
+
+    this.isReadyToPlay = true;
   }
 }
