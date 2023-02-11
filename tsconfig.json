@@ -15,7 +15,8 @@
     "noUnusedParameters": true,
     "noImplicitReturns": true,
     "skipLibCheck": true,
-    "types": ["cypress"]
+    "types": ["cypress"],
+    "allowJs": true
   },
   "include": ["src", "e2e/main.spec.ts"]
 }

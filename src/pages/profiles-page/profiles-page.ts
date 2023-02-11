@@ -2,6 +2,8 @@ import { LitElement, html, unsafeCSS, css } from 'lit';
 import { customElement } from 'lit/decorators.js';
 import { Splide } from '@splidejs/splide';
 
+import Masonry from 'masonry-layout';
+
 import { AnimationController } from './animation-controller';
 import { ProfileService } from '../../services/profile.service';
 import { IProfile, ISoftSkill, ProfileType } from '../../models/profile.model';
@@ -33,6 +35,8 @@ export class ProfilesPage extends LitElement {
   updatedTasks: Array<() => void>;
 
   splide!: Splide;
+
+  masonry?: Masonry;
 
   constructor() {
     super();
@@ -96,6 +100,18 @@ export class ProfilesPage extends LitElement {
 
             this.updatedTasks.push(() => {
               this._revealProfile();
+            });
+
+            this.updatedTasks.push(() => {
+              console.log('initializing masonry');
+              const projects = this.shadowRoot?.querySelector('.projects');
+
+              if (projects) {
+                this.masonry = new Masonry(projects, {
+                  itemSelector: '.project',
+                  fitWidth: true,
+                });
+              }
             });
 
             this.requestUpdate();
@@ -283,7 +299,7 @@ export class ProfilesPage extends LitElement {
                                   @press="${() => window.open(project.target, '_blank')}"
                                 ></v-button>
                               `
-                            : html`<div class="more"></div>`}
+                            : html``}
                         </div>
                       </div>
                     `;
