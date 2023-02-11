@@ -12,7 +12,7 @@ import { IProfile, ISoftSkill, ProfileType } from '../../models/profile.model';
 import style from './profiles-page.css?inline' assert { type: 'css' };
 import { ProfileCard } from '../../components/profile-card/profile-card';
 import { router } from '../../main';
-import { mdiChevronUpCircle, mdiDocker, mdiGithub, mdiLinkedin, mdiSkipPreviousCircle, mdiTwitter } from '@mdi/js';
+import { mdiChevronUpCircle, mdiDocker, mdiGithub, mdiLinkedin, mdiTwitter } from '@mdi/js';
 import { Cronjob } from '../../cronjob/cronjob';
 /*eslint-enable */
 
