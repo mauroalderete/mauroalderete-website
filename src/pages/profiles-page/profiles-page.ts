@@ -276,54 +276,60 @@ export class ProfilesPage extends LitElement {
               </div>
             </section>
           </section>
-          <section class="megacontent" style="${this.currentProfileData?.maintain ? '' : 'display: none;'}">
-            <section class="content" style="margin-top: 3rem; margin-bottom: 3rem;">
-              <h1
-                style="
-                text-align:center;
-                text-transform: uppercase;
-                font-size: 2.1rem;"
-              >
-                Perfil en progreso
-              </h1>
-              <h3
-                style="
-                text-align:center;
-                text-transform: uppercase;
-                font-size: 0.9rem;"
-              >
-                Próximamente más novedades
-              </h3>
-
-              <div
-                style="width: 100%;
-                ${this.currentProfileData?.type != ProfileType.Mentorship &&
-                this.currentProfileData?.type != ProfileType.SRE
-                  ? 'display: flex;'
-                  : 'display: none;'}
-                flex-direction: row;
-                justify-content: center;"
-              >
-                <v-button
-                  style="white-space: wrap"
-                  text="DESCARGA MI CURRICULUM DE ${this.currentProfileData?.type.toString().toUpperCase()}"
-                  @press="${() =>
-                    window.open(
-                      `/profile/${this.currentProfileData?.type
-                        .toString()
-                        .toLowerCase()}/resumes/mauro-alderete-${this.currentProfileData?.type
-                        .toString()
-                        .toLowerCase()}.pdf`,
-                      '_blank'
-                    )}"
-                ></v-button>
-              </div>
-            </section>
-          </section>
-          <section class="megacontent" style="${this.currentProfileData?.maintain ? 'display: none;' : ''}">
+          <section class="megacontent">
             <section class="content">
               <section class="section-basic perfil-section">
                 <h3>// PERFIL</h3>
+
+                <section
+                  class="content"
+                  style="
+                 margin-top: 3rem;
+                 margin-bottom: 3rem;
+                 ${this.currentProfileData?.maintain ? '' : 'display: none;'}"
+                >
+                  <h1
+                    style="
+                text-align:center;
+                text-transform: uppercase;
+                font-size: 2.1rem;"
+                  >
+                    Perfil en progreso
+                  </h1>
+                  <h3
+                    style="
+                text-align:center;
+                text-transform: uppercase;
+                font-size: 0.9rem;"
+                  >
+                    Próximamente más novedades
+                  </h3>
+
+                  <div
+                    style="width: 100%;
+                ${this.currentProfileData?.type != ProfileType.Mentorship &&
+                    this.currentProfileData?.type != ProfileType.SRE
+                      ? 'display: flex;'
+                      : 'display: none;'}
+                flex-direction: row;
+                justify-content: center;"
+                  >
+                    <v-button
+                      style="white-space: wrap"
+                      text="DESCARGA MI CURRICULUM DE ${this.currentProfileData?.type.toString().toUpperCase()}"
+                      @press="${() =>
+                        window.open(
+                          `/profile/${this.currentProfileData?.type
+                            .toString()
+                            .toLowerCase()}/resumes/mauro-alderete-${this.currentProfileData?.type
+                            .toString()
+                            .toLowerCase()}.pdf`,
+                          '_blank'
+                        )}"
+                    ></v-button>
+                  </div>
+                </section>
+
                 <div class="revealable reveal-by-down">
                   ${this.currentProfileData?.rol.map((paragraph) => html`<p>${paragraph}</p>`)}
                 </div>
