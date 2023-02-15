@@ -294,6 +294,30 @@ export class ProfilesPage extends LitElement {
               >
                 Próximamente más novedades
               </h3>
+
+              <div
+                style="width: 100%;
+                ${this.currentProfileData?.type != ProfileType.Mentorship &&
+                this.currentProfileData?.type != ProfileType.SRE
+                  ? 'display: flex;'
+                  : 'display: none;'}
+                flex-direction: row;
+                justify-content: center;"
+              >
+                <v-button
+                  style="white-space: wrap"
+                  text="DESCARGA MI CURRICULUM DE ${this.currentProfileData?.type.toString().toUpperCase()}"
+                  @press="${() =>
+                    window.open(
+                      `/profile/${this.currentProfileData?.type
+                        .toString()
+                        .toLowerCase()}/resumes/mauro-alderete-${this.currentProfileData?.type
+                        .toString()
+                        .toLowerCase()}.pdf`,
+                      '_blank'
+                    )}"
+                ></v-button>
+              </div>
             </section>
           </section>
           <section class="megacontent" style="${this.currentProfileData?.maintain ? 'display: none;' : ''}">
