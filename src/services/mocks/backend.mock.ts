@@ -3,6 +3,7 @@ import { IHardSkill, IProfile, IProject, ISoftSkill, ProfileType } from '../../m
 
 export class BackendProfileMock implements IProfile {
   type: ProfileType;
+  maintain: boolean;
   title: string;
   icon: string;
   resume: string;
@@ -17,6 +18,7 @@ export class BackendProfileMock implements IProfile {
 
   constructor() {
     this.type = ProfileType.Backend;
+    this.maintain = true;
     this.title = 'Backend';
     this.icon = backendIcon;
     this.resume = '/profile/backend/resumes/mauro-alderete-backend.pdf';

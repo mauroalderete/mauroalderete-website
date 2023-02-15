@@ -3,6 +3,7 @@ import { IHardSkill, IProfile, IProject, ISoftSkill, ProfileType } from '../../m
 
 export class GamedevProfileMock implements IProfile {
   type: ProfileType;
+  maintain: boolean;
   title: string;
   icon: string;
   resume: string;
@@ -17,6 +18,7 @@ export class GamedevProfileMock implements IProfile {
 
   constructor() {
     this.type = ProfileType.Gamedev;
+    this.maintain = true;
     this.title = 'GameDev';
     this.icon = gamedevIcon;
     this.resume = '/profile/gamedev/resumes/mauro-alderete-gamedev.pdf';

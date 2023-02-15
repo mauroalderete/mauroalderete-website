@@ -3,6 +3,7 @@ import { IHardSkill, IProfile, IProject, ISoftSkill, ProfileType } from '../../m
 
 export class MentorshipProfileMock implements IProfile {
   type: ProfileType;
+  maintain: boolean;
   title: string;
   icon: string;
   resume: string;
@@ -17,6 +18,7 @@ export class MentorshipProfileMock implements IProfile {
 
   constructor() {
     this.type = ProfileType.Mentorship;
+    this.maintain = true;
     this.title = 'Mentorship';
     this.icon = mentorshipIcon;
     this.resume = '/profile/mentorship/resumes/mauro-alderete-mentorship.pdf';

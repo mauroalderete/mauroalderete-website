@@ -4,6 +4,7 @@ import { mdiArmFlexOutline, mdiCalendarCheckOutline, mdiPaletteOutline } from '@
 
 export class FrontendProfileMock implements IProfile {
   type: ProfileType;
+  maintain: boolean;
   title: string;
   icon: string;
   resume: string;
@@ -18,6 +19,7 @@ export class FrontendProfileMock implements IProfile {
 
   constructor() {
     this.type = ProfileType.Frontend;
+    this.maintain = true;
     this.title = 'Frontend';
     this.icon = frontendIcon;
     this.resume = '/profile/frontend/resumes/mauro-alderete-frontend.pdf';

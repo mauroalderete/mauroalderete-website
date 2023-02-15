@@ -8,6 +8,7 @@ export enum ProfileType {
 
 export interface IProfile {
   type: ProfileType;
+  maintain: boolean;
 
   title: string;
   headline: string;

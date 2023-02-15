@@ -3,6 +3,7 @@ import { IHardSkill, IProfile, IProject, ISoftSkill, ProfileType } from '../../m
 
 export class SREProfileMock implements IProfile {
   type: ProfileType;
+  maintain: boolean;
   title: string;
   icon: string;
   resume: string;
@@ -17,6 +18,7 @@ export class SREProfileMock implements IProfile {
 
   constructor() {
     this.type = ProfileType.SRE;
+    this.maintain = true;
     this.title = 'SRE/DEVOPS';
     this.icon = sreIcon;
     this.resume = '/profile/sre/resumes/mauro-alderete-sre.pdf';

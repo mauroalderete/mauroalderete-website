@@ -276,7 +276,27 @@ export class ProfilesPage extends LitElement {
               </div>
             </section>
           </section>
-          <section class="megacontent">
+          <section class="megacontent" style="${this.currentProfileData?.maintain ? '' : 'display: none;'}">
+            <section class="content" style="margin-top: 3rem; margin-bottom: 3rem;">
+              <h1
+                style="
+                text-align:center;
+                text-transform: uppercase;
+                font-size: 2.1rem;"
+              >
+                Perfil en progreso
+              </h1>
+              <h3
+                style="
+                text-align:center;
+                text-transform: uppercase;
+                font-size: 0.9rem;"
+              >
+                Próximamente más novedades
+              </h3>
+            </section>
+          </section>
+          <section class="megacontent" style="${this.currentProfileData?.maintain ? 'display: none;' : ''}">
             <section class="content">
               <section class="section-basic perfil-section">
                 <h3>// PERFIL</h3>
