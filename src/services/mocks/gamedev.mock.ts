@@ -118,126 +118,42 @@ export class GamedevProfileMock implements IProfile {
     this.projects = new Array<IProject>();
     this.projects.push(
       {
-        title: 'Website Personal',
-        media: '/profile/frontend/media/mauroalderete.png',
+        title: 'Aqueron[Prelude]',
+        media: '/profile/gamedev/media/gamedev-show-1.gif',
         paragraph: [
-          'Diseñe éste sitio web inspirado en el mundo de los videojuegos.',
-          'Nació como una propuesta para organizar mis proyectos personales y darlos a conocer a la comunidad tech.',
-          'Utilizo Typescript, WebComponents y LitElement. Node y NPM forman parte del entorno de desarrollo. Al utilizar Github  para versionar el portafolio puedo implementar los Github Actions que construí y compartí con la comunidad.',
+          'Aqueron[Prelude] es el título del videojuego en el que estoy trabajando actualmente.',
+          'Consiste en una biblioteca de juegos casuales unidos por una narrativa común. El jugador deberá competir contra tres IA diferentes para conseguir fragmentos de narrativas y descubrir poco a poco la historia que se esconde detrás de la llegada de las criaturas.',
+          'Se trata del primer videojuego que publicaré en las tiendas de Google. Está desarrollado con Unity 2021.3.16f1.',
+          '🧐 Echale un vistazo a la intro completa y contame a través de mis redes que te pareció',
         ],
+        target: '/profile/gamedev/media/gamedev-show-1.gif',
       },
       {
-        title: 'Website Rayquen',
-        media: '/profile/frontend/media/rayquen.png',
+        title: 'Space Dragon',
+        media: '/profile/gamedev/media/spacedragon.png',
         paragraph: [
-          'Rayquen es una iniciativa educativa que surgió hace algunos años para brindar un espacio de aprendizaje y desarrollo personal en el marco de las nuevas tecnologías.',
-          'Diseñé el sitio web como una Landing Page que permite a los visitantes conocer los cursos ofrecidos con gran cantidad de detalles. Explorar las propuestas y registrarse en las clases.',
-          'Fue diseñado sin frameworks, únicamente con JavaScript, CSS y HTML. Una serie de scripts en php gestionan algunas operaciones de backend.',
-          'Te invito a dar una vuelta por rayquen.com, estoy seguro que encontrarás algo que te llame la atención.',
+          'Cuando me enteré de que existía un motor de videojuegos open source, multiplataforma, gratuito y creado por argentinos, no dude ni un minuto en probarlo.',
+          'Realice varios experimentos con Godot Engine, minijuegos casuales con la única intención de probar las características del motor.',
+          'Space Dragon es uno de los tantos minijuegos. Con este juego en particular quería poner aprueba la gestión de los eventos de teclado.',
+          '🧐 Podes darle un vistazo en la demo.',
+          'WARNING: Solo funciona con las flechas de un teclado. No es responsivo, así que si lo notas algo raro, tranquilo, 😅 es normal.',
         ],
-        target: 'https://rayquen.com',
+        target: '/demo/spacedragon/Space Guy.html',
       },
       {
-        title: 'Hirameki',
-        media: '/profile/frontend/media/hirameki.png',
+        title: 'Battle Tank',
+        media: '/profile/gamedev/media/battletank.png',
         paragraph: [
-          'Es muy común encontrar entre las comunidades de escritores a muchos autores enfrentandose al página en blanco.',
-          'Hirameki es una aplicación que surgió para resolver ese problema.',
-          'Permite escribir y crear pequeñas sinopsis de historias que combinan elementos aleatorios.',
+          'Otro experimento realizado con Godot Engine y escrito en GDScript.',
+          'En esta oportunidad quería probar que tan fácil o difícil podía ser replicar un juego simple utilizando Godot Engine.',
+          'Elegí realizar un clon del popular Battle Tank porque posee aspectos ideales para reproducir de manera rápida: escenario estático, pocos objetos, colisiones sencillas y mecánicas claras. Además, es uno de mis juegos retro preferidos. 😁',
+          '🧐 Dale un vistazo al boceto del juego y contame que tan parecido lo ves al original a través de mis redes sociales.',
+          'WARNING: El juego no está optimizado, por lo que puede tardar un poco en cargar, 😅 es normal. Si ves que tarda mucho trata actualizando la página',
         ],
-        target: 'https://rayquen.com',
-      },
-      {
-        title: 'Website Personal',
-        media: '/profile/frontend/media/mauroalderete.png',
-        paragraph: [
-          'Diseñe éste sitio web inspirado en el mundo de los videojuegos.',
-          'Nació como una propuesta para organizar mis proyectos personales y darlos a conocer a la comunidad tech.',
-          'Utilizo Typescript, WebComponents y LitElement. Node y NPM forman parte del entorno de desarrollo. Al utilizar Github  para versionar el portafolio puedo implementar los Github Actions que construí y compartí con la comunidad.',
-        ],
-      },
-      {
-        title: 'Website Rayquen',
-        media: '/profile/frontend/media/rayquen.png',
-        paragraph: [
-          'Rayquen es una iniciativa educativa que surgió hace algunos años para brindar un espacio de aprendizaje y desarrollo personal en el marco de las nuevas tecnologías.',
-          'Diseñé el sitio web como una Landing Page que permite a los visitantes conocer los cursos ofrecidos con gran cantidad de detalles. Explorar las propuestas y registrarse en las clases.',
-          'Fue diseñado sin frameworks, únicamente con JavaScript, CSS y HTML. Una serie de scripts en php gestionan algunas operaciones de backend.',
-          'Te invito a dar una vuelta por rayquen.com, estoy seguro que encontrarás algo que te llame la atención.',
-        ],
-        target: 'https://rayquen.com',
-      },
-      {
-        title: 'Hirameki',
-        media: '/profile/frontend/media/hirameki.png',
-        paragraph: [
-          'Es muy común encontrar entre las comunidades de escritores a muchos autores enfrentandose al página en blanco.',
-          'Hirameki es una aplicación que surgió para resolver ese problema.',
-          'Permite escribir y crear pequeñas sinopsis de historias que combinan elementos aleatorios.',
-        ],
-        target: 'https://rayquen.com',
-      },
-      {
-        title: 'Website Personal',
-        media: '/profile/frontend/media/mauroalderete.png',
-        paragraph: [
-          'Diseñe éste sitio web inspirado en el mundo de los videojuegos.',
-          'Nació como una propuesta para organizar mis proyectos personales y darlos a conocer a la comunidad tech.',
-          'Utilizo Typescript, WebComponents y LitElement. Node y NPM forman parte del entorno de desarrollo. Al utilizar Github  para versionar el portafolio puedo implementar los Github Actions que construí y compartí con la comunidad.',
-        ],
-      },
-      {
-        title: 'Website Rayquen',
-        media: '/profile/frontend/media/rayquen.png',
-        paragraph: [
-          'Rayquen es una iniciativa educativa que surgió hace algunos años para brindar un espacio de aprendizaje y desarrollo personal en el marco de las nuevas tecnologías.',
-          'Diseñé el sitio web como una Landing Page que permite a los visitantes conocer los cursos ofrecidos con gran cantidad de detalles. Explorar las propuestas y registrarse en las clases.',
-          'Fue diseñado sin frameworks, únicamente con JavaScript, CSS y HTML. Una serie de scripts en php gestionan algunas operaciones de backend.',
-          'Te invito a dar una vuelta por rayquen.com, estoy seguro que encontrarás algo que te llame la atención.',
-        ],
-        target: 'https://rayquen.com',
-      },
-      {
-        title: 'Hirameki',
-        media: '/profile/frontend/media/hirameki.png',
-        paragraph: [
-          'Es muy común encontrar entre las comunidades de escritores a muchos autores enfrentandose al página en blanco.',
-          'Hirameki es una aplicación que surgió para resolver ese problema.',
-          'Permite escribir y crear pequeñas sinopsis de historias que combinan elementos aleatorios.',
-        ],
-        target: 'https://rayquen.com',
-      },
-      {
-        title: 'Website Personal',
-        media: '/profile/frontend/media/mauroalderete.png',
-        paragraph: [
-          'Diseñe éste sitio web inspirado en el mundo de los videojuegos.',
-          'Nació como una propuesta para organizar mis proyectos personales y darlos a conocer a la comunidad tech.',
-          'Utilizo Typescript, WebComponents y LitElement. Node y NPM forman parte del entorno de desarrollo. Al utilizar Github  para versionar el portafolio puedo implementar los Github Actions que construí y compartí con la comunidad.',
-        ],
-      },
-      {
-        title: 'Website Rayquen',
-        media: '/profile/frontend/media/rayquen.png',
-        paragraph: [
-          'Rayquen es una iniciativa educativa que surgió hace algunos años para brindar un espacio de aprendizaje y desarrollo personal en el marco de las nuevas tecnologías.',
-          'Diseñé el sitio web como una Landing Page que permite a los visitantes conocer los cursos ofrecidos con gran cantidad de detalles. Explorar las propuestas y registrarse en las clases.',
-          'Fue diseñado sin frameworks, únicamente con JavaScript, CSS y HTML. Una serie de scripts en php gestionan algunas operaciones de backend.',
-          'Te invito a dar una vuelta por rayquen.com, estoy seguro que encontrarás algo que te llame la atención.',
-        ],
-        target: 'https://rayquen.com',
-      },
-      {
-        title: 'Hirameki',
-        media: '/profile/frontend/media/hirameki.png',
-        paragraph: [
-          'Es muy común encontrar entre las comunidades de escritores a muchos autores enfrentandose al página en blanco.',
-          'Hirameki es una aplicación que surgió para resolver ese problema.',
-          'Permite escribir y crear pequeñas sinopsis de historias que combinan elementos aleatorios.',
-        ],
-        target: 'https://rayquen.com',
+        target: '/demo/battletank/BattleTank.html',
       }
     );
-    this.blog = 'Minimax en el tateti';
+
+    this.blog = '';
   }
 }
