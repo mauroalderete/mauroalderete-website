@@ -390,14 +390,17 @@ export class ProfilesPage extends LitElement {
             <section class="section-alert revealable reveal-by-right">
               <div class="alert-content">
                 <p>
-                  Estas skills son las que más utilizo mientras trabajo en proyectos
+                  Estas habilidades son las que más utilizo cuando trabajo en proyectos
                   ${this.currentProfileData?.type.toString().toLowerCase()}. Pero eso no es todo.
                 </p>
                 <p>
-                  Te invito a que visites mis otros perfiles profesionales y conozcas más sobre los proyectos en los
-                  participé.
+                  ¡Me encantaría que visites mis otros perfiles profesionales y conozcas más sobre los proyectos en los
+                  que he participado!
                 </p>
-                <p>Si tenes alguna duda contactame por mis redes, siempre estoy abierto para una charlar</p>
+                <p>
+                  Si tenes alguna duda, no dudes en contactarme a través de mis redes sociales.<br />¡Siempre estoy
+                  abierto a una charla!
+                </p>
                 <div class="alert-socialbar">
                   <v-social-icon
                     class="anim-social-icon revealable"

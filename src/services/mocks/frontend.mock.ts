@@ -23,7 +23,6 @@ export class FrontendProfileMock implements IProfile {
     this.title = 'Frontend';
     this.icon = frontendIcon;
     this.resume = '/profile/frontend/resumes/mauro-alderete-frontend.pdf';
-    this.resume = '/profile/gamedev/resumes/mauro-alderete-gamedev.pdf';
 
     this.headline = 'Experiencias fluidaz, dinámicas y atrapantes';
 
