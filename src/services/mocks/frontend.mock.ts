@@ -1,6 +1,6 @@
 import { IHardSkill, IProfile, IProject, ISoftSkill, ProfileType } from '../../models/profile.model';
 import { frontendIcon } from '../../assets/icons';
-import { mdiArmFlexOutline, mdiCalendarCheckOutline, mdiPaletteOutline } from '@mdi/js';
+import { mdiDraw, mdiShareVariantOutline, mdiTimerOutline } from '@mdi/js';
 
 export class FrontendProfileMock implements IProfile {
   type: ProfileType;
@@ -19,7 +19,7 @@ export class FrontendProfileMock implements IProfile {
 
   constructor() {
     this.type = ProfileType.Frontend;
-    this.maintain = true;
+    this.maintain = false;
     this.title = 'Frontend';
     this.icon = frontendIcon;
     this.resume = '/profile/frontend/resumes/mauro-alderete-frontend.pdf';
@@ -28,78 +28,104 @@ export class FrontendProfileMock implements IProfile {
 
     this.rol = new Array<string>();
     this.rol.push(
-      'Soy un profesional innovador y con iniciativa. Suelo liderar proyectos de investigación y de desarrollo con diferentes stacks tecnológicos y lenguajes: C++, C#, JavaScript, Python, Go.'
-    );
-    this.rol.push(
-      'A lo largo de los años abordé múltiples proyectos, desde el desarrollo de videojuegos clásicos y la construcción de equipos de robots competitivos usando modelos de aprendizaje automático, hasta la difusión científica y el desarrollo de software a medida para fábricas, distribuidores y bancos entre otros.'
-    );
-    this.rol.push(
-      'Apasionado del desarrollo de videojuegos y sus desafíos. Mis primeros pasos en la programación fueron construyendo videojuegos. Espero continuar haciéndolo formando parte de un grandioso equipo.'
+      `Creativo, innovador y con iniciativa. Suelo trabajar en
+      equipos aportando puntos de vista alternativos y realizando un análisis
+      estratégico sobre las implementaciones técnicas. Siempre estoy
+      esforzándome en generar un valor agregado para el cliente.`,
+      `Trabajo con muchos stacks tecnológicos que involucran: JavaScript,
+      TypeScript, HTML5, CSS3, WebComponents, Angular, LitElement y más.`,
+      `Llevé adelante numerosos proyectos que abarcan desde webs, webapps
+      y desarrollos mobile nativos, hasta diseños de interfaces para
+      videojuegos. Espero continuar sumando desafíos, aprender y compartir lo
+      aprendido durante el proceso.`
     );
 
     this.features = 'alguna feature';
     this.softSkills = new Array<ISoftSkill>();
 
-    this.softSkills.push({
-      guid: 1,
-      title: 'Colaboración',
-      icon: mdiArmFlexOutline,
-      paragraph: [
-        'Siempre estoy dispuesto a colaborar con clientes, product manager y el equipo de diseño para alcanzar los objetivos que nos planteamos.',
-        'Suelo aportar muchas opciones en las mesas de debate junto con un análisis de sus fortalezas y debilidades técnicas.',
-      ],
-    });
-
-    this.softSkills.push({
-      guid: 2,
-      title: 'Creatividad',
-      icon: mdiPaletteOutline,
-      paragraph: [
-        'Objetivos, recursos, contextos y estrategias hacen que cada proyecto planteé desafios únicos. Gracias a mi experiencia puedo explorar los problemas con creatividad y promover ideas fuera de la caja.',
-      ],
-    });
-
-    this.softSkills.push({
-      guid: 3,
-      title: 'Planificación',
-      icon: mdiCalendarCheckOutline,
-      paragraph: [
-        'El desarrollo en front puede ser un gran desafio, sin una planificación consensuada puede terminar en un gran caos rápidamente.',
-        'Para evitar esto suelo planear todas mis soluciones. Busco concensos en los equipos de trabajo y escucho las propuestas y puntos de vistas de mis compañeros de equipo.',
-        'Con todo la información brindada puedo proponer rutas de desarrollo y metodologías para cada etapa de los proyectos.',
-      ],
-    });
+    this.softSkills.push(
+      {
+        guid: 1,
+        title: 'Colaboración',
+        icon: mdiShareVariantOutline,
+        paragraph: [
+          `Suelo trabajar con equipos multidisciplinares, colaborando con los clientes, el product manager y los diseñadores para alcanzar los objetivos que nos planteamos.`,
+          `Me gusta compartir muchas opciones en la mesa de debate, junto con un análisis de sus fortalezas y debilidades técnicas.
+          Me esfuerzo por encontrar soluciones prácticas y eficaces a los problemas técnicos que se presentan.`,
+          `Estoy comprometido a hacer todo lo que esté a mi alcance para mejorar la productividad y calidad de los productos que entregamos al cliente.`,
+        ],
+      },
+      {
+        guid: 2,
+        title: 'Creatividad',
+        icon: mdiDraw,
+        paragraph: [
+          'Resuelvo los desafíos únicos de cada proyecto con creatividad.',
+          'Puedo evaluar los objetivos, recursos, contextos y estrategias para explorar los problemas creativamente y promover soluciones innovadoras.',
+          'Esto se debe a mi amplia experiencia resolviendo dificultades, lo que me permite pensar fuera de la caja y encontrar nuevas perspectivas.',
+        ],
+      },
+      {
+        guid: 3,
+        title: 'Gestión de proyectos',
+        icon: mdiTimerOutline,
+        paragraph: [
+          `Colaboro con los equipos para maximizar el uso de los recursos, para que logremos trabajar de forma más eficiente y mejorar la productividad.`,
+          `Me esfuerzo por lograr planificaciones eficientes que, permitan completar a tiempo y dentro del presupuesto cada una de las tareas involucradas en los proyectos.`,
+          `Mi experiencia me ha demostrado que una planificación y organización eficaz ayudan a reducir el estrés,
+          lo que a su vez contribuye a una mejor calidad del producto, mejores resultados y mayor satisfacción de los equipos de trabajo.`,
+        ],
+      }
+    );
 
     this.hardSkills = new Array<IHardSkill>();
-    this.hardSkills.push({ label: 'Javascript' });
     this.hardSkills.push({ label: 'HTML5' });
     this.hardSkills.push({ label: 'CSS3' });
-    this.hardSkills.push({ label: 'LitElement' });
+    this.hardSkills.push({ label: 'Javascript' });
     this.hardSkills.push({ label: 'Typescript' });
+    this.hardSkills.push({ label: 'Node.js' });
     this.hardSkills.push({ label: 'Angular' });
-    this.hardSkills.push({ label: 'NodeJS' });
-    this.hardSkills.push({ label: 'Winforms' });
-    this.hardSkills.push({ label: 'Xamarin' });
+    this.hardSkills.push({ label: 'LitElement' });
+    this.hardSkills.push({ label: 'WebComponents' });
+    this.hardSkills.push({ label: 'Electron' });
+    this.hardSkills.push({ label: 'Ionic' });
+    this.hardSkills.push({ label: 'Cordova' });
+    this.hardSkills.push({ label: 'Capacitor' });
+    this.hardSkills.push({ label: 'Bootstrap' });
+    this.hardSkills.push({ label: 'JQuery' });
+    this.hardSkills.push({ label: 'Ajax' });
+    this.hardSkills.push({ label: 'Microsoft Winforms' });
+    this.hardSkills.push({ label: 'Microsoft Xamarin' });
+
     this.hardSkills.push({ label: 'Git' });
     this.hardSkills.push({ label: 'Github' });
     this.hardSkills.push({ label: 'Gitlab' });
     this.hardSkills.push({ label: 'NPM' });
     this.hardSkills.push({ label: 'Docker' });
+
     this.hardSkills.push({ label: 'Responsive Design' });
-    this.hardSkills.push({ label: 'PWA' });
-    this.hardSkills.push({ label: 'Web Apps' });
+    this.hardSkills.push({ label: 'Progressive Web App' });
+    this.hardSkills.push({ label: 'WebApps' });
     this.hardSkills.push({ label: 'Apps Híbridas' });
-    this.hardSkills.push({ label: 'ElectronJS' });
-    this.hardSkills.push({ label: 'Ionic' });
-    this.hardSkills.push({ label: 'Bootstrap' });
-    this.hardSkills.push({ label: 'JQuery' });
-    this.hardSkills.push({ label: 'Ajax' });
     this.hardSkills.push({ label: 'Material Design' });
-    this.hardSkills.push({ label: 'Aprendiendo ReactJS' });
-    this.hardSkills.push({ label: 'Aprendiendo VueJS' });
-    this.hardSkills.push({ label: 'WebComponents' });
     this.hardSkills.push({ label: 'Apps Android' });
     this.hardSkills.push({ label: 'Apps Handheld' });
+
+    this.hardSkills.push({ label: 'API RESTfull' });
+    this.hardSkills.push({ label: 'JWT' });
+    this.hardSkills.push({ label: 'SOLID' });
+    this.hardSkills.push({ label: 'Dependency injection Pattern' });
+    this.hardSkills.push({ label: 'Factory Pattern' });
+    this.hardSkills.push({ label: 'Strategy Pattern' });
+    this.hardSkills.push({ label: 'Singleton Pattern' });
+    this.hardSkills.push({ label: 'Sub-Pub Pattern' });
+    this.hardSkills.push({ label: 'Store Pattern' });
+    this.hardSkills.push({ label: 'Promese Pattern' });
+    this.hardSkills.push({ label: 'Observer Pattern' });
+    this.hardSkills.push({ label: 'Hexagonal Pattern' });
+
+    this.hardSkills.push({ label: 'Aprendiendo ReactJS' });
+    this.hardSkills.push({ label: 'Aprendiendo VueJS' });
 
     this.projects = new Array<IProject>();
     this.projects.push(
@@ -122,108 +148,8 @@ export class FrontendProfileMock implements IProfile {
           'Te invito a dar una vuelta por rayquen.com, estoy seguro que encontrarás algo que te llame la atención.',
         ],
         target: 'https://rayquen.com',
-      },
-      {
-        title: 'Hirameki',
-        media: '/profile/frontend/media/hirameki.png',
-        paragraph: [
-          'Es muy común encontrar entre las comunidades de escritores a muchos autores enfrentandose al página en blanco.',
-          'Hirameki es una aplicación que surgió para resolver ese problema.',
-          'Permite escribir y crear pequeñas sinopsis de historias que combinan elementos aleatorios.',
-        ],
-        target: 'https://rayquen.com',
-      },
-      {
-        title: 'Website Personal',
-        media: '/profile/frontend/media/mauroalderete.png',
-        paragraph: [
-          'Diseñe éste sitio web inspirado en el mundo de los videojuegos.',
-          'Nació como una propuesta para organizar mis proyectos personales y darlos a conocer a la comunidad tech.',
-          'Utilizo Typescript, WebComponents y LitElement. Node y NPM forman parte del entorno de desarrollo. Al utilizar Github  para versionar el portafolio puedo implementar los Github Actions que construí y compartí con la comunidad.',
-        ],
-      },
-      {
-        title: 'Website Rayquen',
-        media: '/profile/frontend/media/rayquen.png',
-        paragraph: [
-          'Rayquen es una iniciativa educativa que surgió hace algunos años para brindar un espacio de aprendizaje y desarrollo personal en el marco de las nuevas tecnologías.',
-          'Diseñé el sitio web como una Landing Page que permite a los visitantes conocer los cursos ofrecidos con gran cantidad de detalles. Explorar las propuestas y registrarse en las clases.',
-          'Fue diseñado sin frameworks, únicamente con JavaScript, CSS y HTML. Una serie de scripts en php gestionan algunas operaciones de backend.',
-          'Te invito a dar una vuelta por rayquen.com, estoy seguro que encontrarás algo que te llame la atención.',
-        ],
-        target: 'https://rayquen.com',
-      },
-      {
-        title: 'Hirameki',
-        media: '/profile/frontend/media/hirameki.png',
-        paragraph: [
-          'Es muy común encontrar entre las comunidades de escritores a muchos autores enfrentandose al página en blanco.',
-          'Hirameki es una aplicación que surgió para resolver ese problema.',
-          'Permite escribir y crear pequeñas sinopsis de historias que combinan elementos aleatorios.',
-        ],
-        target: 'https://rayquen.com',
-      },
-      {
-        title: 'Website Personal',
-        media: '/profile/frontend/media/mauroalderete.png',
-        paragraph: [
-          'Diseñe éste sitio web inspirado en el mundo de los videojuegos.',
-          'Nació como una propuesta para organizar mis proyectos personales y darlos a conocer a la comunidad tech.',
-          'Utilizo Typescript, WebComponents y LitElement. Node y NPM forman parte del entorno de desarrollo. Al utilizar Github  para versionar el portafolio puedo implementar los Github Actions que construí y compartí con la comunidad.',
-        ],
-      },
-      {
-        title: 'Website Rayquen',
-        media: '/profile/frontend/media/rayquen.png',
-        paragraph: [
-          'Rayquen es una iniciativa educativa que surgió hace algunos años para brindar un espacio de aprendizaje y desarrollo personal en el marco de las nuevas tecnologías.',
-          'Diseñé el sitio web como una Landing Page que permite a los visitantes conocer los cursos ofrecidos con gran cantidad de detalles. Explorar las propuestas y registrarse en las clases.',
-          'Fue diseñado sin frameworks, únicamente con JavaScript, CSS y HTML. Una serie de scripts en php gestionan algunas operaciones de backend.',
-          'Te invito a dar una vuelta por rayquen.com, estoy seguro que encontrarás algo que te llame la atención.',
-        ],
-        target: 'https://rayquen.com',
-      },
-      {
-        title: 'Hirameki',
-        media: '/profile/frontend/media/hirameki.png',
-        paragraph: [
-          'Es muy común encontrar entre las comunidades de escritores a muchos autores enfrentandose al página en blanco.',
-          'Hirameki es una aplicación que surgió para resolver ese problema.',
-          'Permite escribir y crear pequeñas sinopsis de historias que combinan elementos aleatorios.',
-        ],
-        target: 'https://rayquen.com',
-      },
-      {
-        title: 'Website Personal',
-        media: '/profile/frontend/media/mauroalderete.png',
-        paragraph: [
-          'Diseñe éste sitio web inspirado en el mundo de los videojuegos.',
-          'Nació como una propuesta para organizar mis proyectos personales y darlos a conocer a la comunidad tech.',
-          'Utilizo Typescript, WebComponents y LitElement. Node y NPM forman parte del entorno de desarrollo. Al utilizar Github  para versionar el portafolio puedo implementar los Github Actions que construí y compartí con la comunidad.',
-        ],
-      },
-      {
-        title: 'Website Rayquen',
-        media: '/profile/frontend/media/rayquen.png',
-        paragraph: [
-          'Rayquen es una iniciativa educativa que surgió hace algunos años para brindar un espacio de aprendizaje y desarrollo personal en el marco de las nuevas tecnologías.',
-          'Diseñé el sitio web como una Landing Page que permite a los visitantes conocer los cursos ofrecidos con gran cantidad de detalles. Explorar las propuestas y registrarse en las clases.',
-          'Fue diseñado sin frameworks, únicamente con JavaScript, CSS y HTML. Una serie de scripts en php gestionan algunas operaciones de backend.',
-          'Te invito a dar una vuelta por rayquen.com, estoy seguro que encontrarás algo que te llame la atención.',
-        ],
-        target: 'https://rayquen.com',
-      },
-      {
-        title: 'Hirameki',
-        media: '/profile/frontend/media/hirameki.png',
-        paragraph: [
-          'Es muy común encontrar entre las comunidades de escritores a muchos autores enfrentandose al página en blanco.',
-          'Hirameki es una aplicación que surgió para resolver ese problema.',
-          'Permite escribir y crear pequeñas sinopsis de historias que combinan elementos aleatorios.',
-        ],
-        target: 'https://rayquen.com',
       }
     );
-    this.blog = 'Minimax en el tateti';
+    this.blog = '';
   }
 }
