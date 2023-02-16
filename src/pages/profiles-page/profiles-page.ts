@@ -87,6 +87,8 @@ export class ProfilesPage extends LitElement {
             if (title.id == `title-${ProfileType.Gamedev}`) {
               this.updatedTasks.push(() => {
                 title.dispatchEvent(new Event('click'));
+
+                setTimeout(() => title.dispatchEvent(new Event('click')), 200);
               });
             }
           });
@@ -122,18 +124,8 @@ export class ProfilesPage extends LitElement {
             });
 
             this.updatedTasks.push(() => {
-              console.log('initializing masonry');
-              const projects = this.shadowRoot?.querySelector('.projects');
-
-              if (projects) {
-                this.masonry = new Masonry(projects, {
-                  itemSelector: '.project',
-                  fitWidth: true,
-                });
-              }
+              this.updateMansonryProjects();
             });
-
-            this.requestUpdate();
           });
 
           this.splide.mount();
@@ -199,15 +191,7 @@ export class ProfilesPage extends LitElement {
     window.addEventListener('scroll', () => this._reveal());
     window.addEventListener('scroll', () => this._handleUpperButtonReveal());
     window.addEventListener('resize', () => {
-      console.log('initializing masonry');
-      const projects = this.shadowRoot?.querySelector('.projects');
-
-      if (projects) {
-        this.masonry = new Masonry(projects, {
-          itemSelector: '.project',
-          fitWidth: true,
-        });
-      }
+      this.updateMansonryProjects();
 
       this._reveal();
       this._handleUpperButtonReveal();
@@ -276,7 +260,7 @@ export class ProfilesPage extends LitElement {
               </div>
             </section>
           </section>
-          <section class="megacontent">
+          <section @click="${() => this.updateMansonryProjects()}" class="megacontent">
             <section class="content">
               <section class="section-basic perfil-section">
                 <h3>// PERFIL</h3>
@@ -627,8 +611,6 @@ export class ProfilesPage extends LitElement {
       previousTitle.classList.remove('active');
     }
 
-    console.log('title clicked');
-
     const title = e.target as HTMLHeadingElement;
     title.classList.add('active');
 
@@ -655,15 +637,7 @@ export class ProfilesPage extends LitElement {
     });
 
     this.updatedTasks.push(() => {
-      console.log('initializing masonry');
-      const projects = this.shadowRoot?.querySelector('.projects');
-
-      if (projects) {
-        this.masonry = new Masonry(projects, {
-          itemSelector: '.project',
-          fitWidth: true,
-        });
-      }
+      this.updateMansonryProjects();
     });
 
     this.requestUpdate();
@@ -679,5 +653,16 @@ export class ProfilesPage extends LitElement {
     }
 
     this.isReadyToPlay = true;
+  }
+
+  private updateMansonryProjects() {
+    const projects = this.shadowRoot?.querySelector('.projects');
+
+    if (projects) {
+      this.masonry = new Masonry(projects, {
+        itemSelector: '.project',
+        fitWidth: true,
+      });
+    }
   }
 }
