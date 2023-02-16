@@ -23,7 +23,7 @@ export class SREProfileMock implements IProfile {
     this.icon = sreIcon;
     this.resume = '/profile/sre/resumes/mauro-alderete-sre.pdf';
 
-    this.headline = 'Apasionado del desarrollo de videojuegos y sus desafíos.';
+    this.headline = 'Continuamente mejorando procesos para hacer la vida más fácil.';
     this.rol = new Array<string>();
     this.features = 'alguna feature';
     this.softSkills = new Array<ISoftSkill>();
