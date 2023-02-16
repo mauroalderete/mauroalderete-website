@@ -151,6 +151,37 @@ export class GamedevProfileMock implements IProfile {
           'WARNING: El juego no está optimizado, por lo que puede tardar un poco en cargar, 😅 es normal. Si ves que tarda mucho trata actualizando la página',
         ],
         target: '/demo/battletank/BattleTank.html',
+      },
+      {
+        title: 'RSViewer 3D',
+        media: '/profile/backend/media/rsviewer3d.png',
+        paragraph: [
+          `Es un sistema para el seguimiento, trazabilidad y visualización de robots
+          multi-agentes que circulan un espacio confinado en tiempo real. Requirió
+          la elaboración con primitivas para el renderizado 3D usando OpenGL y
+          escrito en C++.`,
+          `
+          Permitía cargar objetos modelados por software de terceros (3D Studio
+          Max) y aplicar texturas personalizadas. Incluía un sistema de detección
+          de infracciones similar al VAR de hoy en día`,
+        ],
+      },
+      {
+        title: 'Robot Soccer',
+        media: '/profile/backend/media/robot-soccer.png',
+        paragraph: [
+          `Trabaje en el desarrollo de varios equipos de robots que juegan al fútbol de manera completamente autónoma
+          en un entorno altamente dinámico de información completa e imperfecta.`,
+          `
+          Usando heurísticas y algoritmos de aprendizaje automático, elaboré frameworks para la navegación y
+          coordinación de entidades multi-agentes.`,
+          `
+          La solución requirió múltiples implementaciones. Un sistema de visión capaz de diferenciar los objetos en una
+          cancha. Un servicio escrito en C++ que se encargaba de analizar y determinar las estrategias de los equipos, y
+          el firmware de cada agente para controlar los movimientos hechos en C++ y assembler para microcontroladores`,
+          `Los diseños se pusieron a prueba en diversas ediciones del Campeonato Argentino de Fútbol de Robots con los
+          que logré puestos importantes: dos veces 1° puesto, una ves 2° y tres veces 3°. En una oportunidad me quedé con el podio completo del campeonato el 1°, 2° y 3° puesto.`,
+        ],
       }
     );
 

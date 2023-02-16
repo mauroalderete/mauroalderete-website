@@ -148,6 +148,17 @@ export class FrontendProfileMock implements IProfile {
           'Te invito a dar una vuelta por rayquen.com, estoy seguro que encontrarás algo que te llame la atención.',
         ],
         target: 'https://rayquen.com',
+      },
+      {
+        title: 'alMercadito',
+        media: '/profile/backend/media/almercadito.png',
+        paragraph: [
+          `Es un sistema para el registro y trazabilidad de ingresos y egresos de un almacén. Incluye facturación, stock y listas de precios.`,
+          `Elaboré el frontend con Google AppSheet una solución NoCode que se integra con los servicios de google para el almacenamiento de datos y brinda asistencia automatica con una Inteligencia Arficial.`,
+          `Elegí una solución No Code para permitirle a los clientes empezar a registrar sus operaciones lo antes posible`,
+          `La experiencia fue gratificante. Puede abordar muchos aspectos UX/UI que habia estudiado hasta el momento y obtener feedbacks muy rápidos`,
+          `Tambien elabore el backend del sistema. Si tenes curosiodad sobre como lo hice visita mi peril de backend en la sección de proyectos para ver más detalles.`,
+        ],
       }
     );
     this.blog = '';
