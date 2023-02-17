@@ -133,8 +133,8 @@ export class FrontendProfileMock implements IProfile {
         title: 'Website Personal',
         media: '/profile/frontend/media/mauroalderete.png',
         paragraph: [
-          'Diseñe éste sitio web inspirado en el mundo de los videojuegos.',
-          'Nació como una propuesta para organizar mis proyectos personales y darlos a conocer a la comunidad tech.',
+          'Diseñe este sitio web inspirado en el mundo de los videojuegos.',
+          '😎 Nació como una propuesta para organizar mis proyectos personales y darlos a conocer a la comunidad tech.',
           'Utilizo Typescript, WebComponents y LitElement. Node y NPM forman parte del entorno de desarrollo. Al utilizar Github  para versionar el portafolio puedo implementar los Github Actions que construí y compartí con la comunidad.',
         ],
       },
@@ -145,7 +145,7 @@ export class FrontendProfileMock implements IProfile {
           'Rayquen es una iniciativa educativa que surgió hace algunos años para brindar un espacio de aprendizaje y desarrollo personal en el marco de las nuevas tecnologías.',
           'Diseñé el sitio web como una Landing Page que permite a los visitantes conocer los cursos ofrecidos con gran cantidad de detalles. Explorar las propuestas y registrarse en las clases.',
           'Fue diseñado sin frameworks, únicamente con JavaScript, CSS y HTML. Una serie de scripts en php gestionan algunas operaciones de backend.',
-          'Te invito a dar una vuelta por rayquen.com, estoy seguro que encontrarás algo que te llame la atención.',
+          '👇 Te invito a dar una vuelta por rayquen.com, estoy seguro de que encontrarás algo que te llame la atención.',
         ],
         target: 'https://rayquen.com',
       },
@@ -154,10 +154,10 @@ export class FrontendProfileMock implements IProfile {
         media: '/profile/backend/media/almercadito.png',
         paragraph: [
           `Es un sistema para el registro y trazabilidad de ingresos y egresos de un almacén. Incluye facturación, stock y listas de precios.`,
-          `Elaboré el frontend con Google AppSheet una solución NoCode que se integra con los servicios de google para el almacenamiento de datos y brinda asistencia automatica con una Inteligencia Arficial.`,
-          `Elegí una solución No Code para permitirle a los clientes empezar a registrar sus operaciones lo antes posible`,
-          `La experiencia fue gratificante. Puede abordar muchos aspectos UX/UI que habia estudiado hasta el momento y obtener feedbacks muy rápidos`,
-          `Tambien elabore el backend del sistema. Si tenes curosiodad sobre como lo hice visita mi peril de backend en la sección de proyectos para ver más detalles.`,
+          `Elaboré el frontend con Google AppSheet, 😱 una solución No Code, que se integra con los servicios de google para el almacenamiento de datos y brinda asistencia automática con una Inteligencia Arficial.`,
+          `😏 Elegí una solución No Code para permitirle a los clientes empezar a registrar sus operaciones lo antes posible`,
+          `La experiencia fue gratificante. Pude abordar muchos aspectos UX/UI que había estudiado hasta el momento y obtener feedbacks muy rápidos`,
+          `También, elaboré el backend del sistema. Si tenés curiosidad sobre como lo hice, visita mi perfil de backend en la sección de proyectos para ver más detalles.`,
         ],
       }
     );

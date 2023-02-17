@@ -58,7 +58,7 @@ export class GamedevProfileMock implements IProfile {
       paragraph: [
         'Durante mi carrera profesional, tuve la oportunidad de participar en múltiples proyectos y asumir diferentes roles.',
         'Esto me ayudo a desarrollar mi adaptabilidad, convirtiéndola en una de mis habilidades más importantes.',
-        'Hoy en día soy capaz de enfrentar desafiós desde diferentes lugares, reconocer mis limitaciones y destacar tanto mis fortalezas como las de mis compañeros de equipo para llevar a cabo cualquier proyecto.',
+        'Hoy en día soy capaz de enfrentar desafíos desde diferentes lugares, reconocer mis limitaciones y destacar tanto mis fortalezas como las de mis compañeros de equipo para llevar a cabo cualquier proyecto.',
       ],
     });
 
@@ -67,9 +67,9 @@ export class GamedevProfileMock implements IProfile {
       title: 'Innovación',
       icon: mdiLightningBolt,
       paragraph: [
-        'Al reuinir mi experiencia en multiples áreas de IT, junto con las experiencias atravesadas por mis compañeros de equipo, logro converger las ideas y encontrar las mejoras formas de llavarlas adelante.',
-        'Para lograrlo, utilizo un enfoque estrategico y diferentes métodos y tacticas para evaluar los beneficios y desafíos en cada paso.',
-        'Esto me permite aprovehar al máximo la experiencia de cada miembro del equipo para encontrar, en las mejoras creativas, las soluciones más innovadoras.',
+        'Al reunir mi experiencia en múltiples áreas de IT, junto con las experiencias atravesadas por mis compañeros de equipo, logro converger las ideas y encontrar las mejoras formas de llevarlas adelante.',
+        'Para lograrlo, utilizo un enfoque estratégico y diferentes métodos y tácticas para evaluar los beneficios y desafíos en cada paso.',
+        'Esto me permite aprovechar al máximo la experiencia de cada miembro del equipo para encontrar, en las mejoras creativas, las soluciones más innovadoras.',
       ],
     });
 
@@ -124,7 +124,7 @@ export class GamedevProfileMock implements IProfile {
           'Aqueron[Prelude] es el título del videojuego en el que estoy trabajando actualmente.',
           'Consiste en una biblioteca de juegos casuales unidos por una narrativa común. El jugador deberá competir contra tres IA diferentes para conseguir fragmentos de narrativas y descubrir poco a poco la historia que se esconde detrás de la llegada de las criaturas.',
           'Se trata del primer videojuego que publicaré en las tiendas de Google. Está desarrollado con Unity 2021.3.16f1.',
-          '🧐 Echale un vistazo a la intro completa y contame a través de mis redes que te pareció',
+          '🧐 Echale un vistazo a la intro completa y cúentame a través de mis redes que te pareció',
         ],
         target: '/profile/gamedev/media/gamedev-show-1.gif',
       },
@@ -135,7 +135,7 @@ export class GamedevProfileMock implements IProfile {
           'Cuando me enteré de que existía un motor de videojuegos open source, multiplataforma, gratuito y creado por argentinos, no dude ni un minuto en probarlo.',
           'Realice varios experimentos con Godot Engine, minijuegos casuales con la única intención de probar las características del motor.',
           'Space Dragon es uno de los tantos minijuegos. Con este juego en particular quería poner aprueba la gestión de los eventos de teclado.',
-          '🧐 Podes darle un vistazo en la demo.',
+          '🧐 Podés darle un vistazo en la demo.',
           'WARNING: Solo funciona con las flechas de un teclado. No es responsivo, así que si lo notas algo raro, tranquilo, 😅 es normal.',
         ],
         target: '/demo/spacedragon/Space Guy.html',
@@ -147,7 +147,7 @@ export class GamedevProfileMock implements IProfile {
           'Otro experimento realizado con Godot Engine y escrito en GDScript.',
           'En esta oportunidad quería probar que tan fácil o difícil podía ser replicar un juego simple utilizando Godot Engine.',
           'Elegí realizar un clon del popular Battle Tank porque posee aspectos ideales para reproducir de manera rápida: escenario estático, pocos objetos, colisiones sencillas y mecánicas claras. Además, es uno de mis juegos retro preferidos. 😁',
-          '🧐 Dale un vistazo al boceto del juego y contame que tan parecido lo ves al original a través de mis redes sociales.',
+          '🧐 Dale un vistazo al boceto del juego y cúentame que tan parecido lo ves al original a través de mis redes sociales.',
           'WARNING: El juego no está optimizado, por lo que puede tardar un poco en cargar, 😅 es normal. Si ves que tarda mucho trata actualizando la página',
         ],
         target: '/demo/battletank/BattleTank.html',
@@ -170,7 +170,7 @@ export class GamedevProfileMock implements IProfile {
         title: 'Robot Soccer',
         media: '/profile/backend/media/robot-soccer.png',
         paragraph: [
-          `Trabaje en el desarrollo de varios equipos de robots que juegan al fútbol de manera completamente autónoma
+          `Trabaje en el desarrollo de varios equipos de robots que juegan al fútbol 🤖⚽ de manera completamente autónoma
           en un entorno altamente dinámico de información completa e imperfecta.`,
           `
           Usando heurísticas y algoritmos de aprendizaje automático, elaboré frameworks para la navegación y
@@ -180,7 +180,8 @@ export class GamedevProfileMock implements IProfile {
           cancha. Un servicio escrito en C++ que se encargaba de analizar y determinar las estrategias de los equipos, y
           el firmware de cada agente para controlar los movimientos hechos en C++ y assembler para microcontroladores`,
           `Los diseños se pusieron a prueba en diversas ediciones del Campeonato Argentino de Fútbol de Robots con los
-          que logré puestos importantes: dos veces 1° puesto, una ves 2° y tres veces 3°. En una oportunidad me quedé con el podio completo del campeonato el 1°, 2° y 3° puesto.`,
+          que logré puestos importantes: dos veces 1°🥇 puesto, una ves 2°🥈 y tres veces 3°🥉.`,
+          `🥳🎉 En el año 2008 me quedé con el podio completo del campeonato el 1°, 2° y 3° puesto.`,
         ],
       }
     );

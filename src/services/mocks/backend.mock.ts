@@ -57,9 +57,9 @@ algunos toolings que comparto públicamente con la comunidad.`
         title: 'Innovación',
         icon: mdiLightningBolt,
         paragraph: [
-          'Al reuinir mi experiencia en multiples áreas de IT, junto con las experiencias atravesadas por mis compañeros de equipo, logro converger las ideas y encontrar las mejoras formas de llavarlas adelante.',
-          'Para lograrlo, utilizo un enfoque estrategico y diferentes métodos y tacticas para evaluar los beneficios y desafíos en cada paso.',
-          'Esto me permite aprovehar al máximo la experiencia de cada miembro del equipo para encontrar, en las mejoras creativas, las soluciones más innovadoras.',
+          'Al reunir mi experiencia en múltiples áreas de IT, junto con las experiencias atravesadas por mis compañeros de equipo, logro converger las ideas y encontrar las mejoras formas de llevarlas adelante.',
+          'Para lograrlo, utilizo un enfoque estratégico y diferentes métodos y tácticas para evaluar los beneficios y desafíos en cada paso.',
+          'Esto me permite aprovechar al máximo la experiencia de cada miembro del equipo para encontrar, en las mejoras creativas, las soluciones más innovadoras.',
         ],
       },
       {
@@ -149,11 +149,11 @@ algunos toolings que comparto públicamente con la comunidad.`
         media: '/profile/backend/media/gcode-cli.png',
         paragraph: [
           `GCode CLI es una herramienta de línea de comandos que facilita
-          la aplicacion de operaciones masivas sobre archivos gcode de impresión 3D,
+          la aplicación de operaciones masivas sobre archivos gcode de impresión 3D,
           como correcciones de sesgo, transformaciones o verificaciones de integridad.`,
-          `Construí este tooling para automatizar el proceso de mis impresiones 3D y realizar ajustes sobre los ficheros independientemente del Slicer que este usando en ese momento.`,
-          `Esta escrito en Golang. Utiliza Cobra. Incluye pruebas unitarias y verifiación de vulnerabilidades con CodeQL y otros servicios de terceros.`,
-          `Es OpenSource, así que sientete libre de colaborar`,
+          `😎 Construí este tooling para automatizar el proceso de mis impresiones 3D y realizar ajustes sobre los ficheros independientemente del Slicer que esté usando en ese momento.`,
+          `Está escrito en Golang. Utiliza Cobra. Incluye pruebas unitarias y verificación de vulnerabilidades con CodeQL y otros servicios de terceros.`,
+          `😊 Es OpenSource, así que siéntete libre de colaborar.`,
         ],
         target: `https://github.com/mauroalderete/gcode-cli`,
       },
@@ -164,10 +164,10 @@ algunos toolings que comparto públicamente con la comunidad.`
           `Se trata de una biblioteca de Golang para modelar, manipular y editar comandos, bloques y archivos de código G.`,
           `Brinda un conjunto de interfaces y objetos para simplificar la manipulación de archivos gcode a un bajo nivel.`,
           `Fue construido servir como un motor de GCode CLI y automatizar el pre-procesamiento de archivos gcode antes de enviarlos a imprimir.`,
-          `Esta biblioteca de Golang implementa un patron de diseño innovador 
+          `Esta biblioteca de Golang implementa un patrón de diseño innovador 
           para el tratamiento de los argumentos de constructores de estructuras,
           que permite aislar a los usuarios de los mecanismos internos sin perder características de escalabilidad y mantenibilidad.`,
-          `Es un proyecto OpenSource, por lo que si sentis algo de curiosidad sobré lo que estoy hablando podes hecharle una mirada. Contame que logras descubrir a través de mis redes.`,
+          `🧐 Es un proyecto OpenSource, por lo que si sentís algo de curiosidad sobré lo que estoy hablando podes echarle una mirada. Cúentame que logras descubrir a través de mis redes.`,
         ],
         target: `https://github.com/mauroalderete/gcode-core`,
       },
@@ -175,11 +175,11 @@ algunos toolings que comparto públicamente con la comunidad.`
         title: 'PKGSite Local Live',
         media: '/profile/backend/media/pkgsite-local-live.png',
         paragraph: [
-          `¿Alguna vez escribieron la documentación de su paquete Golang con errores, pero solo se dieron cuenta una vez que ya lo publicaron en los servidores? Pues, a mi me paso. Y para evitar estos problemas y mejorar mi productividad nació PKGStie Local Live.`,
+          `¿Alguna vez escribieron la documentación de su paquete Golang con errores, pero solo se dieron cuenta una vez que ya lo publicaron en los servidores? Pues, a mí me paso. Para evitar estos problemas y mejorar mi productividad nació PKGStie Local Live.`,
           `Se trata de un conjunto de servicios que brinda, desde un navegador, una vista previa de la documentación técnica de los paquetes Golang escritos en tu espacio de trabajo local.`,
-          `Esto es extremadamente util para verificar el resultado final de la documentación sin necesidad de andar desplegando nada en servidores. Simplemente abris tu codigo, editas, guardas y chequeas como se ve en tu navegador.`,
-          `Basicamente funciona con un proxy reverso escrito en Golang, un servicio que gestiona un websocket, una instancia del servicio pkgsite y un watcher.`,
-          `Si queres saber más te invito a miar el repositorio publico, ya que este tambien es un proyecto OpenSource.`,
+          `Esto es extremadamente útil para verificar el resultado final de la documentación sin necesidad de andar desplegando nada en servidores. Simplemente, abrís tu código, lo editas, lo guardas y chequeas como se ve en tu navegador.`,
+          `Básicamente funciona con un proxy reverso escrito en Golang, un servicio que gestiona un websocket, una instancia del servicio pkgsite y un watcher.`,
+          `👇 Si querés saber más te invito a mirar el repositorio público, ya que este también es un proyecto OpenSource.`,
         ],
         target: `https://github.com/mauroalderete/pkgsite-local-live`,
       },
@@ -188,16 +188,16 @@ algunos toolings que comparto públicamente con la comunidad.`
         media: '/profile/backend/media/almercadito.png',
         paragraph: [
           `Es un sistema para el registro y trazabilidad de ingresos y egresos de un almacén. Incluye facturación, stock y listas de precios.`,
-          `Elaboré el frontend con una solución NoCode, lo que permitió que los clientes empezaran a operar rápidamente y me dió espacio para enfocarme en el backend.`,
+          `Elaboré el frontend con una solución No Code, lo que permitió que los clientes empezaran a operar rápidamente y me dio espacio para enfocarme en el backend.`,
           `Aborde el desarrollo del backend utilizando el enfoque DDD (Domain Driven Design) por medio de microservicios escritos en Golang que interactúan con una infraestructura CQRS.`,
-          `De esta forma logro relacionar los datos de movimientos que la solución No Code vuelca en Google Spreadsheet con una base de datos PostgreSQL desplegada en Heroku para, posteriormente, explotarlos con consultas de métricas y realizar analisis estrategicos.`,
+          `De esta forma logro relacionar los datos de movimientos que la solución No Code vuelca en Google Spreadsheet con una base de datos PostgreSQL desplegada en Heroku para, posteriormente, explotarlos con consultas de métricas y realizar análisis estratégicos.`,
         ],
       },
       {
         title: 'ivy',
         media: '/profile/backend/media/ivy.png',
         paragraph: [
-          `Ivy es un chatbot simple, sin memoria, escrito en Python utilizando la popular librería NLTK para el procesamiento del lenguaje natural.`,
+          `🤖 Ivy es un chatbot simple, sin memoria, escrito en Python utilizando la popular librería NLTK para el procesamiento del lenguaje natural.`,
           `Permite explorar un corpus predefinido y vincularlo a posibles respuestas preconfiguradas. En otras palabras, es un asistente que responde a preguntas frecuentes de los usuarios`,
           `Construí Ivy para que me asista con el dictado de mis clases de Robótica para niños. Las clases eran populares y en ocasiones debía enfocarme más en algunos alumnos que en otros.
           Ivy me permitió darles a los estudiantes una opcion más de aprendizaje al otorgarles una fuente de conocimiento especializada.`,
@@ -223,7 +223,7 @@ algunos toolings que comparto públicamente con la comunidad.`
         title: 'Robot Soccer',
         media: '/profile/backend/media/robot-soccer.png',
         paragraph: [
-          `Trabaje en el desarrollo de varios equipos de robots que juegan al fútbol de manera completamente autónoma
+          `Trabaje en el desarrollo de varios equipos de robots que juegan al fútbol 🤖⚽ de manera completamente autónoma
           en un entorno altamente dinámico de información completa e imperfecta.`,
           `
           Usando heurísticas y algoritmos de aprendizaje automático, elaboré frameworks para la navegación y
@@ -233,7 +233,8 @@ algunos toolings que comparto públicamente con la comunidad.`
           cancha. Un servicio escrito en C++ que se encargaba de analizar y determinar las estrategias de los equipos, y
           el firmware de cada agente para controlar los movimientos hechos en C++ y assembler para microcontroladores`,
           `Los diseños se pusieron a prueba en diversas ediciones del Campeonato Argentino de Fútbol de Robots con los
-          que logré puestos importantes: dos veces 1° puesto, una ves 2° y tres veces 3°. En una oportunidad me quedé con el podio completo del campeonato el 1°, 2° y 3° puesto.`,
+          que logré puestos importantes: dos veces 1°🥇 puesto, una ves 2°🥈 y tres veces 3°🥉.`,
+          `🥳🎉 En el año 2008 me quedé con el podio completo del campeonato el 1°, 2° y 3° puesto.`,
         ],
       },
       {
