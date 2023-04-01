@@ -28,7 +28,7 @@
     "@mdi/js": "^7.1.96",
     "@splidejs/splide": "^4.1.4",
     "@types/masonry-layout": "^4.2.5",
-    "@typescript-eslint/eslint-plugin": "^5.49.0",
+    "@typescript-eslint/eslint-plugin": "^5.57.0",
     "@typescript-eslint/parser": "^5.49.0",
     "@vaadin/router": "^1.7.4",
     "eslint": "^8.32.0",
